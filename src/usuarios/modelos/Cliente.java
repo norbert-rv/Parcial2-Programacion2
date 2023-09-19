@@ -11,10 +11,11 @@ package usuarios.modelos;
 
 public class Cliente {
 
-    String correo;
-    String contrasenia;
     String nombre;
     String apellido;
+    String correo;
+    String contrasenia;
+    
 
     public void mostrar() {
         System.out.println("Nombre: " + nombre 

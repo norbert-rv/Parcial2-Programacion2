@@ -10,10 +10,10 @@ package usuarios.modelos;
  */
 public class Encargado {
     
-    String correo;
-    String contrasenia;
     String nombre;
     String apellido;
+    String correo;
+    String contrasenia;
 
     public void mostrar() {
         System.out.println("Nombre: " + nombre 
@@ -21,5 +21,11 @@ public class Encargado {
                 + "\nCorreo: " + correo 
                 + "\nContraseña: " + contrasenia);
     }
+    
+//    public Empleado crearEmpleado(){
+//        Empleado nuevoEmpleado = new Empleado();
+//        
+//        return nuevoEmpleado;
+//    }
     
 }

@@ -12,24 +12,27 @@ public class Producto {
 
     private int codigo;
     private String descripcion;
-    private String categoria;
     private float precio;
-    private String estado;
-
+    
+    private Estado estado;
+    private Categoria categoria;
+//    private String categoria;
+//    private String estado;
+    
     public void mostrar() {
         System.out.println("Codigo: " + codigo
-                + "\nDescripción :" + descripcion
-                + "\nCategoría: " + categoria
+                + "\nDescripción: " + descripcion
+                + "\nCategoría: " + categoria.toString()
                 + "\nPrecio: " + precio
-                + "\nEstado: " + estado);
+                + "\nEstado: " + estado.toString());
     }
     
     // Constructor de la clase Producto
-    public Producto(int codigo, String descripcion, String categoria, float precio, String estado){
+    public Producto(int codigo, String descripcion, Categoria cat, float precio, Estado estado){
         this.codigo = codigo;
         this.descripcion = descripcion;
-        this.categoria = categoria;
         this.precio = precio;
+        this.categoria = cat;
         this.estado = estado;
     }
     
@@ -41,14 +44,6 @@ public class Producto {
     public String toString(){
         return descripcion;
     }
-
-//    Producto(String nombre, String descripcion, String categoria, float precio, String estado) {
-//        this.nombre = nombre;
-//        this.descripcion = descripcion;
-//        this.categoria = categoria;
-//        this.precio = precio;
-//        this.estado = estado;
-//    }
 
     // getters y setters
     
@@ -68,11 +63,11 @@ public class Producto {
         this.descripcion = descripcion;
     }
 
-    public String verCategoria() {
+    public Categoria verCategoria() {
         return categoria;
     }
 
-    public void asignarCategoria(String categoria) {
+    public void asignarCategoria(Categoria categoria) {
         this.categoria = categoria;
     }
 
@@ -84,11 +79,11 @@ public class Producto {
         this.precio = precio;
     }
 
-    public String verEstado() {
+    public Estado verEstado() {
         return estado;
     }
 
-    public void asignarEstado(String estado) {
+    public void asignarEstado(Estado estado) {
         this.estado = estado;
     }
 

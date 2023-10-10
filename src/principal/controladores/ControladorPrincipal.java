@@ -8,9 +8,11 @@ package principal.controladores;
  *
  * @author estudiante
  */
+import java.time.LocalDateTime;
 import usuarios.modelos.*;
 import productos.modelos.Producto;
 import java.util.ArrayList;
+import pedidos.modelos.Pedido;
 import productos.modelos.Categoria;
 import productos.modelos.Estado;
 
@@ -23,7 +25,7 @@ public class ControladorPrincipal {
         ArrayList<Encargado> listaEncargados = new ArrayList<>();
         ArrayList<Producto> listaProductos = new ArrayList<>();
 
-//        // creo 3 objetos de cada clase y los añado a la corresponiente lista
+        // creo 3 objetos de cada clase y los añado a la corresponiente lista
 //        listaClientes.add(new Cliente("Tomas", "Cabrera", "tomascabrera@gmail.com", "clave1"));
 //        listaClientes.add(new Cliente("Ivana", "Romano", "ivana@gmail.com", "clave2"));
 //        listaClientes.add(new Cliente("Antonio", "Vargas", "tonio@hotmail.com", "toniotonio"));
@@ -35,11 +37,11 @@ public class ControladorPrincipal {
 //        listaEncargados.add(new Encargado("Axel", "Dominguez", "axelcito@gmail.com", "estaesunaclave"));
 //        listaEncargados.add(new Encargado("Laura", "Jimenez", "laurita@gmail.com", "lacontrasena"));
 //        listaEncargados.add(new Encargado("Chino", "Martinez", "chino@gmail.com", "otraclave"));
-//
-////        listaProductos.add(new Producto(52, "Monitor Philips", "Monitores", 2500f, "No Disponible"));
-////        listaProductos.add(new Producto(53, "Mouse marca Genius", "Periféricos", 35000.00f, "Disponible"));
-////        listaProductos.add(new Producto(54, "AMD APU A10 5700K", "Procesadores", 50000f, "Disponible"));
-//
+
+//        listaProductos.add(new Producto(52, "Monitor Philips", "Monitores", 2500f, "No Disponible"));
+//        listaProductos.add(new Producto(53, "Mouse marca Genius", "Periféricos", 35000.00f, "Disponible"));
+//        listaProductos.add(new Producto(54, "AMD APU A10 5700K", "Procesadores", 50000f, "Disponible"));
+
 //        // punto 10. Recorremos las listas mostrando sus contenidos por pantalla
 //        for (Cliente cl : listaClientes) {
 //            System.out.println("Clientes: ");
@@ -97,20 +99,27 @@ public class ControladorPrincipal {
 //        }
         
         // tp3
+//        
+//        Categoria prod1 = Categoria.POSTRE;
+//        Estado est1 = Estado.DISPONIBLE;
+//        
+//        listaProductos.add(new Producto(5, "Helado", prod1, 840.50f, est1));
+//        
+//        listaProductos.get(0).mostrar();
+//        
+//        System.out.println();
+//        
+//        // otra prueba
+//        
+//        listaProductos.add(new Producto(6, "Sanguche de asadito arabe", Categoria.PLATO_PRINCPIPAL, 2039.00f, Estado.NO_DISPONIBLE));
+//        
+//        listaProductos.get(1).mostrar();
+    
+//        LocalDateTime fechayhora = LocalDateTime.now();
+//        Cliente unCliente = new Cliente("Tomas", "Cabrera", "corre...", "contraseña");
+//        Pedido p = new Pedido(2, fechayhora, unCliente);
+//        p.mostrar();
         
-        Categoria prod1 = Categoria.POSTRE;
-        Estado est1 = Estado.DISPONIBLE;
         
-        listaProductos.add(new Producto(5, "Helado", prod1, 840.50f, est1));
-        
-        listaProductos.get(0).mostrar();
-        
-        System.out.println();
-        
-        // otra prueba
-        
-        listaProductos.add(new Producto(6, "Sanguche de asadito arabe", Categoria.PLATO_PRINCPIPAL, 2039.00f, Estado.NO_DISPONIBLE));
-        
-        listaProductos.get(1).mostrar();
     }
 }

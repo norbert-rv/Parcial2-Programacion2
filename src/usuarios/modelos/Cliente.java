@@ -4,6 +4,9 @@
  */
 package usuarios.modelos;
 
+import java.util.ArrayList;
+import pedidos.modelos.Pedido;
+
 /**
  *
  * @author estudiante
@@ -14,6 +17,9 @@ public class Cliente {
     private String apellido;
     private String correo;
     private String contrasenia;
+    private ArrayList<Pedido> pedidos = new ArrayList<>();
+
+    public Cliente() {}
 
     public void mostrar() {
         System.out.println("Nombre: " + nombre
@@ -23,14 +29,15 @@ public class Cliente {
     }
 
     // Constructor para la clase Cliente
-    public Cliente(String nombre, String apellido, String correo, String contrasenia) {
+    public Cliente(String nombre, String apellido, String correo, String contrasenia, ArrayList pedidos) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.correo = correo;
         this.contrasenia = contrasenia;
+        this.pedidos = pedidos;
     }
 
-    public String verNombre() {
+    public String obtenerNombre() {
         return nombre;
     }
 
@@ -38,7 +45,7 @@ public class Cliente {
         this.nombre = nombre;
     }
 
-    public String verApellido() {
+    public String obtenerApellido() {
         return apellido;
     }
 
@@ -46,7 +53,7 @@ public class Cliente {
         this.apellido = apellido;
     }
 
-    public String verCorreo() {
+    public String obtenerCorreo() {
         return correo;
     }
 
@@ -54,12 +61,20 @@ public class Cliente {
         this.correo = correo;
     }
 
-    public String verContrasenia() {
+    public String obtenerContrasenia() {
         return contrasenia;
     }
 
     public void asignarContrasenia(String contrasenia) {
         this.contrasenia = contrasenia;
+    }
+
+    public ArrayList<Pedido> getPedidos() {
+        return pedidos;
+    }
+
+    public void setPedidos(ArrayList<Pedido> pedidos) {
+        this.pedidos = pedidos;
     }
 
 }

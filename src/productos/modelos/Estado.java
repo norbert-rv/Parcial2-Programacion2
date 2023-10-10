@@ -13,6 +13,6 @@ public enum Estado {
     
     @Override
     public String toString(){
-        return "El producto está " + this.name();
+        return "Estado: " + this.name();
     }
 }

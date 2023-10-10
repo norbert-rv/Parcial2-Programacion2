@@ -13,6 +13,6 @@ public enum Categoria {
     
     @Override
     public String toString(){
-        return "El plato es: " + this.name();
+        return "Categoría: " + this.name();
     }
 }

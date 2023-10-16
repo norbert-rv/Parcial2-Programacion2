@@ -29,12 +29,12 @@ public class Cliente {
     }
 
     // Constructor para la clase Cliente
-    public Cliente(String nombre, String apellido, String correo, String contrasenia, ArrayList pedidos) {
+    // un cliente puede existir sin haber hecho aún un pedido
+    public Cliente(String correo, String contrasenia, String nombre, String apellido) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.correo = correo;
         this.contrasenia = contrasenia;
-        this.pedidos = pedidos;
     }
 
     public String obtenerNombre() {

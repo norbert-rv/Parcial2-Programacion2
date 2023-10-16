@@ -22,7 +22,7 @@ public class Pedido {
     private Cliente cliente;
     private ArrayList<ProductoDelPedido> productoDelPedido;
 
-    public Pedido(int numero, LocalDateTime fechaYHora, Cliente cliente, ArrayList<ProductoDelPedido> productoDelPedido) {
+    public Pedido(int numero, LocalDateTime fechaYHora, ArrayList<ProductoDelPedido> productoDelPedido, Cliente cliente) {
         this.numero = numero;
         this.fechaYHora = fechaYHora;
         this.estado = Estado.CREADO; // todo pedido inicia en CREADO

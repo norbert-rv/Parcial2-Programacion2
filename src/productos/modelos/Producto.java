@@ -28,7 +28,7 @@ public class Producto {
     }
     
     // Constructor de la clase Producto
-    public Producto(int codigo, String descripcion, Categoria cat, float precio, Estado estado){
+    public Producto(int codigo, String descripcion, Categoria cat, Estado estado, float precio){
         this.codigo = codigo;
         this.descripcion = descripcion;
         this.precio = precio;

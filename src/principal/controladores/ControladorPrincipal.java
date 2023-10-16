@@ -114,11 +114,14 @@ public class ControladorPrincipal {
 //        listaProductos.add(new Producto(6, "Sanguche de asadito arabe", Categoria.PLATO_PRINCPIPAL, 2039.00f, Estado.NO_DISPONIBLE));
 //        
 //        listaProductos.get(1).mostrar();
-    
+        
+
 //        LocalDateTime fechayhora = LocalDateTime.now();
-//        Cliente unCliente = new Cliente("Tomas", "Cabrera", "corre...", "contraseña");
+//        Cliente unCliente = new Cliente("Tomas", "Cabrera", "corre...", "contraseña", listaClientes);
 //        Pedido p = new Pedido(2, fechayhora, unCliente);
 //        p.mostrar();
+
+            
         
         
     }

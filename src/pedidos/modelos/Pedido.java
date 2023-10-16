@@ -23,22 +23,29 @@ public class Pedido {
     public Pedido(int numero, LocalDateTime fechaYHora, Cliente cliente) {
         this.numero = numero;
         this.fechaYHora = fechaYHora;
-        this.estado = Estado.CREADO;
+        this.estado = Estado.CREADO; // todo pedido inicia en CREADO
         this.cliente = cliente;
     }
     
     
     public void mostrar(){
-        // formato para la Fecha y para la Hora
-        DateTimeFormatter formatoFecha = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-        DateTimeFormatter formatoHora = DateTimeFormatter.ofPattern("hh:mm");
+//        // formato para la Fecha y para la Hora
+//        DateTimeFormatter formatoFecha = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+//        DateTimeFormatter formatoHora = DateTimeFormatter.ofPattern("hh:mm");
         
-        // formato final
         System.out.println("Nro: " + numero
-                + "\nFecha: " + this.fechaYHora.format(formatoFecha)
-                + "\tHora: " + this.fechaYHora.format(formatoHora)
+                + "\nFecha: " + this.fechaYHora.format(this.formatoFecha())
+                + "\tHora: " + this.fechaYHora.format(this.formatoHora())
                 + "\nCliente: " + cliente.obtenerApellido() + ", " + cliente.obtenerNombre()
                 + "\nEstado: " + this.estado.name());
+    }
+    
+    private DateTimeFormatter formatoFecha() {
+        return DateTimeFormatter.ofPattern("dd/MM/yyyy");
+    }
+    
+    private DateTimeFormatter formatoHora() {
+        return DateTimeFormatter.ofPattern("hh:mm");
     }
     
     public int obtenerNumero() {

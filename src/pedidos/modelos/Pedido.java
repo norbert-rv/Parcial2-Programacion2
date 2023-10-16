@@ -8,6 +8,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import usuarios.modelos.Cliente;
 
 /**
@@ -19,12 +20,14 @@ public class Pedido {
     private LocalDateTime fechaYHora;
     private Estado estado;
     private Cliente cliente;
+    private ArrayList<ProductoDelPedido> productoDelPedido;
 
-    public Pedido(int numero, LocalDateTime fechaYHora, Cliente cliente) {
+    public Pedido(int numero, LocalDateTime fechaYHora, Cliente cliente, ArrayList<ProductoDelPedido> productoDelPedido) {
         this.numero = numero;
         this.fechaYHora = fechaYHora;
         this.estado = Estado.CREADO; // todo pedido inicia en CREADO
         this.cliente = cliente;
+        this.productoDelPedido = productoDelPedido;
     }
     
     
@@ -37,7 +40,14 @@ public class Pedido {
                 + "\nFecha: " + this.fechaYHora.format(this.formatoFecha())
                 + "\tHora: " + this.fechaYHora.format(this.formatoHora())
                 + "\nCliente: " + cliente.obtenerApellido() + ", " + cliente.obtenerNombre()
-                + "\nEstado: " + this.estado.name());
+                + "\nEstado: " + this.estado.name()
+                + "\n\tProducto \t\tCantidad"
+                + "\t====================");
+        
+        for(ProductoDelPedido pdp : productoDelPedido) {
+            System.out.println("\t" + pdp.obtenerProducto().toString() 
+                    + "\t\t" + pdp.obtenerCantidad());
+        }
     }
     
     private DateTimeFormatter formatoFecha() {
@@ -75,4 +85,14 @@ public class Pedido {
     public void asignarCliente(Cliente cliente){
         this.cliente = cliente;
     }
+
+    public ArrayList<ProductoDelPedido> obtenerProductoDelPedido() {
+        return productoDelPedido;
+    }
+
+    public void asignarProductoDelPedido(ArrayList<ProductoDelPedido> productoDelPedido) {
+        this.productoDelPedido = productoDelPedido;
+    }
+    
+    
 }

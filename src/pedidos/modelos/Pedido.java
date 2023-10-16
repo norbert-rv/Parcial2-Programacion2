@@ -42,7 +42,7 @@ public class Pedido {
                 + "\nCliente: " + cliente.obtenerApellido() + ", " + cliente.obtenerNombre()
                 + "\nEstado: " + this.estado.name()
                 + "\n\tProducto \t\tCantidad"
-                + "\t====================");
+                + "\n\t====================");
         
         for(ProductoDelPedido pdp : productoDelPedido) {
             System.out.println("\t" + pdp.obtenerProducto().toString() 

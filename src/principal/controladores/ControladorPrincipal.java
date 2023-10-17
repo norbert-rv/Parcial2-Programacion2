@@ -80,10 +80,16 @@ public class ControladorPrincipal  {
         Producto unProducto1 = new Producto(1, "Producto1", Categoria.ENTRADA, Estado.DISPONIBLE, 1.0f);        
         Producto unProducto2 = new Producto(2, "Producto2", Categoria.PLATOPRINCIPAL, Estado.DISPONIBLE, 2.0f);
         Producto unProducto3 = new Producto(3, "Producto3", Categoria.POSTRE, Estado.DISPONIBLE, 3.0f);
+
+        // Agregando verificaciones para no añadir productos repetidos PUNTO 2
+        if(!productos.contains(unProducto1))
+            productos.add(unProducto1);
         
-        productos.add(unProducto1);
-        productos.add(unProducto2);
-        productos.add(unProducto3);
+        if(!productos.contains(unProducto2))
+            productos.add(unProducto2);
+        
+        if(!productos.contains(unProducto3))
+            productos.add(unProducto3);
         
         System.out.println("Productos");
         System.out.println("=========");
@@ -105,14 +111,26 @@ public class ControladorPrincipal  {
         
         System.out.println(unProducto1);
         
+        // Verificando que no se repitan productos en un pedido PUNTO 2
+        
         ArrayList<ProductoDelPedido> pdp1 = new ArrayList<>();
-        pdp1.add(new ProductoDelPedido(unProducto1, 1));
-        pdp1.add(new ProductoDelPedido(unProducto2, 2));
+        
+        if(!pdp1.contains(new ProductoDelPedido(unProducto1, 1)))
+            pdp1.add(new ProductoDelPedido(unProducto1, 1));
+        
+        if(!pdp1.contains(new ProductoDelPedido(unProducto2, 2)))
+            pdp1.add(new ProductoDelPedido(unProducto2, 2));
+        
         Pedido unPedido1 = new Pedido(1, LocalDateTime.now(), pdp1, unCliente1);        
         
         ArrayList<ProductoDelPedido> pdp2 = new ArrayList<>();
-        pdp2.add(new ProductoDelPedido(unProducto1, 10));
-        pdp2.add(new ProductoDelPedido(unProducto2, 20));
+        
+        if(!pdp2.contains(new ProductoDelPedido(unProducto1, 10)))
+            pdp2.add(new ProductoDelPedido(unProducto1, 10));
+        
+        if(!pdp2.contains(new ProductoDelPedido(unProducto2, 20)))
+            pdp2.add(new ProductoDelPedido(unProducto2, 20));
+        
         Pedido unPedido2 = new Pedido(2, LocalDateTime.now(), pdp2, unCliente2);        
         
         ArrayList<ProductoDelPedido> pdp3 = new ArrayList<>();
@@ -120,9 +138,13 @@ public class ControladorPrincipal  {
         pdp3.add(new ProductoDelPedido(unProducto2, 200));
         Pedido unPedido3 = new Pedido(3, LocalDateTime.now(), pdp3, unCliente3);        
         
-        pedidos.add(unPedido1);
-        pedidos.add(unPedido2);
-        pedidos.add(unPedido3);
+        // Agregando verificaciones para no añadir pedidos repetidos PUNTO 2
+        if(!pedidos.contains(unPedido1))
+            pedidos.add(unPedido1);
+        if(!pedidos.contains(unPedido2))
+            pedidos.add(unPedido2);
+        if(!pedidos.contains(unPedido3))
+            pedidos.add(unPedido3);
         
         System.out.println("Pedidos");
         System.out.println("=======");
@@ -131,7 +153,6 @@ public class ControladorPrincipal  {
             System.out.println();
         }
         System.out.println();
-        
         
     }   
 }

@@ -13,6 +13,6 @@ public enum Estado {
     
     @Override
     public String toString(){
-        return "Estado: " + this.name();
+        return this.name();
     }
 }

@@ -12,12 +12,9 @@ public class Producto {
 
     private int codigo;
     private String descripcion;
-    private float precio;
-    
-    private Estado estado;
     private Categoria categoria;
-//    private String categoria;
-//    private String estado;
+    private Estado estado;
+    private float precio;
     
     public void mostrar() {
         System.out.println("Codigo: " + codigo
@@ -31,23 +28,20 @@ public class Producto {
     public Producto(int codigo, String descripcion, Categoria cat, Estado estado, float precio){
         this.codigo = codigo;
         this.descripcion = descripcion;
-        this.precio = precio;
         this.categoria = cat;
         this.estado = estado;
+        this.precio = precio;
     }
     
     // Constructor vacío
     public Producto(){}
     
-    // método para mostrar un producto (muestra la descripcion)
     @Override
     public String toString(){
         return descripcion;
     }
 
-    // getters y setters
-    
-    public int verCodigo() {
+    public int obtenerCodigo() {
         return codigo;
     }
 
@@ -55,7 +49,7 @@ public class Producto {
         this.codigo = codigo;
     }
 
-    public String verDescripcion() {
+    public String obtenerDescripcion() {
         return descripcion;
     }
 
@@ -63,7 +57,7 @@ public class Producto {
         this.descripcion = descripcion;
     }
 
-    public Categoria verCategoria() {
+    public Categoria obtenerCategoria() {
         return categoria;
     }
 
@@ -71,7 +65,7 @@ public class Producto {
         this.categoria = categoria;
     }
 
-    public float verPrecio() {
+    public float obtenerPrecio() {
         return precio;
     }
 
@@ -79,7 +73,7 @@ public class Producto {
         this.precio = precio;
     }
 
-    public Estado verEstado() {
+    public Estado obtenerEstado() {
         return estado;
     }
 

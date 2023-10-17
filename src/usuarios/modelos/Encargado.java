@@ -10,11 +10,9 @@ package usuarios.modelos;
  */
 public class Encargado extends Usuario {
     
-   
     // Constructor para la clase Encargado
-    public Encargado(String nombre, String apellido, String correo, String contrasenia) {
-       super(nombre ,apellido,correo,contrasenia);
+    public Encargado(String correo, String contrasenia, String nombre, String apellido) {
+       super(correo, contrasenia, nombre, apellido);
     }
 
-    
 }

@@ -11,7 +11,7 @@ package usuarios.modelos;
 public class Empleado extends Usuario{
    
     // Constructor para la clase Empleado
-    public Empleado(String nombre, String apellido, String correo, String contrasenia) {
+    public Empleado(String correo, String contrasenia, String nombre, String apellido) {
         super(correo, contrasenia, nombre, apellido);
     }
     

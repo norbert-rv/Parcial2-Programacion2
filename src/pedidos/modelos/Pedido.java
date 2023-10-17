@@ -30,12 +30,7 @@ public class Pedido {
         this.productoDelPedido = productoDelPedido;
     }
     
-    
     public void mostrar(){
-//        // formato para la Fecha y para la Hora
-//        DateTimeFormatter formatoFecha = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-//        DateTimeFormatter formatoHora = DateTimeFormatter.ofPattern("hh:mm");
-        
         System.out.println("Nro: " + numero
                 + "\nFecha: " + this.fechaYHora.format(this.formatoFecha())
                 + "\tHora: " + this.fechaYHora.format(this.formatoHora())

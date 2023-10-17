@@ -11,21 +11,20 @@ import pedidos.modelos.Pedido;
  *
  * @author estudiante
  */
-public class Cliente extends Usuario{
-   
+public class Cliente extends Usuario {
+
     private ArrayList<Pedido> pedidos = new ArrayList<>();
 
     // Constructor para la clase Cliente
-    // un cliente puede existir sin haber hecho aún un pedido
     public Cliente(String correo, String contrasenia, String nombre, String apellido) {
-    super(correo, contrasenia, nombre, apellido);
+        super(correo, contrasenia, nombre, apellido);
     }
 
-    public ArrayList<Pedido> getPedidos() {
+    public ArrayList<Pedido> obtenerPedidos() {
         return pedidos;
     }
 
-    public void setPedidos(ArrayList<Pedido> pedidos) {
+    public void asignarPedidos(ArrayList<Pedido> pedidos) {
         this.pedidos = pedidos;
     }
 

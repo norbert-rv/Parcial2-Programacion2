@@ -9,7 +9,6 @@ package usuarios.modelos;
  * @author estudiante
  */
 public class Empleado extends Usuario{
-    
    
     // Constructor para la clase Empleado
     public Empleado(String nombre, String apellido, String correo, String contrasenia) {

@@ -35,10 +35,18 @@ public class ControladorPrincipal  {
         Usuario unCliente1 = new Cliente("cliente1@bar.com", "claveCliente1", "ApellidoCliente1", "NombreCliente1");        
         Usuario unCliente2 = new Cliente("cliente2@bar.com", "claveCliente2", "ApellidoCliente2", "NombreCliente2");       
         Usuario unCliente3 = new Cliente("cliente3@bar.com", "claveCliente3", "ApellidoCliente3", "NombreCliente3");
+//        Usuario unCliente4 = new Cliente("cliente2@bar.com", "claveCliente4", "ApellidoCliente4", "NombreCliente4");
         
-        usuarios.add(unCliente1);
-        usuarios.add(unCliente2);
-        usuarios.add(unCliente3);
+        
+        if(!usuarios.contains(unCliente1))
+            usuarios.add(unCliente1);
+        if(!usuarios.contains(unCliente2))
+            usuarios.add(unCliente2);
+        if(!usuarios.contains(unCliente3))
+            usuarios.add(unCliente3);
+//        if(!usuarios.contains(unCliente4))
+//            usuarios.add(unCliente4);
+        
         
         System.out.println("Clientes");
         System.out.println("========");
@@ -52,9 +60,12 @@ public class ControladorPrincipal  {
         Empleado unEmpleado2 = new Empleado("empleado2@bar.com", "claveEmpleado2", "ApellidoEmpleado2", "NombreEmpleado2");        
         Empleado unEmpleado3 = new Empleado("empleado3@bar.com", "claveEmpleado3", "ApellidoEmpleado3", "NombreEmpleado3");
                 
-        usuarios.add(unEmpleado1);
-        usuarios.add(unEmpleado2);
-        usuarios.add(unEmpleado3);
+        if(!usuarios.contains(unEmpleado1))
+            usuarios.add(unEmpleado1);
+        if(!usuarios.contains(unEmpleado2))
+            usuarios.add(unEmpleado2);
+        if(!usuarios.contains(unEmpleado3))
+            usuarios.add(unEmpleado3);
         
         System.out.println("Empleados");
         System.out.println("=========");
@@ -67,10 +78,13 @@ public class ControladorPrincipal  {
         Encargado unEncargado1 = new Encargado("encargado1@bar.com", "claveEncargado1", "ApellidoEncargado1", "NombreEncargado1");
         Encargado unEncargado2 = new Encargado("encargado2@bar.com", "claveEncargado2", "ApellidoEncargado2", "NombreEncargado2");
         Encargado unEncargado3 = new Encargado("encargado3@bar.com", "claveEncargado3", "ApellidoEncargado3", "NombreEncargado3");
-
-        usuarios.add(unEncargado1);
-        usuarios.add(unEncargado2);
-        usuarios.add(unEncargado3);
+        
+        if(!usuarios.contains(unEncargado1))
+            usuarios.add(unEncargado1);
+        if(!usuarios.contains(unEncargado2))
+            usuarios.add(unEncargado2);
+        if(!usuarios.contains(unEncargado3))
+            usuarios.add(unEncargado3);
         
         System.out.println("Encargados");
         System.out.println("==========");

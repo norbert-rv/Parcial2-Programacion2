@@ -11,62 +11,14 @@ import pedidos.modelos.Pedido;
  *
  * @author estudiante
  */
-public class Cliente {
-
-    private String nombre;
-    private String apellido;
-    private String correo;
-    private String contrasenia;
+public class Cliente extends Usuario{
+   
     private ArrayList<Pedido> pedidos = new ArrayList<>();
-
-    public Cliente() {}
-
-    public void mostrar() {
-        System.out.println("Nombre: " + nombre
-                + "\nApellido: " + apellido
-                + "\nCorreo: " + correo
-                + "\nContraseña: " + contrasenia);
-    }
 
     // Constructor para la clase Cliente
     // un cliente puede existir sin haber hecho aún un pedido
     public Cliente(String correo, String contrasenia, String nombre, String apellido) {
-        this.nombre = nombre;
-        this.apellido = apellido;
-        this.correo = correo;
-        this.contrasenia = contrasenia;
-    }
-
-    public String obtenerNombre() {
-        return nombre;
-    }
-
-    public void asignarNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public String obtenerApellido() {
-        return apellido;
-    }
-
-    public void asignarApellido(String apellido) {
-        this.apellido = apellido;
-    }
-
-    public String obtenerCorreo() {
-        return correo;
-    }
-
-    public void asignarCorreo(String correo) {
-        this.correo = correo;
-    }
-
-    public String obtenerContrasenia() {
-        return contrasenia;
-    }
-
-    public void asignarContrasenia(String contrasenia) {
-        this.contrasenia = contrasenia;
+    super(correo, contrasenia, nombre, apellido);
     }
 
     public ArrayList<Pedido> getPedidos() {

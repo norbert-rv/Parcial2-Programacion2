@@ -35,7 +35,9 @@ public class ControladorPrincipal  {
         Usuario unCliente1 = new Cliente("cliente1@bar.com", "claveCliente1", "ApellidoCliente1", "NombreCliente1");        
         Usuario unCliente2 = new Cliente("cliente2@bar.com", "claveCliente2", "ApellidoCliente2", "NombreCliente2");       
         Usuario unCliente3 = new Cliente("cliente3@bar.com", "claveCliente3", "ApellidoCliente3", "NombreCliente3");
-//        Usuario unCliente4 = new Cliente("cliente2@bar.com", "claveCliente4", "ApellidoCliente4", "NombreCliente4");
+        Usuario unCliente4 = new Cliente("cliente2@bar.com", "claveCliente4", "ApellidoCliente4", "NombreCliente4");
+        Usuario unCliente5 = new Cliente("cliente1@bar.com", "claveCliente5", "ApellidoCliente5", "NombreCliente5");
+        Usuario unCliente6 = new Cliente("cliente6@bar.com", "claveCliente6", "ApellidoCliente6", "NombreCliente6");
         
         
         if(!usuarios.contains(unCliente1))
@@ -44,8 +46,12 @@ public class ControladorPrincipal  {
             usuarios.add(unCliente2);
         if(!usuarios.contains(unCliente3))
             usuarios.add(unCliente3);
-//        if(!usuarios.contains(unCliente4))
-//            usuarios.add(unCliente4);
+        if(!usuarios.contains(unCliente4))
+            usuarios.add(unCliente4);
+        if(!usuarios.contains(unCliente5))
+            usuarios.add(unCliente5);
+        if(!usuarios.contains(unCliente6))
+            usuarios.add(unCliente6);
         
         
         System.out.println("Clientes");

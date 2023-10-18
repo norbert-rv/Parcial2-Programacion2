@@ -13,13 +13,18 @@ import pedidos.modelos.Pedido;
  */
 public class Cliente extends Usuario {
 
+    /*
+    ¿¿aquí debería no estar inicializado pedidos?? Está bien
+    porque puedo ir agregando pedidos de a uno.
+    */
     private ArrayList<Pedido> pedidos = new ArrayList<>();
 
     // Constructor para la clase Cliente
     public Cliente(String correo, String contrasenia, String nombre, String apellido) {
         super(correo, contrasenia, nombre, apellido);
     }
-
+    
+    // este método ahora es redundante
     public ArrayList<Pedido> obtenerPedidos() {
         return pedidos;
     }
@@ -28,4 +33,26 @@ public class Cliente extends Usuario {
         this.pedidos = pedidos;
     }
 
+    @Override
+    public ArrayList<Pedido> verPedidos(){
+        return pedidos;
+    }
+    
+    public void agregarPedido(Pedido pedido) {
+        /*
+        Si el pedido no está en el ArrayList, lo agrega al final. Si
+        el pedido está en el ArrayList, reemplaza el pedido con el 
+        método set(index, element)... reemplaza por element el elemento
+        que está en la posición index.
+        */
+        if(!pedidos.contains(pedido))
+            pedidos.add(pedido);
+        else
+            pedidos.set(pedidos.indexOf(pedido), pedido);
+    }
+    
+    public void cancelarPedido(Pedido pedido) {
+        pedidos.remove(pedido);
+    }
+    
 }

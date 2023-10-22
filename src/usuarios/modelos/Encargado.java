@@ -4,6 +4,9 @@
  */
 package usuarios.modelos;
 
+import java.util.ArrayList;
+import pedidos.modelos.Pedido;
+
 /**
  *
  * @author estudiante
@@ -15,4 +18,7 @@ public class Encargado extends Usuario {
        super(correo, contrasenia, nombre, apellido);
     }
 
-}
+@Override
+    public ArrayList<Pedido> verPedidos(){
+    ArrayList<Pedido> pedidoVacio = new ArrayList<>();
+    return pedidoVacio ;}}

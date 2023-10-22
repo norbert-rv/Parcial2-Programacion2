@@ -4,6 +4,9 @@
  */
 package usuarios.modelos;
 
+import java.util.ArrayList;
+import pedidos.modelos.Pedido;
+
 /**
  *
  * @author estudiante
@@ -14,5 +17,8 @@ public class Empleado extends Usuario{
     public Empleado(String correo, String contrasenia, String nombre, String apellido) {
         super(correo, contrasenia, nombre, apellido);
     }
-    
+    @Override
+    public ArrayList<Pedido> verPedidos(){
+    ArrayList<Pedido> pedidoVacio = new ArrayList<>();
+    return pedidoVacio ;}
 }

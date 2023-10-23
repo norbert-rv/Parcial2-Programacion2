@@ -11,14 +11,16 @@ import pedidos.modelos.Pedido;
  *
  * @author estudiante
  */
-public class Empleado extends Usuario{
-   
+public class Empleado extends Usuario {
+
     // Constructor para la clase Empleado
     public Empleado(String correo, String contrasenia, String nombre, String apellido) {
         super(correo, contrasenia, nombre, apellido);
     }
+
     @Override
-    public ArrayList<Pedido> verPedidos(){
-    ArrayList<Pedido> pedidoVacio = new ArrayList<>();
-    return pedidoVacio ;}
+    public ArrayList<Pedido> verPedidos() {
+        ArrayList<Pedido> pedidoVacio = new ArrayList<>();
+        return pedidoVacio;
+    }
 }

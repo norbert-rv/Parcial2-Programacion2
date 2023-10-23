@@ -115,11 +115,11 @@ public class VentanaAMProducto extends JDialog {
 
         jLabel1.setText("Descripción:");
 
-        txtDescripcion.setToolTipText("Apellidos del profesor");
+        txtDescripcion.setToolTipText("Nombre del producto a ingresar");
 
         jLabel2.setText("Precio:");
 
-        txtPrecio.setToolTipText("Nombres del profesor");
+        txtPrecio.setToolTipText("Precio del producto");
 
         btnGuardar.setMnemonic('G');
         btnGuardar.setText("Guardar");
@@ -141,7 +141,7 @@ public class VentanaAMProducto extends JDialog {
 
         jLabel4.setText("Código:");
 
-        txtCodigo.setToolTipText("Documento del profesor");
+        txtCodigo.setToolTipText("Código del producto a ingresar");
 
         jLabel6.setText("Estado:");
 

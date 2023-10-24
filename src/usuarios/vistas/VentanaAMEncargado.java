@@ -47,15 +47,20 @@ public class VentanaAMEncargado extends JDialog {
 
         jLabel1.setText("Apellido:");
 
-        txtApellido.setToolTipText("Apellidos del profesor");
+        txtApellido.setToolTipText("Apellidos del encargado");
+        txtApellido.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtApellidoActionPerformed(evt);
+            }
+        });
 
         jLabel2.setText("Nombre:");
 
-        txtNombre.setToolTipText("Nombres del profesor");
+        txtNombre.setToolTipText("Nombres del encargado");
 
         btnGuardar.setMnemonic('G');
         btnGuardar.setText("Guardar");
-        btnGuardar.setToolTipText("Guarda el profesor");
+        btnGuardar.setToolTipText("Guardar el encargado");
         btnGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnGuardarClic(evt);
@@ -64,7 +69,7 @@ public class VentanaAMEncargado extends JDialog {
 
         btnCancelar.setMnemonic('C');
         btnCancelar.setText("Cancelar");
-        btnCancelar.setToolTipText("Cancela la operación");
+        btnCancelar.setToolTipText("Cancelar la operación");
         btnCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCancelarClic(evt);
@@ -73,7 +78,7 @@ public class VentanaAMEncargado extends JDialog {
 
         jLabel4.setText("Correo:");
 
-        txtCorreo.setToolTipText("Documento del profesor");
+        txtCorreo.setToolTipText("Correo del encargado");
 
         jLabel6.setText("Clave:");
 
@@ -153,6 +158,10 @@ public class VentanaAMEncargado extends JDialog {
             System.out.println();
         }
     }//GEN-LAST:event_btnGuardarClic
+
+    private void txtApellidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtApellidoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtApellidoActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

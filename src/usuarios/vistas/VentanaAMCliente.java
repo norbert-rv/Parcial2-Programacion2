@@ -49,15 +49,15 @@ public class VentanaAMCliente extends JDialog {
 
         jLabel1.setText("Apellido:");
 
-        txtApellido.setToolTipText("Apellidos del profesor");
+        txtApellido.setToolTipText("Apellidos del cliente");
 
         jLabel2.setText("Nombre:");
 
-        txtNombre.setToolTipText("Nombres del profesor");
+        txtNombre.setToolTipText("Nombres del cliente");
 
         btnGuardar.setMnemonic('G');
         btnGuardar.setText("Guardar");
-        btnGuardar.setToolTipText("Guarda el profesor");
+        btnGuardar.setToolTipText("Guardar cliente");
         btnGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnGuardarClic(evt);
@@ -66,7 +66,7 @@ public class VentanaAMCliente extends JDialog {
 
         btnCancelar.setMnemonic('C');
         btnCancelar.setText("Cancelar");
-        btnCancelar.setToolTipText("Cancela la operación");
+        btnCancelar.setToolTipText("Cancelar la operación");
         btnCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCancelarClic(evt);
@@ -75,7 +75,7 @@ public class VentanaAMCliente extends JDialog {
 
         jLabel4.setText("Correo:");
 
-        txtCorreo.setToolTipText("Documento del profesor");
+        txtCorreo.setToolTipText("Correo del cliente");
 
         jLabel6.setText("Clave:");
 

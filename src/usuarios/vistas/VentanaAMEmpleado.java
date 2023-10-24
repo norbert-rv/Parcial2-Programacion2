@@ -49,15 +49,15 @@ public class VentanaAMEmpleado extends JDialog {
 
         jLabel1.setText("Apellido:");
 
-        txtApellido.setToolTipText("Apellidos del profesor");
+        txtApellido.setToolTipText("Apellidos del empleado");
 
         jLabel2.setText("Nombre:");
 
-        txtNombre.setToolTipText("Nombres del profesor");
+        txtNombre.setToolTipText("Nombres del empleado");
 
         btnGuardar.setMnemonic('G');
         btnGuardar.setText("Guardar");
-        btnGuardar.setToolTipText("Guarda el profesor");
+        btnGuardar.setToolTipText("Guardar el empleado");
         btnGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnGuardarClic(evt);
@@ -75,7 +75,7 @@ public class VentanaAMEmpleado extends JDialog {
 
         jLabel4.setText("Correo:");
 
-        txtCorreo.setToolTipText("Documento del profesor");
+        txtCorreo.setToolTipText("Correo del empleado");
 
         jLabel6.setText("Clave:");
 

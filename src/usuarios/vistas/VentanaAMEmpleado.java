@@ -11,17 +11,19 @@ import javax.swing.JDialog;
 import usuarios.modelos.Empleado;
 
 public class VentanaAMEmpleado extends JDialog {
+
     private ArrayList<Empleado> empleados = new ArrayList<>();
-    
+
     /**
      * Constructor
-     * @param ventanaPadre ventana padre 
+     *
+     * @param ventanaPadre ventana padre
      */
     public VentanaAMEmpleado(Dialog ventanaPadre) {
         super(ventanaPadre, true);
         initComponents();
     }
-          
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -136,7 +138,22 @@ public class VentanaAMEmpleado extends JDialog {
     }//GEN-LAST:event_btnCancelarClic
 
     private void btnGuardarClic(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarClic
-        //Completar
+        String correo = this.txtCorreo.getText().trim();
+        String apellido = this.txtApellido.getText().trim();
+        String nombre = this.txtNombre.getText().trim();
+        String clave = new String(this.passClave.getPassword());
+        Empleado unEmpleado = new Empleado(correo, clave, apellido, nombre);
+
+        if (!empleados.contains(unEmpleado)) {
+            this.empleados.add(unEmpleado);
+        }
+
+        System.out.println("Empleados");
+        System.out.println("========");
+        for (Empleado e : this.empleados) {
+            e.mostrar();
+            System.out.println();
+        }
     }//GEN-LAST:event_btnGuardarClic
 
 

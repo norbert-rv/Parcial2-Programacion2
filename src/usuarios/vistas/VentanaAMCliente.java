@@ -11,17 +11,19 @@ import javax.swing.JDialog;
 import usuarios.modelos.Cliente;
 
 public class VentanaAMCliente extends JDialog {
+
     private ArrayList<Cliente> clientes = new ArrayList<>();
-    
+
     /**
      * Constructor
-     * @param ventanaPadre ventana padre 
+     *
+     * @param ventanaPadre ventana padre
      */
     public VentanaAMCliente(Dialog ventanaPadre) {
         super(ventanaPadre, true);
         initComponents();
     }
-          
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -141,11 +143,14 @@ public class VentanaAMCliente extends JDialog {
         String nombre = this.txtNombre.getText().trim();
         String clave = new String(this.passClave.getPassword());
         Cliente unCliente = new Cliente(correo, clave, apellido, nombre);
-        this.clientes.add(unCliente);
+        
+        if (!clientes.contains(unCliente)) {
+            this.clientes.add(unCliente);
+        }
         
         System.out.println("Clientes");
         System.out.println("========");
-        for(Cliente c : this.clientes) {
+        for (Cliente c : this.clientes) {
             c.mostrar();
             System.out.println();
         }
@@ -165,4 +170,3 @@ public class VentanaAMCliente extends JDialog {
     private javax.swing.JTextField txtNombre;
     // End of variables declaration//GEN-END:variables
 }
-

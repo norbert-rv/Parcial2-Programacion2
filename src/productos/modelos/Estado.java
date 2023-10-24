@@ -9,10 +9,13 @@ package productos.modelos;
  * @author estudiante
  */
 public enum Estado {
-    DISPONIBLE, NODISPONIBLE;
+    DISPONIBLE, NO_DISPONIBLE;
     
     @Override
     public String toString(){
-        return this.name();
+        if(this.name().equals("DISPONIBLE"))
+            return "Disponible";
+        else
+            return "No disponible";
     }
 }

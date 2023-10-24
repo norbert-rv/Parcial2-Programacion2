@@ -10,9 +10,15 @@ package productos.modelos;
  */
 public enum Categoria {
     ENTRADA, PLATOPRINCIPAL, POSTRE;
-    
+
     @Override
-    public String toString(){
-        return this.name();
+    public String toString() {
+        if (this.name().equals("ENTRADA")) {
+            return "Entrada";
+        } else if (this.name().equals("PLATOPRINCIPAL")) {
+            return "Plato principal";
+        } else {
+            return "Postre";
+        }
     }
 }

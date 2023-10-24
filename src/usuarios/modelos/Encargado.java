@@ -14,8 +14,8 @@ import pedidos.modelos.Pedido;
 public class Encargado extends Usuario {
 
     // Constructor para la clase Encargado
-    public Encargado(String correo, String contrasenia, String nombre, String apellido) {
-        super(correo, contrasenia, nombre, apellido);
+    public Encargado(String correo, String contrasenia, String apellido, String nombre) {
+        super(correo, contrasenia, apellido, nombre);
     }
 
     @Override

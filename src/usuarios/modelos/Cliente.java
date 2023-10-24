@@ -20,8 +20,8 @@ public class Cliente extends Usuario {
     private ArrayList<Pedido> pedidos = new ArrayList<>();
 
     // Constructor para la clase Cliente
-    public Cliente(String correo, String contrasenia, String nombre, String apellido) {
-        super(correo, contrasenia, nombre, apellido);
+    public Cliente(String correo, String contrasenia, String apellido, String nombre) {
+        super(correo, contrasenia, apellido, nombre);
     }
     
     // este método ahora es redundante

@@ -19,7 +19,7 @@ public abstract class Usuario {
     private String nombre;
     private String apellido;
 
-    public Usuario(String correo, String contrasenia, String nombre, String apellido) {
+    public Usuario(String correo, String contrasenia, String apellido, String nombre) {
         this.correo = correo;
         this.contrasenia = contrasenia;
         this.nombre = nombre;

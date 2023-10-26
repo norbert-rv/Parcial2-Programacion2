@@ -34,7 +34,7 @@ public class Pedido {
         System.out.println("Nro: " + numero
                 + "\nFecha: " + this.fechaYHora.format(this.formatoFecha())
                 + "\tHora: " + this.fechaYHora.format(this.formatoHora())
-                + "\nCliente: " + cliente.obtenerApellido() + ", " + cliente.obtenerNombre()
+                + "\nCliente: " + cliente.verApellido() + ", " + cliente.verNombre()
                 + "\nEstado: " + this.estado.name()
                 + "\n\tProducto \t\tCantidad"
                 + "\n\t====================");
@@ -53,7 +53,7 @@ public class Pedido {
         return DateTimeFormatter.ofPattern("hh:mm");
     }
     
-    public int obtenerNumero() {
+    public int verNumero() {
         return numero;
     }
 
@@ -61,15 +61,15 @@ public class Pedido {
         this.numero = numero;
     }
 
-    public LocalDateTime obtenerFechaYHora() {
+    public LocalDateTime verFechaYHora() {
         return fechaYHora;
     }
 
-    public LocalDate obtenerFecha(){
+    public LocalDate verFecha(){
         return fechaYHora.toLocalDate();
     }
     
-    public LocalTime obtenerHora(){
+    public LocalTime verHora(){
         return fechaYHora.toLocalTime();
     }
     
@@ -81,7 +81,7 @@ public class Pedido {
         this.cliente = cliente;
     }
 
-    public ArrayList<ProductoDelPedido> obtenerProductoDelPedido() {
+    public ArrayList<ProductoDelPedido> verProductoDelPedido() {
         return productoDelPedido;
     }
 

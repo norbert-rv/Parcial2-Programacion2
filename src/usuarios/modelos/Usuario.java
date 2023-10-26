@@ -89,4 +89,19 @@ public abstract class Usuario {
 
     public abstract ArrayList<Pedido> verPedidos();
     
+    /*
+    Métodos verNombre() y verApellido() para coincidir con los nombres del
+    controlador principal del tp4 de los profes. Durante los primeros tp dijeron
+    que get => obtener y set => asignar. Por lo tanto dejaremos los métodos
+    get/set por el momento y agrego los nuevos métodos para que funcione el main
+    subido.
+    */
+    
+    public String verNombre(){
+        return nombre;
+    }
+    
+    public String verApellido(){
+        return apellido;
+    }
 }

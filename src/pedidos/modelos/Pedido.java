@@ -40,8 +40,8 @@ public class Pedido {
                 + "\n\t====================");
         
         for(ProductoDelPedido pdp : productoDelPedido) {
-            System.out.println("\t" + pdp.obtenerProducto().toString() 
-                    + "\t\t" + pdp.obtenerCantidad());
+            System.out.println("\t" + pdp.verProducto().toString() 
+                    + "\t\t" + pdp.verCantidad());
         }
     }
     

@@ -13,20 +13,11 @@ import pedidos.modelos.Pedido;
  */
 public class Cliente extends Usuario {
 
-    /*
-    ¿¿aquí debería no estar inicializado pedidos?? Está bien
-    porque puedo ir agregando pedidos de a uno.
-    */
     private ArrayList<Pedido> pedidos = new ArrayList<>();
 
     // Constructor para la clase Cliente
     public Cliente(String correo, String contrasenia, String apellido, String nombre) {
         super(correo, contrasenia, apellido, nombre);
-    }
-    
-    // este método ahora es redundante
-    public ArrayList<Pedido> obtenerPedidos() {
-        return pedidos;
     }
 
     public void asignarPedidos(ArrayList<Pedido> pedidos) {

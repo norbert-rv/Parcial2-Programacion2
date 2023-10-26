@@ -41,7 +41,7 @@ public class Producto {
         return descripcion;
     }
 
-    public int obtenerCodigo() {
+    public int verCodigo() {
         return codigo;
     }
 
@@ -49,7 +49,7 @@ public class Producto {
         this.codigo = codigo;
     }
 
-    public String obtenerDescripcion() {
+    public String verDescripcion() {
         return descripcion;
     }
 
@@ -57,7 +57,7 @@ public class Producto {
         this.descripcion = descripcion;
     }
 
-    public Categoria obtenerCategoria() {
+    public Categoria verCategoria() {
         return categoria;
     }
 
@@ -65,7 +65,7 @@ public class Producto {
         this.categoria = categoria;
     }
 
-    public float obtenerPrecio() {
+    public float verPrecio() {
         return precio;
     }
 
@@ -73,7 +73,7 @@ public class Producto {
         this.precio = precio;
     }
 
-    public Estado obtenerEstado() {
+    public Estado verEstado() {
         return estado;
     }
 

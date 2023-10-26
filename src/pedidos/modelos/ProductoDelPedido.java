@@ -20,7 +20,7 @@ public class ProductoDelPedido {
         this.cantidad = cantidad;
     }
 
-    public int obtenerCantidad() {
+    public int verCantidad() {
         return cantidad;
     }
 
@@ -28,7 +28,7 @@ public class ProductoDelPedido {
         this.cantidad = cantidad;
     }
 
-    public Producto obtenerProducto() {
+    public Producto verProducto() {
         return producto;
     }
 

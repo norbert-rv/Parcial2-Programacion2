@@ -53,7 +53,7 @@ public class GestorPedidos {
         LocalDateTime fechaYHora = LocalDateTime.of(fecha, hora);
 
         // Y el numero de pedido??
-        Pedido pedido = new Pedido(0, fechaYHora, productosDelPedido, cliente);
+        Pedido pedido = new Pedido(añlskdfjañlskd, fechaYHora, productosDelPedido, cliente);
 
         cliente.agregarPedido(pedido);
 

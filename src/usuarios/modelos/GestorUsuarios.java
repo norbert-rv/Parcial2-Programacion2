@@ -4,6 +4,7 @@
  */
 package usuarios.modelos;
 
+import interfaces.IGestorUsuarios;
 import java.util.ArrayList;
 
 
@@ -11,7 +12,7 @@ import java.util.ArrayList;
  *
  * @author estudiante
  */
-public class GestorUsuarios {
+public class GestorUsuarios implements IGestorUsuarios {
 
     private ArrayList<Usuario> usuarios = new ArrayList<>();
 

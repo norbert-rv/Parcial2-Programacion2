@@ -40,6 +40,9 @@ public class GestorUsuarios {
  
         return gestor;
     }
+    
+    
+    
     private String validarDatos(String correo,String contrasenia,String claverepetida, String apellido,String nombre){ 
        
         if(correo == null || !correo.contains("@"))

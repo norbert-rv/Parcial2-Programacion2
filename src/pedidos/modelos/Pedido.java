@@ -16,6 +16,7 @@ import usuarios.modelos.Cliente;
  * @author estudiante
  */
 public class Pedido {
+
     private int numero;
     private LocalDateTime fechaYHora;
     private Estado estado;
@@ -29,8 +30,8 @@ public class Pedido {
         this.cliente = cliente;
         this.productoDelPedido = productoDelPedido;
     }
-    
-    public void mostrar(){
+
+    public void mostrar() {
         System.out.println("Nro: " + numero
                 + "\nFecha: " + this.fechaYHora.format(this.formatoFecha())
                 + "\tHora: " + this.fechaYHora.format(this.formatoHora())
@@ -38,21 +39,21 @@ public class Pedido {
                 + "\nEstado: " + this.estado.name()
                 + "\n\tProducto \t\tCantidad"
                 + "\n\t====================");
-        
-        for(ProductoDelPedido pdp : productoDelPedido) {
-            System.out.println("\t" + pdp.verProducto().toString() 
+
+        for (ProductoDelPedido pdp : productoDelPedido) {
+            System.out.println("\t" + pdp.verProducto().toString()
                     + "\t\t" + pdp.verCantidad());
         }
     }
-    
+
     private DateTimeFormatter formatoFecha() {
         return DateTimeFormatter.ofPattern("dd/MM/yyyy");
     }
-    
+
     private DateTimeFormatter formatoHora() {
         return DateTimeFormatter.ofPattern("hh:mm");
     }
-    
+
     public int verNumero() {
         return numero;
     }
@@ -65,19 +66,19 @@ public class Pedido {
         return fechaYHora;
     }
 
-    public LocalDate verFecha(){
+    public LocalDate verFecha() {
         return fechaYHora.toLocalDate();
     }
-    
-    public LocalTime verHora(){
+
+    public LocalTime verHora() {
         return fechaYHora.toLocalTime();
     }
-    
+
     public void asignarFechaYHora(LocalDateTime fechaYHora) {
         this.fechaYHora = fechaYHora;
     }
-    
-    public void asignarCliente(Cliente cliente){
+
+    public void asignarCliente(Cliente cliente) {
         this.cliente = cliente;
     }
 
@@ -110,5 +111,17 @@ public class Pedido {
         final Pedido other = (Pedido) obj;
         return this.numero == other.numero;
     }
-    
+
+    public Estado verEstado() {
+        return estado;
+    }
+
+    public void asignarEstado(Estado estado) {
+        this.estado = estado;
+    }
+
+    public Cliente verCliente() {
+        return cliente;
+    }
+
 }

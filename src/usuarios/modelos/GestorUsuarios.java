@@ -12,7 +12,7 @@ import java.util.ArrayList;
  *
  * @author estudiante
  */
-public class GestorUsuarios implements IGestorUsuarios {
+public class GestorUsuarios implements IGestorUsuarios { // REVISAR ORDEN DE PARAMETROS EN LOS METODOS
 
     private ArrayList<Usuario> usuarios = new ArrayList<>();
 
@@ -62,6 +62,7 @@ public class GestorUsuarios implements IGestorUsuarios {
             return ERROR_CLAVES;
         }
         
+        // forma correcta de verificar el Perfil???
         if (perfil == null){
             return ERROR_PERFIL;
         }

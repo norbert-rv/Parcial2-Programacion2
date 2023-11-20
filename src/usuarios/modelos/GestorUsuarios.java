@@ -88,7 +88,7 @@ devolviendo una cadena con el resultado de la operación.*/
                 
                 return this.agregarUsuario(encargado);
                 
-            case default:
+            default:
                 Usuario empleado = new Empleado(correo, apellido, nombre, clave);
                 
                 return this.agregarUsuario(empleado);

@@ -43,7 +43,7 @@ public class GestorUsuarios implements IGestorUsuarios {
         return gestor;
     }
 
-    private String validarDatos(String correo, String contrasenia, String claverepetida, String apellido, String nombre) {
+    private String validarDatos(String correo, String apellido, String nombre, Perfil perfil, String clave, String claveRepetida) {
 
         if (correo == null || !correo.contains("@")) {
             return ERROR_CORREO;
@@ -56,10 +56,14 @@ public class GestorUsuarios implements IGestorUsuarios {
         if (nombre == null || nombre.isEmpty()) {
             return ERROR_NOMBRE;
         }
-        if (contrasenia == null || apellido.isEmpty()) {
+        if (clave == null || apellido.isEmpty()) {
             return ERROR_CLAVES;
-        } else if (!claverepetida.equals(contrasenia)) {
+        } else if (!claveRepetida.equals(clave)) {
             return ERROR_CLAVES;
+        }
+        
+        if (perfil == null){
+            return ERROR_PERFIL;
         }
 
         return EXITO;
@@ -69,39 +73,38 @@ public class GestorUsuarios implements IGestorUsuarios {
         /*crea un nuevo usuario,
 devolviendo una cadena con el resultado de la operación.*/
 
-        if (!this.validarDatos(correo, apellido, nombre, clave, claveRepetida).equals(VALIDACION_EXITO)) {
-            return this.validarDatos(correo, apellido, nombre, clave, claveRepetida);
+        if (!this.validarDatos(correo, apellido, nombre, perfil, clave, claveRepetida).equals(VALIDACION_EXITO)) {
+            return this.validarDatos(correo, apellido, nombre, perfil, clave, claveRepetida);
         }
 
         switch (perfil) {
             case CLIENTE:
-                Usuario u = new Cliente(correo, clave, apellido, nombre);
+                Usuario cliente = new Cliente(correo, clave, apellido, nombre);
 
-                if (!usuarios.contains(u)) {
-                    usuarios.add(u);
-                    return EXITO;
-                } else {
-                    return USUARIOS_DUPLICADOS;
-                }
+                return this.agregarUsuario(cliente);
+                
             case ENCARGADO:
                 Usuario encargado = new Encargado(correo, apellido, nombre, clave);
-                if (!usuarios.contains(encargado)) {
-                    usuarios.add(encargado);
-                    return EXITO;
-                } else {
-                    return USUARIOS_DUPLICADOS;
-                }
-            default:
+                
+                return this.agregarUsuario(encargado);
+                
+            case default:
                 Usuario empleado = new Empleado(correo, apellido, nombre, clave);
-                if (!usuarios.contains(empleado)) {
-                    usuarios.add(empleado);
-                    return EXITO;
-                } else {
-                    return USUARIOS_DUPLICADOS;
-                }
+                
+                return this.agregarUsuario(empleado);
         }
 
     }
+    
+    private String agregarUsuario(Usuario usuario){
+        if (!usuarios.contains(usuario)) {
+                    usuarios.add(usuario);
+                    return EXITO;
+                } else {
+                    return USUARIOS_DUPLICADOS;
+                }
+    }
+    
     public ArrayList<Usuario> verUsuarios(){
         return usuarios;
     }

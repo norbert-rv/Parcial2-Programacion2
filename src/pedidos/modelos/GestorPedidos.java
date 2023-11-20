@@ -138,4 +138,18 @@ public class GestorPedidos implements IGestorPedidos {
 
     }
 
+    @Override
+    public String cancelarPedido(Pedido pedido) {
+        
+        if(this.existeEstePedido(pedido)){
+            pedido.verCliente().cancelarPedido(pedido);
+            
+            return EXITO;
+        }
+        else{
+            return PEDIDO_INEXISTENTE;
+        }
+            
+    }
+
 }

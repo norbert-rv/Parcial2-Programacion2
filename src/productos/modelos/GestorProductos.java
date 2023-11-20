@@ -4,23 +4,15 @@
  */
 package productos.modelos;
 
+import interfaces.IGestorProductos;
 import java.util.ArrayList;
+import pedidos.modelos.GestorPedidos;
 
 /**
  *
  * @author estudiante
  */
-public class GestorProductos {
-
-    public static final String EXITO = "Producto creado/modificado con éxito";
-    public static final String ERROR_CODIGO = "El código del producto es incorrecto";
-    public static final String ERROR_DESCRIPCION = "La descripción del producto es incorrecta";
-    public static final String ERROR_PRECIO = "El precio del producto es incorrecto";
-    public static final String ERROR_CATEGORIA = "La categoría del producto es incorrecta";
-    public static final String ERROR_ESTADO = "El precio del producto es incorrecto";
-    public static final String PRODUCTOS_DUPLICADOS = "Ya existe un producto con ese código";
-    public static final String VALIDACION_EXITO = "Los datos del producto son correctos";
-    public static final String PRODUCTO_INEXISTENTE = "No existe el producto especificado";
+public class GestorProductos implements IGestorProductos {
 
     private ArrayList<Producto> productos = new ArrayList<>();
 
@@ -40,6 +32,7 @@ public class GestorProductos {
     }
 
     // Fin patrón Singleton
+    @Override
     public String crearProducto(int codigo, String descripcion, float precio, Categoria categoria, Estado estado) {
 
         if (!this.validarDatos(codigo, descripcion, precio, categoria, estado).equals(VALIDACION_EXITO)) {
@@ -56,6 +49,7 @@ public class GestorProductos {
         }
     }
 
+    @Override
     public String modificarProducto(Producto productoAModificar, int codigo, String descripcion, float precio, Categoria categoria, Estado estado) {
 
         if (!this.validarDatos(codigo, descripcion, precio, categoria, estado).equals(VALIDACION_EXITO)) {
@@ -77,10 +71,12 @@ public class GestorProductos {
         }
     }
 
+    @Override
     public ArrayList<Producto> menu() {
         return productos;
     }
 
+    @Override
     public ArrayList<Producto> buscarProductos(String descripcion) {
 
         ArrayList<Producto> coincidenciasDescripcion = new ArrayList<>();
@@ -99,10 +95,12 @@ public class GestorProductos {
         return coincidenciasDescripcion;
     }
 
+    @Override
     public boolean existeEsteProducto(Producto producto) {
         return productos.contains(producto);
     }
 
+    @Override
     public ArrayList<Producto> verProductosPorCategoria(Categoria categoria) {
 
         ArrayList<Producto> productosCategoriaCoincidente = new ArrayList<>();
@@ -120,6 +118,7 @@ public class GestorProductos {
         return productosCategoriaCoincidente;
     }
 
+    @Override
     public Producto obtenerProducto(Integer codigo) {
         for (Producto p : productos) {
             if (p.verCodigo() == codigo) {
@@ -151,5 +150,19 @@ public class GestorProductos {
         }
 
         return VALIDACION_EXITO;
+    }
+
+    @Override
+    public String borrarProducto(Producto producto) {
+
+        GestorPedidos gp = GestorPedidos.crearGestorPedidos();
+
+        if (!gp.hayPedidosConEsteProducto(producto)) {
+            productos.remove(producto);
+            return EXITO;
+        } else {
+            // ver esto. No hay un mensaje para este caso en las constantes
+            return "No se puede borrar el producto porque existe un pedido con el mismo.";
+        }
     }
 }

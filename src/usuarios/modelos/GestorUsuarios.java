@@ -16,18 +16,6 @@ public class GestorUsuarios implements IGestorUsuarios { // REVISAR ORDEN DE PAR
 
     private ArrayList<Usuario> usuarios = new ArrayList<>();
 
-    public static final String EXITO = "Usuario creado/modificado con éxito";
-    public static final String ERROR_CORREO = "El correo del usuario es incorrecto";
-    public static final String ERROR_APELLIDO = "El apellido del usuario es incorrecto";
-    public static final String ERROR_NOMBRE = "El nombre del usuario es incorrecto";
-    public static final String ERROR_CLAVES = "Las claves especificadas no coinciden o son incorrectas";
-    public static final String ERROR_PERFIL = "El perfil del usuario es incorrecto";
-    public static final String PERFIL_CAMBIO = "El usuario no puede cambiarse de perfil";
-    public static final String ERROR_PERMISOS = "No se tienen los permisos para realizar esta funcionalidad";
-    public static final String USUARIOS_DUPLICADOS = "Ya existe un usuario con ese correo";
-    public static final String USUARIO_INEXISTENTE = "No existe el usuario especificado";
-    public static final String VALIDACION_EXITO = "Los datos del usuario son correctos";
-
     // Implementación del patrón Singleton
     private static GestorUsuarios gestor;
 

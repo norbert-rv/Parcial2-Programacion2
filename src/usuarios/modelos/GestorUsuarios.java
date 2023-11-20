@@ -6,7 +6,7 @@ package usuarios.modelos;
 
 import interfaces.IGestorUsuarios;
 import java.util.ArrayList;
-
+import pedidos.modelos.GestorPedidos;
 
 /**
  *
@@ -49,9 +49,9 @@ public class GestorUsuarios implements IGestorUsuarios { // REVISAR ORDEN DE PAR
         } else if (!claveRepetida.equals(clave)) {
             return ERROR_CLAVES;
         }
-        
+
         // forma correcta de verificar el Perfil???
-        if (perfil == null){
+        if (perfil == null) {
             return ERROR_PERFIL;
         }
 
@@ -71,37 +71,38 @@ devolviendo una cadena con el resultado de la operación.*/
                 Usuario cliente = new Cliente(correo, clave, apellido, nombre);
 
                 return this.agregarUsuario(cliente);
-                
+
             case ENCARGADO:
                 Usuario encargado = new Encargado(correo, apellido, nombre, clave);
-                
+
                 return this.agregarUsuario(encargado);
-                
+
             default:
                 Usuario empleado = new Empleado(correo, apellido, nombre, clave);
-                
+
                 return this.agregarUsuario(empleado);
         }
 
     }
-    
-    private String agregarUsuario(Usuario usuario){
+
+    private String agregarUsuario(Usuario usuario) {
         if (!usuarios.contains(usuario)) {
-                    usuarios.add(usuario);
-                    return EXITO;
-                } else {
-                    return USUARIOS_DUPLICADOS;
-                }
+            usuarios.add(usuario);
+            return EXITO;
+        } else {
+            return USUARIOS_DUPLICADOS;
+        }
     }
-    
-    public ArrayList<Usuario> verUsuarios(){
+
+    public ArrayList<Usuario> verUsuarios() {
         return usuarios;
     }
-    
-   public ArrayList<Usuario> buscarUsuarios(String apellido){ /*busca si
+
+    public ArrayList<Usuario> buscarUsuarios(String apellido) {
+        /*busca si
     existen usuarios con el apellido especificado (total o parcialmente).*/
-       
-    ArrayList<Usuario> coincidenciasapellido = new ArrayList<>();
+
+        ArrayList<Usuario> coincidenciasapellido = new ArrayList<>();
 
         // Esta verificacion ahorra recorrer el ArrayList productos innecesariamente
         if (apellido == null) {
@@ -115,18 +116,37 @@ devolviendo una cadena con el resultado de la operación.*/
         }
 
         return coincidenciasapellido;
-   }
-   public boolean existeEsteUsuario(Usuario usuario) /*devuelve true si existe el usuario especificado, false en caso contrario.*/{
-       return usuarios.contains(usuario);
-   }
-   
-   public Usuario obtenerUsuario(String correo)/* obtiene el usuario con el correo especificado. Si no hay un usuario con el correo, devuelve null.*/{
-       for (Usuario u : usuarios) {
-           
+    }
+
+    public boolean existeEsteUsuario(Usuario usuario) /*devuelve true si existe el usuario especificado, false en caso contrario.*/ {
+        return usuarios.contains(usuario);
+    }
+
+    public Usuario obtenerUsuario(String correo)/* obtiene el usuario con el correo especificado. Si no hay un usuario con el correo, devuelve null.*/ {
+        for (Usuario u : usuarios) {
+
             if (u.verCorreo().equalsIgnoreCase(correo)) {
                 return u;
             }
         }
         return null;
-   }
+    }
+
+    @Override
+    public String borrarUsuario(Usuario usuario) {
+
+        GestorPedidos gp = GestorPedidos.crearGestorPedidos();
+
+        if (!usuarios.contains(usuario)) {
+            return USUARIO_INEXISTENTE;
+        }
+
+        if (!gp.hayPedidosConEsteCliente((Cliente) usuario)) {
+            usuarios.remove(usuario);
+            return EXITO;
+        } else {
+            // será que tengo que mostrar este mensaje aquí???
+            return ERROR_PERMISOS;
+        }
+    }
 }

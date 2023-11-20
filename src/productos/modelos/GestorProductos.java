@@ -156,6 +156,9 @@ public class GestorProductos implements IGestorProductos {
     public String borrarProducto(Producto producto) {
 
         GestorPedidos gp = GestorPedidos.crearGestorPedidos();
+        
+        if(!productos.contains(producto))
+            return PRODUCTO_INEXISTENTE;
 
         if (!gp.hayPedidosConEsteProducto(producto)) {
             productos.remove(producto);

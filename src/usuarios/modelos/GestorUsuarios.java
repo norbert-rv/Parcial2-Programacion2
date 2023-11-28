@@ -6,6 +6,7 @@ package usuarios.modelos;
 
 import interfaces.IGestorUsuarios;
 import java.util.ArrayList;
+import java.util.Collections;
 import pedidos.modelos.GestorPedidos;
 
 /**
@@ -95,6 +96,9 @@ devolviendo una cadena con el resultado de la operación.*/
     }
 
     public ArrayList<Usuario> verUsuarios() {
+
+        Collections.sort(usuarios, new CompUsuarioApYNom());
+
         return usuarios;
     }
 
@@ -114,6 +118,8 @@ devolviendo una cadena con el resultado de la operación.*/
                 coincidenciasapellido.add(p);
             }
         }
+
+        Collections.sort(coincidenciasapellido, new CompUsuarioApYNom());
 
         return coincidenciasapellido;
     }

@@ -26,7 +26,7 @@ public class GestorProductos implements IGestorProductos {
 
     ;
     
-    public static GestorProductos crearGestorProducto() {
+    public static GestorProductos instanciar() {
         if (gestor == null) {
             gestor = new GestorProductos();
         }

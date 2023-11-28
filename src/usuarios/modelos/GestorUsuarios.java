@@ -25,7 +25,7 @@ public class GestorUsuarios implements IGestorUsuarios { // REVISAR ORDEN DE PAR
 
     }
 
-    public static GestorUsuarios crearGestorUsuarios() {
+    public static GestorUsuarios instanciar() {
         if (gestor == null) {
             gestor = new GestorUsuarios();
         }

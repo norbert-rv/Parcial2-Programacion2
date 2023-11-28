@@ -121,6 +121,8 @@ public class GestorProductos implements IGestorProductos {
                 productosCategoriaCoincidente.add(p);
             }
         }
+        
+        Collections.sort(productos);
 
         return productosCategoriaCoincidente;
     }

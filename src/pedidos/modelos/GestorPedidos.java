@@ -69,6 +69,8 @@ public class GestorPedidos implements IGestorPedidos {
     }
 
     public List<Pedido> verPedidos() {
+        
+        
         return pedidos;
     }
 

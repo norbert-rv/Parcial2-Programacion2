@@ -6,6 +6,8 @@ package productos.modelos;
 
 import interfaces.IGestorProductos;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 import pedidos.modelos.GestorPedidos;
 
 /**
@@ -72,7 +74,10 @@ public class GestorProductos implements IGestorProductos {
     }
 
     @Override
-    public ArrayList<Producto> menu() {
+    public List<Producto> menu() {
+        
+        Collections.sort(productos, new CompProductoCatYDesc());
+        
         return productos;
     }
 

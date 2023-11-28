@@ -9,6 +9,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import productos.modelos.Producto;
 import usuarios.modelos.Cliente;
@@ -70,6 +71,7 @@ public class GestorPedidos implements IGestorPedidos {
 
     public List<Pedido> verPedidos() {
         
+        Collections.sort(pedidos, new CompPedidoNumAsc());
         
         return pedidos;
     }

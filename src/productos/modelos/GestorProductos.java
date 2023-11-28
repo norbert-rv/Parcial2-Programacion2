@@ -122,7 +122,7 @@ public class GestorProductos implements IGestorProductos {
             }
         }
         
-        Collections.sort(productos);
+        Collections.sort(productos, new CompProductoDesc());
 
         return productosCategoriaCoincidente;
     }

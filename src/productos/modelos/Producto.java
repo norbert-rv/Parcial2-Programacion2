@@ -8,7 +8,7 @@ package productos.modelos;
  *
  * @author estudiante
  */
-public class Producto implements Comparable<Producto>{
+public class Producto {
 
     private int codigo;
     private String descripcion;
@@ -103,9 +103,4 @@ public class Producto implements Comparable<Producto>{
         return this.codigo == other.codigo;
     }
 
-    @Override
-    public int compareTo(Producto t) {
-        return descripcion.compareTo(t.toString());
-    }
-    
 }

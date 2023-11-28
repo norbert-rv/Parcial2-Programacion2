@@ -82,9 +82,9 @@ public class GestorProductos implements IGestorProductos {
     }
 
     @Override
-    public ArrayList<Producto> buscarProductos(String descripcion) {
+    public List<Producto> buscarProductos(String descripcion) {
 
-        ArrayList<Producto> coincidenciasDescripcion = new ArrayList<>();
+        List<Producto> coincidenciasDescripcion = new ArrayList<>();
 
         // Esta verificacion ahorra recorrer el ArrayList productos innecesariamente
         if (descripcion == null) {
@@ -96,6 +96,8 @@ public class GestorProductos implements IGestorProductos {
                 coincidenciasDescripcion.add(p);
             }
         }
+        
+        Collections.sort(coincidenciasDescripcion, new CompProductoCatYDesc());
 
         return coincidenciasDescripcion;
     }

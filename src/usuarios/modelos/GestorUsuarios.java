@@ -7,6 +7,7 @@ package usuarios.modelos;
 import interfaces.IGestorUsuarios;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 import pedidos.modelos.GestorPedidos;
 
 /**
@@ -15,7 +16,7 @@ import pedidos.modelos.GestorPedidos;
  */
 public class GestorUsuarios implements IGestorUsuarios { // REVISAR ORDEN DE PARAMETROS EN LOS METODOS
 
-    private ArrayList<Usuario> usuarios = new ArrayList<>();
+    private List<Usuario> usuarios = new ArrayList<>();
 
     // Implementación del patrón Singleton
     private static GestorUsuarios gestor;
@@ -95,14 +96,14 @@ devolviendo una cadena con el resultado de la operación.*/
         }
     }
 
-    public ArrayList<Usuario> verUsuarios() {
+    public List<Usuario> verUsuarios() {
 
         Collections.sort(usuarios, new CompUsuarioApYNom());
 
         return usuarios;
     }
 
-    public ArrayList<Usuario> buscarUsuarios(String apellido) {
+    public List<Usuario> buscarUsuarios(String apellido) {
         /*busca si
     existen usuarios con el apellido especificado (total o parcialmente).*/
 

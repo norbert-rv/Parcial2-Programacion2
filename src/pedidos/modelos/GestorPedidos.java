@@ -9,6 +9,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.ArrayList;
+import java.util.List;
 import productos.modelos.Producto;
 import usuarios.modelos.Cliente;
 
@@ -18,7 +19,7 @@ import usuarios.modelos.Cliente;
  */
 public class GestorPedidos implements IGestorPedidos {
 
-    ArrayList<Pedido> pedidos = new ArrayList<>();
+    List<Pedido> pedidos = new ArrayList<>();
 
     private static GestorPedidos gestor;
 
@@ -34,7 +35,7 @@ public class GestorPedidos implements IGestorPedidos {
         return gestor;
     }
 
-    public String crearPedido(LocalDate fecha, LocalTime hora, ArrayList<ProductoDelPedido> productosDelPedido, Cliente cliente) {
+    public String crearPedido(LocalDate fecha, LocalTime hora, List<ProductoDelPedido> productosDelPedido, Cliente cliente) {
 
         if (!this.validarDatos(fecha, hora, productosDelPedido, cliente).equalsIgnoreCase(VALIDACION_EXITO)) {
             return this.validarDatos(fecha, hora, productosDelPedido, cliente);
@@ -67,7 +68,7 @@ public class GestorPedidos implements IGestorPedidos {
         }
     }
 
-    public ArrayList<Pedido> verPedidos() {
+    public List<Pedido> verPedidos() {
         return pedidos;
     }
 
@@ -85,7 +86,7 @@ public class GestorPedidos implements IGestorPedidos {
     public boolean hayPedidosConEsteProducto(Producto producto) {
 
         for (Pedido p : pedidos) {
-            ArrayList<ProductoDelPedido> pdp = p.verProductoDelPedido();
+            List<ProductoDelPedido> pdp = p.verProductoDelPedido();
 
             for (ProductoDelPedido prodDelPedido : pdp) {
                 if (prodDelPedido.verProducto().equals(producto)) {
@@ -116,7 +117,7 @@ public class GestorPedidos implements IGestorPedidos {
 
     }
 
-    private String validarDatos(LocalDate fecha, LocalTime hora, ArrayList<ProductoDelPedido> productosDelPedido, Cliente cliente) {
+    private String validarDatos(LocalDate fecha, LocalTime hora, List<ProductoDelPedido> productosDelPedido, Cliente cliente) {
 
         if (fecha == null) {
             return ERROR_FECHA;
@@ -151,5 +152,10 @@ public class GestorPedidos implements IGestorPedidos {
         }
             
     }
+
+//    @Override
+//    public String crearPedido(LocalDate fecha, LocalTime hora, List<ProductoDelPedido> productosDelPedido, Cliente cliente) {
+//        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+//    }
 
 }

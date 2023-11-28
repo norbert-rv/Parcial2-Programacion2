@@ -16,7 +16,7 @@ import pedidos.modelos.GestorPedidos;
  */
 public class GestorProductos implements IGestorProductos {
 
-    private ArrayList<Producto> productos = new ArrayList<>();
+    private List<Producto> productos = new ArrayList<>();
 
     // Implementación del patrón Singleton
     private static GestorProductos gestor;

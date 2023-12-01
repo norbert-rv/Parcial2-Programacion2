@@ -5,6 +5,13 @@
 package productos.modelos;
 
 import interfaces.IGestorProductos;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -21,14 +28,21 @@ public class GestorProductos implements IGestorProductos {
     // Implementación del patrón Singleton
     private static GestorProductos gestor;
 
-    private GestorProductos() {
+    //constructor vacio
+//    private GestorProductos() {
+//    }
+//    ;
+    //nombre del archivo que guarda los productos
+     private String archivoproductos;
+     
+     private GestorProductos(String archivoproductos ) {
+        this.archivoproductos = archivoproductos;
+        this.leer(archivoproductos);
     }
-
-    ;
-    
-    public static GestorProductos instanciar() {
+     
+    public static GestorProductos instanciar(String archivoproductos) {
         if (gestor == null) {
-            gestor = new GestorProductos();
+            gestor = new GestorProductos(archivoproductos);
         }
         return gestor;
     }
@@ -45,6 +59,7 @@ public class GestorProductos implements IGestorProductos {
 
         if (!productos.contains(p)) {
             productos.add(p);
+             this.escribir();
             return EXITO;
         } else {
             return PRODUCTOS_DUPLICADOS;
@@ -177,4 +192,54 @@ public class GestorProductos implements IGestorProductos {
             return "No se puede borrar el producto porque existe un pedido con el mismo.";
         }
     }
+     //creado metodo para escribir los productos creados en el archivo de texto
+    public void escribir() {
+        File f = new File(this.archivoproductos);
+        try {
+            FileWriter fw = new FileWriter(f);
+            BufferedWriter bw = new BufferedWriter(fw);
+            
+            for(Producto p : this.productos) {
+                String linea;
+                linea = Integer.toString(p.verCodigo()) + ",";
+                linea += p.verDescripcion() + ",";
+                linea += p.verCategoria() + ",";
+                linea += p.verEstado()+ ",";
+                linea += Float.toString(p.verPrecio()) ;
+                
+                bw.write(linea);
+                bw.newLine();
+            }
+            
+            bw.close();
+        }
+        catch(IOException e) {
+            
+        }}
+    //metodo para leer el archivo de texto, lee los elementos separados por coma
+    private void leer(String nombreArchivo) {
+        File f = new File(nombreArchivo);
+        try {
+            FileReader fr = new FileReader(f);
+            BufferedReader br = new BufferedReader(fr);
+            String linea;
+            while((linea = br.readLine()) != null) {
+                String [] vector = linea.split(",");
+                int codigo = Integer.parseInt(vector[0]);
+                String descripcion = vector[1];
+                String Categoria.name() = vector[2]; 
+                String estado = vector[3];
+                float precio = Float.parseFloat(vector[4]);
+                Producto p = new Producto(codigo,descripcion,categoria,estado,precio);
+                this.productos.add(p);
+            }
+            
+            br.close();
+        }
+        catch(FileNotFoundException fnf ) {
+            
+        }
+        catch(IOException fnf ) {
+            
+        }}
 }

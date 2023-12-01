@@ -12,6 +12,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import static java.lang.String.valueOf;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -227,8 +228,8 @@ public class GestorProductos implements IGestorProductos {
                 String [] vector = linea.split(",");
                 int codigo = Integer.parseInt(vector[0]);
                 String descripcion = vector[1];
-                String Categoria.name() = vector[2]; 
-                String estado = vector[3];
+                Categoria categoria = Categoria.valueOf(vector[2]); 
+                Estado estado = Estado.valueOf(vector[3]);
                 float precio = Float.parseFloat(vector[4]);
                 Producto p = new Producto(codigo,descripcion,categoria,estado,precio);
                 this.productos.add(p);

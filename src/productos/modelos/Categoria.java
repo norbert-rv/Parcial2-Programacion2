@@ -9,13 +9,13 @@ package productos.modelos;
  * @author estudiante
  */
 public enum Categoria {
-    ENTRADA, PLATO_PRINCIPAL, POSTRE;
+     ENTRADA,PLATO_PRINCIPAL,POSTRE;
 
     @Override
     public String toString() {
         if (this.name().equals("ENTRADA")) {
             return "Entrada";
-        } else if (this.name().equals("PLATOPRINCIPAL")) {
+        } else if (this.name().equals("PLATO_PRINCIPAL")) {
             return "Plato principal";
         } else {
             return "Postre";

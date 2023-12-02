@@ -50,7 +50,7 @@ public class GestorProductos implements IGestorProductos {
 
     // Fin patrón Singleton
     @Override
-    public String crearProducto(int codigo, String descripcion, float precio, Categoria categoria, Estado estado) {
+    public String crearProducto(int codigo, String descripcion, float precio,Categoria categoria,Estado estado) {
 
         if (!this.validarDatos(codigo, descripcion, precio, categoria, estado).equals(VALIDACION_EXITO)) {
             return this.validarDatos(codigo, descripcion, precio, categoria, estado);
@@ -154,7 +154,7 @@ public class GestorProductos implements IGestorProductos {
     }
 
     private String validarDatos(int codigo, String descripcion, float precio, Categoria categoria, Estado estado) {
-        if (codigo < 0) {
+        if (codigo <= 0) {
             return ERROR_CODIGO;
         }
 
@@ -162,7 +162,7 @@ public class GestorProductos implements IGestorProductos {
             return ERROR_DESCRIPCION;
         }
 
-        if (precio < 0) {
+        if (precio <= 0) {
             return ERROR_PRECIO;
         }
 
@@ -238,6 +238,7 @@ public class GestorProductos implements IGestorProductos {
     private void leer(String nombreArchivo) {
         BufferedReader br = null;
         File f = new File(nombreArchivo);
+        if (f.exists()) {
         try {
             FileReader fr = new FileReader(f);
             br = new BufferedReader(fr);
@@ -272,7 +273,7 @@ public class GestorProductos implements IGestorProductos {
                         fr.printStackTrace();
                     }
                 }
-            }}
+            }}}
     //agregado metodo para guardar el producto nuevo en el archivo
 //    private void guardarEnArchivo() {
 //        BufferedWriter bw = null;

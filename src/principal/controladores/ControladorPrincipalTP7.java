@@ -25,7 +25,7 @@ import usuarios.modelos.Usuario;
  */
 public class ControladorPrincipalTP7  {
     public static void main(String[] args) {
-        IGestorProductos gp = GestorProductos.instanciar("archivoproductos");
+        IGestorProductos gp = GestorProductos.instanciar("archivoproductos.txt");
         IGestorUsuarios gu = GestorUsuarios.instanciar();
         List<Usuario> usuarios =new ArrayList<>();
         //Creación de productos

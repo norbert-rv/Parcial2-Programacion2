@@ -195,34 +195,52 @@ public class GestorProductos implements IGestorProductos {
     }
      //creado metodo para escribir los productos creados en el archivo de texto
     public void escribir() {
+        BufferedWriter bw = null;
         File f = new File(this.archivoproductos);
         try {
             FileWriter fw = new FileWriter(f);
-            BufferedWriter bw = new BufferedWriter(fw);
+            bw = new BufferedWriter(fw);
             
-            for(Producto p : this.productos) {
+            //for(Producto p : this.productos) { 
+            //cambio del for anterior por el actual para poder agregar el salto de linea
+                for(int i = 0; i < this.productos.size(); i++) {
+                Producto unProducto = this.productos.get(i);
                 String linea;
-                linea = Integer.toString(p.verCodigo()) + ",";
-                linea += p.verDescripcion() + ",";
-                linea += p.verCategoria() + ",";
-                linea += p.verEstado()+ ",";
-                linea += Float.toString(p.verPrecio()) ;
+                linea = Integer.toString(unProducto.verCodigo()) + ",";
+                linea += unProducto.verDescripcion() + ",";
+                linea += unProducto.verCategoria() + ",";
+                linea += unProducto.verEstado()+ ",";
+                linea += Float.toString(unProducto.verPrecio()) ;
                 
                 bw.write(linea);
-                bw.newLine();
+                if (i < this.productos.size() - 1)
+                    bw.newLine();
             }
             
             bw.close();
         }
         catch(IOException e) {
-            
-        }}
-    //metodo para leer el archivo de texto, lee los elementos separados por coma
+            System.out.println("Ha ocurrido un error de entrada o salida de datos");
+        }
+        finally {
+            if (bw != null) {
+                try {
+                    bw.close();
+                }
+                catch (IOException ioe) {
+                    ioe.printStackTrace();
+                }
+            }            
+        }
+        }
+    
+    //metodo para leer el archivo de texto, lee los elementos separados por coma, falta corregir el finally
     private void leer(String nombreArchivo) {
+        BufferedReader br = null;
         File f = new File(nombreArchivo);
         try {
             FileReader fr = new FileReader(f);
-            BufferedReader br = new BufferedReader(fr);
+            br = new BufferedReader(fr);
             String linea;
             while((linea = br.readLine()) != null) {
                 String [] vector = linea.split(",");
@@ -234,13 +252,58 @@ public class GestorProductos implements IGestorProductos {
                 Producto p = new Producto(codigo,descripcion,categoria,estado,precio);
                 this.productos.add(p);
             }
-            
-            br.close();
+
         }
-        catch(FileNotFoundException fnf ) {
-            
+        catch(FileNotFoundException fr ) {
+            System.out.println("No se pudo encontrar el archivo para abrirlo");
         }
-        catch(IOException fnf ) {
-            
-        }}
+        catch(IOException fr ) {
+            System.out.println("No se pudo leer el archivo.");
+        }
+        catch(IllegalArgumentException fnf){
+        System.out.println("El argumento que ha ingresado no es válido");}
+    
+        finally {
+                if (br != null) {
+                    try {
+                        br.close();
+                    }
+                    catch (IOException fr) {
+                        fr.printStackTrace();
+                    }
+                }
+            }}
+    //agregado metodo para guardar el producto nuevo en el archivo
+//    private void guardarEnArchivo() {
+//        BufferedWriter bw = null;
+//        File file = new File(archivoproductos);
+//        try {     
+//            FileWriter fw = new FileWriter(file);
+//            bw = new BufferedWriter(fw);
+//            for(int i = 0; i < this.productos.size(); i++) {
+//                Producto unProducto = this.productos.get(i);
+//                String cadena = unProducto.verCodigo() + ",";
+//                cadena += unProducto.verDescripcion()+ ","; 
+//                cadena += unProducto.verCategoria()+ ","; 
+//                cadena += unProducto.verEstado()+ ","; 
+//                cadena += unProducto.verPrecio()+ ","; 
+//                bw.write(cadena);
+//                if (i < this.productos.size() - 1)
+//                    bw.newLine();
+//            }
+//        } 
+//        catch (IOException ioe) {
+//            System.out.println("Ocurrio un error de entrada y salida de datos ");
+//        }
+//        finally {
+//            if (bw != null) {
+//                try {
+//                    bw.close();
+//                }
+//                catch (IOException ioe) {
+//                    ioe.printStackTrace();
+//                }
+//            }            
+//        }
+//    }       
 }

@@ -79,12 +79,12 @@ public class GestorProductos implements IGestorProductos {
         } else {
             int indiceProducto = productos.indexOf(productoAModificar);
 
-            productos.get(indiceProducto).asignarCodigo(codigo);
+//            productos.get(indiceProducto).asignarCodigo(codigo);
             productos.get(indiceProducto).asignarDescripcion(descripcion);
             productos.get(indiceProducto).asignarPrecio(precio);
             productos.get(indiceProducto).asignarCategoria(categoria);
             productos.get(indiceProducto).asignarEstado(estado);
-
+            this.escribir();
             return EXITO;
         }
     }
@@ -187,6 +187,7 @@ public class GestorProductos implements IGestorProductos {
 
         if (!gp.hayPedidosConEsteProducto(producto)) {
             productos.remove(producto);
+            this.escribir();
             return EXITO;
         } else {
             // ver esto. No hay un mensaje para este caso en las constantes

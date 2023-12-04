@@ -34,25 +34,25 @@
               <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="claverepetidanombre" min="-2" max="-2" attributes="0"/>
-                  <Component id="clavenombre" min="-2" max="-2" attributes="0"/>
-                  <Component id="nombre" min="-2" max="-2" attributes="0"/>
-                  <Component id="correo" min="-2" max="-2" attributes="0"/>
-                  <Component id="apellido" min="-2" max="-2" attributes="0"/>
+                  <Component id="clavenombretxt" min="-2" max="-2" attributes="0"/>
+                  <Component id="nombretxt" min="-2" max="-2" attributes="0"/>
+                  <Component id="correotxt" min="-2" max="-2" attributes="0"/>
+                  <Component id="apellidotxt" min="-2" max="-2" attributes="0"/>
                   <Component id="Perfil" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="comboPerfil" max="32767" attributes="0"/>
                   <Component id="txtcorreo" max="32767" attributes="0"/>
                   <Component id="txtnombre" alignment="0" max="32767" attributes="0"/>
                   <Component id="txtapellido" pref="225" max="32767" attributes="0"/>
                   <Component id="claverepetida" alignment="0" max="32767" attributes="0"/>
                   <Component id="clave" alignment="1" max="32767" attributes="0"/>
+                  <Component id="cboPerfil" max="32767" attributes="0"/>
               </Group>
-              <EmptySpace pref="33" max="32767" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
           </Group>
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace max="32767" attributes="0"/>
+              <EmptySpace pref="171" max="32767" attributes="0"/>
               <Component id="Aceptar_boton" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="boton_cancelar" min="-2" max="-2" attributes="0"/>
@@ -65,22 +65,22 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="correo" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="correotxt" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="txtcorreo" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="apellido" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="apellidotxt" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="txtapellido" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="nombre" alignment="3" min="-2" pref="16" max="-2" attributes="0"/>
+                  <Component id="nombretxt" alignment="3" min="-2" pref="16" max="-2" attributes="0"/>
                   <Component id="txtnombre" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="clavenombre" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="clavenombretxt" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="clave" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -91,7 +91,7 @@
               <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="Perfil" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="comboPerfil" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="cboPerfil" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="29" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -104,22 +104,22 @@
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JLabel" name="correo">
+    <Component class="javax.swing.JLabel" name="correotxt">
       <Properties>
         <Property name="text" type="java.lang.String" value="Correo"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="apellido">
+    <Component class="javax.swing.JLabel" name="apellidotxt">
       <Properties>
         <Property name="text" type="java.lang.String" value="Apellido"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="nombre">
+    <Component class="javax.swing.JLabel" name="nombretxt">
       <Properties>
         <Property name="text" type="java.lang.String" value="Nombre"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="clavenombre">
+    <Component class="javax.swing.JLabel" name="clavenombretxt">
       <Properties>
         <Property name="text" type="java.lang.String" value="Clave"/>
       </Properties>
@@ -152,28 +152,6 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="boton_cancelarActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JComboBox" name="comboPerfil">
-      <Properties>
-        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="3">
-            <StringItem index="0" value="Encargado"/>
-            <StringItem index="1" value="Cliente"/>
-            <StringItem index="2" value="Empleado"/>
-          </StringArray>
-        </Property>
-        <Property name="toolTipText" type="java.lang.String" value="Elija el perfil del usuario"/>
-        <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-          <Color id="Default Cursor"/>
-        </Property>
-        <Property name="doubleBuffered" type="boolean" value="true"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="comboPerfilActionPerformed"/>
-      </Events>
-      <AuxValues>
-        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-      </AuxValues>
-    </Component>
     <Component class="javax.swing.JTextField" name="txtcorreo">
       <Properties>
         <Property name="toolTipText" type="java.lang.String" value="escriba el correo del usuario"/>
@@ -183,9 +161,6 @@
       <Properties>
         <Property name="toolTipText" type="java.lang.String" value="escriba el nombre del usuario"/>
       </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtnombreActionPerformed"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="txtapellido">
       <Properties>
@@ -197,15 +172,34 @@
     </Component>
     <Component class="javax.swing.JPasswordField" name="claverepetida">
       <Properties>
-        <Property name="text" type="java.lang.String" value="jPasswordField1"/>
         <Property name="toolTipText" type="java.lang.String" value="escriba la clave repetida"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JPasswordField" name="clave">
       <Properties>
-        <Property name="text" type="java.lang.String" value="jPasswordField1"/>
         <Property name="toolTipText" type="java.lang.String" value="escriba la clave"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="claveActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JComboBox" name="cboPerfil">
+      <Properties>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="4">
+            <StringItem index="0" value="Item 1"/>
+            <StringItem index="1" value="Item 2"/>
+            <StringItem index="2" value="Item 3"/>
+            <StringItem index="3" value="Item 4"/>
+          </StringArray>
+        </Property>
+        <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+          <Color id="Default Cursor"/>
+        </Property>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+      </AuxValues>
     </Component>
   </SubComponents>
 </Form>

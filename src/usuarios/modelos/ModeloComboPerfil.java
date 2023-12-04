@@ -4,10 +4,35 @@
  */
 package usuarios.modelos;
 
+import javax.swing.DefaultComboBoxModel;
+
 /**
  *
  * @author tomascabrerabellomo
  */
-public class ModeloComboPerfil {
+public class ModeloComboPerfil extends DefaultComboBoxModel {
+    /**
+     * Constructor
+    */
+    public ModeloComboPerfil() { 
+        for (Perfil perfil : Perfil.values()) {
+            this.addElement(perfil); 
+        }
+    }
     
+    /**
+     * Devuelve la categoria seleccionada
+     * @return Categoria  - categoría seleccionada
+    */
+    public Perfil obtenerPerfil() { 
+        return (Perfil)this.getSelectedItem();
+    }
+    
+    /**
+     * Selecciona la Categoria especificada
+     * @param perfil categoría
+    */
+    public void seleccionarPerfil(Perfil perfil) {
+        this.setSelectedItem(perfil);
+    }
 }

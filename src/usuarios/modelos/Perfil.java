@@ -9,5 +9,15 @@ package usuarios.modelos;
  * @author estudiante
  */
 public enum Perfil {
-    CLIENTE, EMPLEADO, ENCARGADO;
+    CLIENTE("Cliente"), EMPLEADO("Empleado"), ENCARGADO("Encargado");
+    private String valor;
+    
+    private Perfil(String valor){
+        this.valor = valor;
+    }
+
+    @Override
+    public String toString() {
+        return "Perfil: "  + valor;   }
+    
 }

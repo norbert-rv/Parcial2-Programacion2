@@ -10,6 +10,7 @@ import javax.swing.JTextField;
 import usuarios.modelos.GestorUsuarios;
 import usuarios.modelos.ModeloComboPerfil;
 import usuarios.modelos.Perfil;
+import usuarios.modelos.Usuario;
 
 /**
  *
@@ -25,13 +26,13 @@ public class VentanaAMUsuario extends javax.swing.JDialog {
         super(ventanaPadre, true);
         initComponents();
         setVisible(true);
-        this.obtenerPerfil();
+        this.configurarperfil();
         this.setLocationRelativeTo(null);
         this.setTitle("Nuevo producto");
 
         
     }
-    private void obtenerPerfil(){
+    private void configurarperfil(){
         ModeloComboPerfil modelo = new ModeloComboPerfil();
         this.comboPerfil.setModel(modelo);
         
@@ -48,7 +49,7 @@ public class VentanaAMUsuario extends javax.swing.JDialog {
     public JPasswordField verClave(){
         return this.clave;
     }
-      public JPasswordField verClaveRepetida(){
+    public JPasswordField verClaveRepetida(){
         return this.claverepetida;
       }
 
@@ -115,17 +116,17 @@ public class VentanaAMUsuario extends javax.swing.JDialog {
             }
         });
 
-        comboPerfil.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        comboPerfil.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Encargado", "Cliente", "Empleado" }));
         comboPerfil.setToolTipText("Elija el perfil del usuario");
         comboPerfil.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         comboPerfil.setDoubleBuffered(true);
-
-        txtcorreo.setToolTipText("escriba el correo del usuario");
-        txtcorreo.addActionListener(new java.awt.event.ActionListener() {
+        comboPerfil.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtcorreoActionPerformed(evt);
+                comboPerfilActionPerformed(evt);
             }
         });
+
+        txtcorreo.setToolTipText("escriba el correo del usuario");
 
         txtnombre.setToolTipText("escriba el nombre del usuario");
         txtnombre.addActionListener(new java.awt.event.ActionListener() {
@@ -225,10 +226,6 @@ public class VentanaAMUsuario extends javax.swing.JDialog {
         System.out.println(gestor.crearUsuario(correo, apellido, nombre, perfil, new String(clave), new String(claveRep)));
     }//GEN-LAST:event_Aceptar_botonActionPerformed
 
-    private void txtcorreoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtcorreoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtcorreoActionPerformed
-
     private void txtnombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtnombreActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtnombreActionPerformed
@@ -244,6 +241,10 @@ public class VentanaAMUsuario extends javax.swing.JDialog {
     private void boton_cancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_cancelarActionPerformed
        this.dispose();
     }//GEN-LAST:event_boton_cancelarActionPerformed
+
+    private void comboPerfilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboPerfilActionPerformed
+            // TODO add your handlicode here:
+    }//GEN-LAST:event_comboPerfilActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Aceptar_boton;

@@ -259,37 +259,5 @@ public class GestorProductos implements IGestorProductos {
             }
         }
     }
-    //agregado metodo para guardar el producto nuevo en el archivo
-//    private void guardarEnArchivo() {
-//        BufferedWriter bw = null;
-//        File file = new File(archivoproductos);
-//        try {     
-//            FileWriter fw = new FileWriter(file);
-//            bw = new BufferedWriter(fw);
-//            for(int i = 0; i < this.productos.size(); i++) {
-//                Producto unProducto = this.productos.get(i);
-//                String cadena = unProducto.verCodigo() + ",";
-//                cadena += unProducto.verDescripcion()+ ","; 
-//                cadena += unProducto.verCategoria()+ ","; 
-//                cadena += unProducto.verEstado()+ ","; 
-//                cadena += unProducto.verPrecio()+ ","; 
-//                bw.write(cadena);
-//                if (i < this.productos.size() - 1)
-//                    bw.newLine();
-//            }
-//        } 
-//        catch (IOException ioe) {
-//            System.out.println("Ocurrio un error de entrada y salida de datos ");
-//        }
-//        finally {
-//            if (bw != null) {
-//                try {
-//                    bw.close();
-//                }
-//                catch (IOException ioe) {
-//                    ioe.printStackTrace();
-//                }
-//            }            
-//        }
-//    }       
+
 }

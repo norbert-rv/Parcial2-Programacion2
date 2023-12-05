@@ -40,4 +40,6 @@ public interface IGestorProductos {
     public static final String PRODUCTOS_DUPLICADOS = "Ya existe un producto con ese código";
     public static final String VALIDACION_EXITO = "Los datos del producto son correctos";
     public static final String PRODUCTO_INEXISTENTE = "No existe el producto especificado";
+    
+    public static final String ERROR_BORRAR_PRODUCTO = "No se puede borrar el producto porque existe un pedido con el mismo.";
 }

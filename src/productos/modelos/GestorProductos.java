@@ -178,8 +178,7 @@ public class GestorProductos implements IGestorProductos {
             this.escribir();
             return EXITO;
         } else {
-            // ver esto. No hay un mensaje para este caso en las constantes
-            return "No se puede borrar el producto porque existe un pedido con el mismo.";
+            return ERROR_BORRAR_PRODUCTO;
         }
     }
     //creado metodo para escribir los productos creados en el archivo de texto

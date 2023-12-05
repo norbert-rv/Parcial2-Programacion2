@@ -16,14 +16,14 @@ public class Empleado extends Usuario {
 
     // Constructor para la clase Empleado
     public Empleado(String correo, String contrasenia, String apellido, String nombre) {
-        super(correo, contrasenia,apellido, nombre);
+        super(correo, contrasenia, apellido, nombre);
     }
 
     @Override
     public List<Pedido> verPedidos() {
-        
+
         GestorPedidos gp = GestorPedidos.crearGestorPedidos();
-        
+
         return gp.verPedidos();
     }
 }

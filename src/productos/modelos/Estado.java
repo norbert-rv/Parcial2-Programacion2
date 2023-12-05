@@ -10,12 +10,13 @@ package productos.modelos;
  */
 public enum Estado {
     DISPONIBLE, NO_DISPONIBLE;
-    
+
     @Override
-    public String toString(){
-        if(this.name().equals("DISPONIBLE"))
+    public String toString() {
+        if (this.name().equals("DISPONIBLE")) {
             return "Disponible";
-        else
+        } else {
             return "No disponible";
+        }
     }
 }

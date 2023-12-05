@@ -90,6 +90,18 @@ public class Pedido {
         this.productoDelPedido = productoDelPedido;
     }
 
+    public Estado verEstado() {
+        return estado;
+    }
+
+    public void asignarEstado(Estado estado) {
+        this.estado = estado;
+    }
+
+    public Cliente verCliente() {
+        return cliente;
+    }
+    
     @Override
     public int hashCode() {
         int hash = 3;
@@ -112,16 +124,5 @@ public class Pedido {
         return this.numero == other.numero;
     }
 
-    public Estado verEstado() {
-        return estado;
-    }
-
-    public void asignarEstado(Estado estado) {
-        this.estado = estado;
-    }
-
-    public Cliente verCliente() {
-        return cliente;
-    }
 
 }

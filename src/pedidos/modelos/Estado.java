@@ -10,9 +10,9 @@ package pedidos.modelos;
  */
 public enum Estado {
     CREADO, SOLICITADO, PROCESANDO, ENTREGADO;
-    
+
     @Override
-    public String toString(){
+    public String toString() {
         return this.name();
     }
 }

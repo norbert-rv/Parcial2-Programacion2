@@ -22,6 +22,7 @@ public class GestorPedidos implements IGestorPedidos {
 
     List<Pedido> pedidos = new ArrayList<>();
 
+    // Patrón Singleton
     private static GestorPedidos gestor;
 
     private GestorPedidos() {
@@ -70,9 +71,9 @@ public class GestorPedidos implements IGestorPedidos {
     }
 
     public List<Pedido> verPedidos() {
-        
+
         Collections.sort(pedidos, new CompPedidoNumAsc());
-        
+
         return pedidos;
     }
 
@@ -143,23 +144,16 @@ public class GestorPedidos implements IGestorPedidos {
 
     }
 
-    @Override
     public String cancelarPedido(Pedido pedido) {
-        
-        if(this.existeEstePedido(pedido)){
+
+        if (this.existeEstePedido(pedido)) {
             pedido.verCliente().cancelarPedido(pedido);
-            
+
             return EXITO;
-        }
-        else{
+        } else {
             return PEDIDO_INEXISTENTE;
         }
-            
-    }
 
-//    @Override
-//    public String crearPedido(LocalDate fecha, LocalTime hora, List<ProductoDelPedido> productosDelPedido, Cliente cliente) {
-//        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-//    }
+    }
 
 }

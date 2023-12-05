@@ -12,6 +12,7 @@ import productos.modelos.Producto;
  * @author norbert
  */
 public class ProductoDelPedido {
+
     private int cantidad;
     private Producto producto;
 
@@ -57,5 +58,5 @@ public class ProductoDelPedido {
         final ProductoDelPedido other = (ProductoDelPedido) obj;
         return Objects.equals(this.producto, other.producto);
     }
-    
+
 }

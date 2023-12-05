@@ -9,7 +9,7 @@ package productos.modelos;
  * @author estudiante
  */
 public enum Categoria {
-     ENTRADA,PLATO_PRINCIPAL,POSTRE;
+    ENTRADA, PLATO_PRINCIPAL, POSTRE;
 
     @Override
     public String toString() {

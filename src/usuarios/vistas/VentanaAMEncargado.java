@@ -11,17 +11,19 @@ import javax.swing.JDialog;
 import usuarios.modelos.Encargado;
 
 public class VentanaAMEncargado extends JDialog {
+
     private ArrayList<Encargado> encargado = new ArrayList<>();
-    
+
     /**
      * Constructor
-     * @param ventanaPadre ventana padre 
+     *
+     * @param ventanaPadre ventana padre
      */
     public VentanaAMEncargado(Dialog ventanaPadre) {
         super(ventanaPadre, true);
         initComponents();
     }
-          
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

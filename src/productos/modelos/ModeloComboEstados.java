@@ -12,28 +12,30 @@ import javax.swing.DefaultComboBoxModel;
  * @author root
  */
 public class ModeloComboEstados extends DefaultComboBoxModel {
-    
+
     /**
      * Constructor
-    */
-    public ModeloComboEstados() { 
+     */
+    public ModeloComboEstados() {
         for (Estado estado : Estado.values()) {
-            this.addElement(estado); 
+            this.addElement(estado);
         }
     }
-    
+
     /**
      * Devuelve el estado seleccionado
-     * @return Estado  - estado seleccionado
-    */
-    public Estado obtenerEstado() { 
-        return (Estado)this.getSelectedItem();
+     *
+     * @return Estado - estado seleccionado
+     */
+    public Estado obtenerEstado() {
+        return (Estado) this.getSelectedItem();
     }
-    
+
     /**
      * Selecciona el Estado especificado
+     *
      * @param estado estado
-    */
+     */
     public void seleccionarEstado(Estado estado) {
         this.setSelectedItem(estado);
     }

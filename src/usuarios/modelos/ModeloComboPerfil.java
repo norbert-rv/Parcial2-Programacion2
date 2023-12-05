@@ -11,27 +11,30 @@ import javax.swing.DefaultComboBoxModel;
  * @author tomascabrerabellomo
  */
 public class ModeloComboPerfil extends DefaultComboBoxModel {
+
     /**
      * Constructor
-    */
-    public ModeloComboPerfil() { 
+     */
+    public ModeloComboPerfil() {
         for (Perfil perfil : Perfil.values()) {
-            this.addElement(perfil); 
+            this.addElement(perfil);
         }
     }
-    
+
     /**
      * Devuelve la categoria seleccionada
-     * @return Categoria  - categoría seleccionada
-    */
-    public Perfil obtenerPerfil() { 
-        return (Perfil)this.getSelectedItem();
+     *
+     * @return Categoria - categoría seleccionada
+     */
+    public Perfil obtenerPerfil() {
+        return (Perfil) this.getSelectedItem();
     }
-    
+
     /**
      * Selecciona la Categoria especificada
+     *
      * @param perfil categoría
-    */
+     */
     public void seleccionarPerfil(Perfil perfil) {
         this.setSelectedItem(perfil);
     }

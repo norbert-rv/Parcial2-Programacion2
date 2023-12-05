@@ -21,9 +21,9 @@ public class Encargado extends Usuario {
 
     @Override
     public List<Pedido> verPedidos() {
-        
+
         GestorPedidos gp = GestorPedidos.crearGestorPedidos();
-        
+
         return gp.verPedidos();
     }
 }

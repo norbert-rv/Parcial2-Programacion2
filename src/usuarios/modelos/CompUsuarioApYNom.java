@@ -10,16 +10,15 @@ import java.util.Comparator;
  *
  * @author estudiante
  */
-public class CompUsuarioApYNom implements Comparator<Usuario>{
+public class CompUsuarioApYNom implements Comparator<Usuario> {
 
     @Override
     public int compare(Usuario t, Usuario t1) {
-        if(t.verApellido().compareTo(t1.verApellido()) == 0){
+        if (t.verApellido().compareTo(t1.verApellido()) == 0) {
             return t.verNombre().compareTo(t1.verNombre());
-        }
-        else{
+        } else {
             return t.verApellido().compareTo(t1.verApellido());
         }
     }
-    
+
 }

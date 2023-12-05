@@ -10,11 +10,10 @@ import java.util.Comparator;
  *
  * @author estudiante
  */
-public class CompProductoDesc implements Comparator<Producto>{
+public class CompProductoDesc implements Comparator<Producto> {
 
-    @Override
     public int compare(Producto t, Producto t1) {
         return t.toString().compareTo(t1.toString());
     }
-    
+
 }

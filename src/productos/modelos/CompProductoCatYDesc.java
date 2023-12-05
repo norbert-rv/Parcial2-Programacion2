@@ -12,14 +12,12 @@ import java.util.Comparator;
  */
 public class CompProductoCatYDesc implements Comparator<Producto> {
 
-    @Override
     public int compare(Producto t, Producto t1) {
-        if(t.verCategoria().compareTo(t1.verCategoria()) == 0){
+        if (t.verCategoria().compareTo(t1.verCategoria()) == 0) {
             return t.toString().compareTo(t1.toString());
-        }
-        else{
+        } else {
             return t.verCategoria().compareTo(t1.verCategoria());
         }
     }
-    
+
 }

@@ -15,7 +15,7 @@ public class Producto {
     private Categoria categoria;
     private Estado estado;
     private float precio;
-    
+
     public void mostrar() {
         System.out.println("Codigo: " + codigo
                 + "\nDescripción: " + descripcion
@@ -23,21 +23,22 @@ public class Producto {
                 + "\nPrecio: " + precio
                 + "\nEstado: " + estado.toString());
     }
-    
+
     // Constructor de la clase Producto
-    public Producto(int codigo, String descripcion, Categoria cat, Estado estado, float precio){
+    public Producto(int codigo, String descripcion, Categoria cat, Estado estado, float precio) {
         this.codigo = codigo;
         this.descripcion = descripcion;
         this.categoria = cat;
         this.estado = estado;
         this.precio = precio;
     }
-    
+
     // Constructor vacío
-    public Producto(){}
-    
+    public Producto() {
+    }
+
     @Override
-    public String toString(){
+    public String toString() {
         return descripcion;
     }
 

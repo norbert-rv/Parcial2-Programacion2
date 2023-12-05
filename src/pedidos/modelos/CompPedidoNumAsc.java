@@ -14,10 +14,10 @@ public class CompPedidoNumAsc implements Comparator<Pedido> {
 
     /*
     Comparator para comparar objetos de la clase Pedido.
-    */
+     */
     @Override
     public int compare(Pedido t, Pedido t1) {
         return t.verNumero() - t1.verNumero();
     }
-    
+
 }

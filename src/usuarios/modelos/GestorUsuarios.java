@@ -4,7 +4,6 @@
  */
 package usuarios.modelos;
 
-import interfaces.IGestorPedidos;
 import interfaces.IGestorUsuarios;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -13,7 +12,7 @@ import pedidos.modelos.GestorPedidos;
 
 /**
  *
- * @author ivana
+ * @author
  */
 public class GestorUsuarios implements IGestorUsuarios {
 

@@ -25,10 +25,10 @@ import usuarios.vistas.VentanaAMUsuario;
  */
 public class ControladorPrincipalTP7  {
     public static void main(String[] args) {
-//        IGestorProductos gp = GestorProductos.instanciar();
+//        IGestorProductos gp = GestorProductos.instanciar("ArchivoProductos");
         IGestorUsuarios gu = GestorUsuarios.instanciar();
         List<Usuario> usuarios =new ArrayList<>();
-        //Creación de productos
+//        //Creación de productos
 //
 //        /*Usar una vez la creación para verificar que se guardan en el archivo*/
 //        System.out.println(gp.crearProducto(1, "Producto1", 1.0f, Categoria.ENTRADA, Estado.DISPONIBLE));       
@@ -116,7 +116,7 @@ public class ControladorPrincipalTP7  {
 //                System.out.println();
 //            }
 //        }
-        System.out.println();
+//        System.out.println();
         
         establecerLookAndFeel("Nimbus"); 
         VentanaAMUsuario ventanaAUsuario = new VentanaAMUsuario(null);

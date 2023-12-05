@@ -27,7 +27,7 @@ public class VentanaAMUsuario extends javax.swing.JDialog {
         initComponents();
         this.configurarperfil();
         this.setLocationRelativeTo(null);
-        this.setTitle("Nuevo producto");
+        this.setTitle("Nuevo usuario");
         this.setVisible(true);
 
         
@@ -206,14 +206,19 @@ public class VentanaAMUsuario extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void Aceptar_botonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Aceptar_botonActionPerformed
-        String correo = this.txtcorreo.getText().trim();
-        String apellido = this.txtapellido.getText().trim();
-        String nombre = this.txtnombre.getText().trim();
-        char[] clave1 = this.clave.getPassword();
-        char[] claveRep = this.claverepetida.getPassword();
-        IGestorUsuarios gestor = GestorUsuarios.instanciar();
-        Perfil perfil = ((ModeloComboPerfil)this.cboPerfil.getModel()).obtenerPerfil();        
-        System.out.println(gestor.crearUsuario(correo, apellido, nombre, perfil, new String(clave1), new String(claveRep)));
+        String correo = this.verCorreo().getText().trim();
+//        String correo = this.txtcorreo.getText().trim();
+        String apellido = this.verApellido().getText().trim();
+//        String apellido = this.txtapellido.getText().trim();
+        String nombre = this.verNombre().getText().trim();
+//        String nombre = this.txtnombre.getText().trim();
+        char[] clave = this.verClave().getPassword();
+        char[] claveRepetida = this.verClaveRepetida().getPassword();
+        Perfil perfil = ((ModeloComboPerfil)cboPerfil.getModel()).obtenerPerfil();
+        
+        IGestorUsuarios gu = GestorUsuarios.instanciar();
+        
+        System.out.println(gu.crearUsuario(correo, apellido, nombre, perfil, new String(clave), new String(claveRepetida)));
     }//GEN-LAST:event_Aceptar_botonActionPerformed
 
     private void jTextField9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField9ActionPerformed

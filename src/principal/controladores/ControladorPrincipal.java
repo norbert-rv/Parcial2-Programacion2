@@ -6,7 +6,7 @@
 package principal.controladores;
 
 import java.awt.event.ActionEvent;
-import principal.vistas.IControladorPrincipal;
+import interfaces.IControladorPrincipal;
 
 
 /**

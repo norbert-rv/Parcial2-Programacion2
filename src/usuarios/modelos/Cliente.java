@@ -47,4 +47,9 @@ public class Cliente extends Usuario {
         pedidos.remove(pedido);
     }
 
+    // redefinicion de toString para que devuelva el nombre correspondiente al Perfil. Para usar en método escribir() de GestorUsuarios.
+    @Override
+    public String toString() {
+        return "CLIENTE";
+    }
 }

@@ -5,6 +5,13 @@
 package usuarios.modelos;
 
 import interfaces.IGestorUsuarios;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -18,15 +25,22 @@ public class GestorUsuarios implements IGestorUsuarios {
 
     private List<Usuario> usuarios = new ArrayList<>();
 
+    // nombre del archivo que guarda los usuarios
+    private String archivoUsuarios;
+    // constante para el separador de valores
+    private static final String REGEX_ARCHIVO_USUARIOS = ",";
+
     // Patrón Singleton
     private static GestorUsuarios gestor;
 
-    private GestorUsuarios() {
+    private GestorUsuarios(String archivoUsuarios) {
+        this.archivoUsuarios = archivoUsuarios;
+        this.leer(this.archivoUsuarios);
     }
 
-    public static GestorUsuarios instanciar() {
+    public static GestorUsuarios instanciar(String archivoUsuarios) {
         if (gestor == null) {
-            gestor = new GestorUsuarios();
+            gestor = new GestorUsuarios(archivoUsuarios);
         }
         return gestor;
     }
@@ -81,6 +95,7 @@ public class GestorUsuarios implements IGestorUsuarios {
     private String agregarUsuario(Usuario u) {
         if (!usuarios.contains(u)) {
             usuarios.add(u);
+            this.escribir();
             return EXITO;
         } else {
             return USUARIOS_DUPLICADOS;
@@ -138,10 +153,104 @@ public class GestorUsuarios implements IGestorUsuarios {
 
         if (!gp.hayPedidosConEsteCliente((Cliente) usuario)) {
             usuarios.remove(usuario);
+            this.escribir();
             return EXITO;
         } else {
             // será que tengo que mostrar este mensaje aquí???
             return ERROR_PERMISOS;
+        }
+    }
+
+    private void escribir() {
+        BufferedWriter bw = null;
+        
+        File f = new File(archivoUsuarios);
+        
+        try {
+            FileWriter fw = new FileWriter(f);
+            bw = new BufferedWriter(fw);
+            
+            // recorro el ArrayList para escribir los usuarios en el archivo de texto
+            for(int i = 0; i < usuarios.size(); i++) {
+                Usuario u = usuarios.get(i);
+                String linea;
+                
+                // comienzo el archivo con el perfil de cada usuario...
+                               
+                linea = u.toString() + REGEX_ARCHIVO_USUARIOS;
+                linea += u.verCorreo() + REGEX_ARCHIVO_USUARIOS;
+                linea += u.verContrasenia() + REGEX_ARCHIVO_USUARIOS;
+                linea += u.verApellido() + REGEX_ARCHIVO_USUARIOS;
+                linea += u.verNombre();
+                
+                bw.write(linea);
+                
+                if (i < this.usuarios.size() - 1) {
+                    bw.newLine();
+                }
+            }
+        } catch (IOException e) {
+            System.out.println("Ha ocurrido un error de entrada o salida de datos");
+        } finally {
+            if (bw != null) {
+                try {
+                    bw.close();
+                } catch (IOException ioe) {
+                    ioe.printStackTrace();
+                }
+            }
+        }
+    }
+
+    private void leer(String nombreArchivo) {
+        BufferedReader br = null;
+
+        File f = new File(nombreArchivo);
+
+        if (f.exists()) {
+            try {
+                FileReader fr = new FileReader(f);
+                br = new BufferedReader(fr);
+                String linea;
+
+                while ((linea = br.readLine()) != null) {
+                    String[] vectorUsuario = linea.split(REGEX_ARCHIVO_USUARIOS);
+                    Perfil perfil = Perfil.valueOf(vectorUsuario[0]);
+                    String correo = vectorUsuario[1];
+                    String contrasenia = vectorUsuario[2];
+                    String apellido = vectorUsuario[3];
+                    String nombre = vectorUsuario[4];
+
+                    Usuario usuario;
+                    switch (perfil) {
+                        case CLIENTE:
+                            usuario = new Cliente(correo, contrasenia, apellido, nombre);
+                            break;
+                        case EMPLEADO:
+                            usuario = new Empleado(correo, contrasenia, apellido, nombre);
+                            break;
+                        default:
+                            usuario = new Encargado(correo, contrasenia, apellido, nombre);
+                            break;
+                    }
+
+                    this.usuarios.add(usuario);
+                }
+            } catch (FileNotFoundException fnf) {
+                System.out.println("No se pudo encontrar el archivo para abrirlo");
+            } catch (IOException fr) {
+                System.out.println("No se pudo leer el archivo.");
+            } catch (IllegalArgumentException fnf) {
+                System.out.println("El argumento que ha ingresado no es válido");
+            } finally {
+                if (br != null) {
+                    try {
+                        br.close();
+                    } catch (IOException fr) {
+                        fr.printStackTrace();
+                    }
+                }
+            }
         }
     }
 }

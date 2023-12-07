@@ -182,7 +182,7 @@ public class GestorProductos implements IGestorProductos {
         }
     }
     //creado metodo para escribir los productos creados en el archivo de texto
-
+    // queda el método publico??
     public void escribir() {
         BufferedWriter bw = null;
         File f = new File(this.archivoproductos);
@@ -206,7 +206,7 @@ public class GestorProductos implements IGestorProductos {
                     bw.newLine();
                 }
             }
-
+             // está repetido el bw.close() avisar tomi ???
             bw.close();
         } catch (IOException e) {
             System.out.println("Ha ocurrido un error de entrada o salida de datos");

@@ -26,4 +26,9 @@ public class Empleado extends Usuario {
 
         return gp.verPedidos();
     }
+    
+    @Override
+    public String toString() {
+        return "EMPLEADO";
+    }
 }

@@ -26,4 +26,9 @@ public class Encargado extends Usuario {
 
         return gp.verPedidos();
     }
+    
+    @Override
+    public String toString() {
+        return "ENCARGADO";
+    }
 }

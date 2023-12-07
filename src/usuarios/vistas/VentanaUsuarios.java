@@ -114,6 +114,14 @@ public class VentanaUsuarios extends javax.swing.JDialog {
 
         apellidotxt.setText("Apellido:");
 
+        tablaUsuarios.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+
+            }
+        ));
         jScrollPane1.setViewportView(tablaUsuarios);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

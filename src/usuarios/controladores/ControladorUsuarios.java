@@ -8,12 +8,19 @@ import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 import java.awt.event.WindowEvent;
 import interfaces.IControladorUsuarios;
+import usuarios.vistas.VentanaUsuarios;
 
 /**
  *
  * @author tomascabrerabellomo
  */
 public class ControladorUsuarios implements IControladorUsuarios{
+
+    private VentanaUsuarios ventanaUsuarios;
+    
+    public ControladorUsuarios(java.awt.Frame ventanaPadre) {
+        this.ventanaUsuarios = new VentanaUsuarios(ventanaPadre, true, this);
+    }
 
     @Override
     public void btnNuevoClic(ActionEvent evt) {
@@ -33,6 +40,9 @@ public class ControladorUsuarios implements IControladorUsuarios{
 
     @Override
     public void btnVolverClic(ActionEvent evt) {
+        // por ahora solo cerrar la ventana. ¿Hay que hacer algo más?
+        // ¿Qué pasa que no se cierra?
+        this.ventanaUsuarios.dispose();
     }
 
     @Override

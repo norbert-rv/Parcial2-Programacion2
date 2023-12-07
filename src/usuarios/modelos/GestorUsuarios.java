@@ -26,21 +26,21 @@ public class GestorUsuarios implements IGestorUsuarios {
     private List<Usuario> usuarios = new ArrayList<>();
 
     // nombre del archivo que guarda los usuarios
-    private String archivoUsuarios;
+    // POR EL MOMENTO VAMOS A DEFINIR EL NOMBRE AQUI PORQUE ES PREFERIBLE A HACERLO EN VentanaAMUsuario, debería entrar como parámetro ahí desde el main...
+    private String archivoUsuarios = "archivo_usuarios.txt";
     // constante para el separador de valores
     private static final String REGEX_ARCHIVO_USUARIOS = ",";
 
     // Patrón Singleton
     private static GestorUsuarios gestor;
 
-    private GestorUsuarios(String archivoUsuarios) {
-        this.archivoUsuarios = archivoUsuarios;
+    private GestorUsuarios() {
         this.leer(this.archivoUsuarios);
     }
 
-    public static GestorUsuarios instanciar(String archivoUsuarios) {
+    public static GestorUsuarios instanciar() {
         if (gestor == null) {
-            gestor = new GestorUsuarios(archivoUsuarios);
+            gestor = new GestorUsuarios();
         }
         return gestor;
     }

@@ -8,12 +8,12 @@ package usuarios.vistas;
  *
  * @author tomascabrerabellomo
  */
-public class Ventanacrear_modificarusuario extends javax.swing.JDialog {
+public class VentanaCrearYModificarUsuario extends javax.swing.JDialog {
 
     /**
      * Creates new form Ventanacrear_modificarusuario
      */
-    public Ventanacrear_modificarusuario(java.awt.Frame parent, boolean modal) {
+    public VentanaCrearYModificarUsuario(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
     }
@@ -165,20 +165,21 @@ public class Ventanacrear_modificarusuario extends javax.swing.JDialog {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Ventanacrear_modificarusuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VentanaCrearYModificarUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Ventanacrear_modificarusuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VentanaCrearYModificarUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Ventanacrear_modificarusuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VentanaCrearYModificarUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Ventanacrear_modificarusuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VentanaCrearYModificarUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                Ventanacrear_modificarusuario dialog = new Ventanacrear_modificarusuario(new javax.swing.JFrame(), true);
+                VentanaCrearYModificarUsuario dialog = new VentanaCrearYModificarUsuario(new javax.swing.JFrame(), true);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {

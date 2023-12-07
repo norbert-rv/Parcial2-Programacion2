@@ -6,10 +6,12 @@ package usuarios.vistas;
 
 import interfaces.IControladorUsuarios;
 import static interfaces.IControladorUsuarios.TITULO;
+import javax.swing.JTable;
+import usuarios.modelos.ModeloTabla;
 
 /**
  *
- * @author tomascabrerabellomo
+ * @author tomascabrerabellomo y norberto
  */
 public class VentanaUsuarios extends javax.swing.JDialog {
 
@@ -26,6 +28,11 @@ public class VentanaUsuarios extends javax.swing.JDialog {
         this.setLocationRelativeTo(null);
         this.setTitle(TITULO);
         this.setVisible(true);
+        this.tablaUsuarios.setModel(new ModeloTabla());
+    }
+
+    public JTable obtenerTablaUsuarios() {
+        return tablaUsuarios;
     }
 
     /**
@@ -107,17 +114,6 @@ public class VentanaUsuarios extends javax.swing.JDialog {
 
         apellidotxt.setText("Apellido:");
 
-        tablaUsuarios.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3"
-            }
-        ));
         jScrollPane1.setViewportView(tablaUsuarios);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

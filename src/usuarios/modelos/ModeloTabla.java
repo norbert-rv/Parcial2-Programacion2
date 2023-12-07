@@ -16,12 +16,12 @@ public class ModeloTabla extends AbstractTableModel {
     
     @Override
     public int getRowCount() {
-       return 1;
+       return 3;
     }
     
     @Override
     public int getColumnCount() {
-        return 1;
+        return 3;
     }
     
     @Override

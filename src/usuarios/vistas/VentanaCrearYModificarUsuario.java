@@ -6,23 +6,34 @@ package usuarios.vistas;
 
 import interfaces.IControladorAMUsuario;
 import javax.swing.JComboBox;
+import usuarios.modelos.ModeloComboPerfil;
 
 /**
  *
  * @author tomascabrerabellomo
  */
 public class VentanaCrearYModificarUsuario extends javax.swing.JDialog {
-    
+
     // controlador
     private IControladorAMUsuario controlador;
-    
+
     /**
      * Creates new form Ventanacrear_modificarusuario
      */
     public VentanaCrearYModificarUsuario(java.awt.Frame parent, boolean modal, IControladorAMUsuario controlador) {
         super(parent, modal);
-        this.controlador=controlador;
+        this.controlador = controlador;
+        this.configurarperfil();
         initComponents();
+    }
+
+    private void configurarperfil() {
+        ModeloComboPerfil modelo = new ModeloComboPerfil();
+        this.ComboPerfil.setModel(modelo);
+    }
+
+    public JComboBox<String> obtenerComboPerfil() {
+        return ComboPerfil;
     }
 
     /**
@@ -194,7 +205,7 @@ public class VentanaCrearYModificarUsuario extends javax.swing.JDialog {
 //    public JComboBox verCategoria() {
 //        return this.comboCategoria;
 //    }
-    
+
     private void contraseñatextoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_contraseñatextoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_contraseñatextoActionPerformed

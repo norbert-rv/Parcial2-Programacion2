@@ -33,4 +33,21 @@ public class ModeloTabla extends AbstractTableModel {
     public String getColumnName(int columna) {
         return null;
     }
+    
+    // VER CUALES HAY QUE IMPLEMENTAR
+    
+//    @Override
+//    public boolean isCellEditable(int fila, int columna) {
+//        return true;
+//    }
+//    
+//    @Override
+//    public void setValueAt(Object unValor, int fila, int columna) {
+//        
+//    }
+//    
+//    @Override
+//    public Class<> getColumnClass(int columna) {
+//        
+//    }
 }

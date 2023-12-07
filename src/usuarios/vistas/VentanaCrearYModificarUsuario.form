@@ -45,7 +45,7 @@
                   <Component id="textocorreo" alignment="0" max="32767" attributes="0"/>
                   <Component id="textoapellido" alignment="0" max="32767" attributes="0"/>
                   <Component id="textonombre" alignment="0" max="32767" attributes="0"/>
-                  <Component id="jComboBox1" alignment="0" pref="200" max="32767" attributes="0"/>
+                  <Component id="ComboPerfil" alignment="0" pref="200" max="32767" attributes="0"/>
                   <Component id="contraseñatexto" alignment="0" max="32767" attributes="0"/>
                   <Component id="contraseñareptexto" alignment="0" max="32767" attributes="0"/>
               </Group>
@@ -74,7 +74,7 @@
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="botonperfil" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jComboBox1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="ComboPerfil" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -106,11 +106,17 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Cancelar"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botoncancelarActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="botonguardar">
       <Properties>
         <Property name="text" type="java.lang.String" value="Guardar"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonguardarActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="botonnombre">
       <Properties>
@@ -138,22 +144,34 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="textocorreo">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="textocorreoActionPerformed"/>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="textocorreoKeyTyped"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="textoapellido">
+      <Events>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="textoapellidoKeyTyped"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="textonombre">
+      <Events>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="textonombreKeyTyped"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JPasswordField" name="contrase&#xf1;atexto">
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="contrase&#xf1;atextoActionPerformed"/>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="contrase&#xf1;atextoKeyTyped"/>
       </Events>
     </Component>
     <Component class="javax.swing.JPasswordField" name="contrase&#xf1;areptexto">
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="contrase&#xf1;areptextoActionPerformed"/>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="contrase&#xf1;areptextoKeyTyped"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JComboBox" name="jComboBox1">
+    <Component class="javax.swing.JComboBox" name="ComboPerfil">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="4">

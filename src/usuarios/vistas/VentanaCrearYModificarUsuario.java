@@ -4,17 +4,24 @@
  */
 package usuarios.vistas;
 
+import interfaces.IControladorAMUsuario;
+import javax.swing.JComboBox;
+
 /**
  *
  * @author tomascabrerabellomo
  */
 public class VentanaCrearYModificarUsuario extends javax.swing.JDialog {
-
+    
+    // controlador
+    private IControladorAMUsuario controlador;
+    
     /**
      * Creates new form Ventanacrear_modificarusuario
      */
-    public VentanaCrearYModificarUsuario(java.awt.Frame parent, boolean modal) {
+    public VentanaCrearYModificarUsuario(java.awt.Frame parent, boolean modal, IControladorAMUsuario controlador) {
         super(parent, modal);
+        this.controlador=controlador;
         initComponents();
     }
 
@@ -40,15 +47,25 @@ public class VentanaCrearYModificarUsuario extends javax.swing.JDialog {
         textonombre = new javax.swing.JTextField();
         contraseñatexto = new javax.swing.JPasswordField();
         contraseñareptexto = new javax.swing.JPasswordField();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        ComboPerfil = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         botoncorreo.setText("Correo:");
 
         botoncancelar.setText("Cancelar");
+        botoncancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botoncancelarActionPerformed(evt);
+            }
+        });
 
         botonguardar.setText("Guardar");
+        botonguardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonguardarActionPerformed(evt);
+            }
+        });
 
         botonnombre.setText("Nombre:");
 
@@ -60,9 +77,37 @@ public class VentanaCrearYModificarUsuario extends javax.swing.JDialog {
 
         claveduplicada.setText("Repetir clave:");
 
+        textocorreo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textocorreoActionPerformed(evt);
+            }
+        });
+        textocorreo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                textocorreoKeyTyped(evt);
+            }
+        });
+
+        textoapellido.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                textoapellidoKeyTyped(evt);
+            }
+        });
+
+        textonombre.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                textonombreKeyTyped(evt);
+            }
+        });
+
         contraseñatexto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 contraseñatextoActionPerformed(evt);
+            }
+        });
+        contraseñatexto.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                contraseñatextoKeyTyped(evt);
             }
         });
 
@@ -71,8 +116,13 @@ public class VentanaCrearYModificarUsuario extends javax.swing.JDialog {
                 contraseñareptextoActionPerformed(evt);
             }
         });
+        contraseñareptexto.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                contraseñareptextoKeyTyped(evt);
+            }
+        });
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        ComboPerfil.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -98,7 +148,7 @@ public class VentanaCrearYModificarUsuario extends javax.swing.JDialog {
                     .addComponent(textocorreo)
                     .addComponent(textoapellido)
                     .addComponent(textonombre)
-                    .addComponent(jComboBox1, 0, 200, Short.MAX_VALUE)
+                    .addComponent(ComboPerfil, 0, 200, Short.MAX_VALUE)
                     .addComponent(contraseñatexto)
                     .addComponent(contraseñareptexto))
                 .addContainerGap(62, Short.MAX_VALUE))
@@ -121,7 +171,7 @@ public class VentanaCrearYModificarUsuario extends javax.swing.JDialog {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(botonperfil)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(ComboPerfil, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(botonclave)
@@ -140,6 +190,11 @@ public class VentanaCrearYModificarUsuario extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    // getter para el comboPerfil
+//    public JComboBox verCategoria() {
+//        return this.comboCategoria;
+//    }
+    
     private void contraseñatextoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_contraseñatextoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_contraseñatextoActionPerformed
@@ -148,50 +203,83 @@ public class VentanaCrearYModificarUsuario extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_contraseñareptextoActionPerformed
 
+    private void textocorreoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textocorreoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textocorreoActionPerformed
+
+    private void botonguardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonguardarActionPerformed
+        this.controlador.btnGuardarClic(evt);
+    }//GEN-LAST:event_botonguardarActionPerformed
+
+    private void botoncancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botoncancelarActionPerformed
+        this.controlador.btnCancelarClic(evt);
+    }//GEN-LAST:event_botoncancelarActionPerformed
+
+    private void textocorreoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textocorreoKeyTyped
+        this.controlador.txtCorreoPresionarTecla(evt);
+    }//GEN-LAST:event_textocorreoKeyTyped
+
+    private void textoapellidoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textoapellidoKeyTyped
+        this.controlador.txtApellidoPresionarTecla(evt);
+    }//GEN-LAST:event_textoapellidoKeyTyped
+
+    private void textonombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textonombreKeyTyped
+        this.controlador.txtNombrePresionarTecla(evt);
+    }//GEN-LAST:event_textonombreKeyTyped
+
+    private void contraseñatextoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_contraseñatextoKeyTyped
+        this.controlador.passClavePresionarTecla(evt);
+    }//GEN-LAST:event_contraseñatextoKeyTyped
+
+    private void contraseñareptextoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_contraseñareptextoKeyTyped
+        this.controlador.passClaveRepetidaPresionarTecla(evt);
+    }//GEN-LAST:event_contraseñareptextoKeyTyped
+
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(VentanaCrearYModificarUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(VentanaCrearYModificarUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(VentanaCrearYModificarUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(VentanaCrearYModificarUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-
-        /* Create and display the dialog */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                VentanaCrearYModificarUsuario dialog = new VentanaCrearYModificarUsuario(new javax.swing.JFrame(), true);
-                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
-                    @Override
-                    public void windowClosing(java.awt.event.WindowEvent e) {
-                        System.exit(0);
-                    }
-                });
-                dialog.setVisible(true);
-            }
-        });
-    }
+//    public static void main(String args[]) {
+//        /* Set the Nimbus look and feel */
+//        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+//        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+//         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+//         */
+//        try {
+//            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+//                if ("Nimbus".equals(info.getName())) {
+//                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+//                    break;
+//                }
+//            }
+//        } catch (ClassNotFoundException ex) {
+//            java.util.logging.Logger.getLogger(VentanaCrearYModificarUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (InstantiationException ex) {
+//            java.util.logging.Logger.getLogger(VentanaCrearYModificarUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (IllegalAccessException ex) {
+//            java.util.logging.Logger.getLogger(VentanaCrearYModificarUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+//            java.util.logging.Logger.getLogger(VentanaCrearYModificarUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        }
+//        //</editor-fold>
+//        //</editor-fold>
+//
+//        /* Create and display the dialog */
+//        java.awt.EventQueue.invokeLater(new Runnable() {
+//            public void run() {
+//                VentanaCrearYModificarUsuario dialog = new VentanaCrearYModificarUsuario(new javax.swing.JFrame(), true);
+//                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
+//                    @Override
+//                    public void windowClosing(java.awt.event.WindowEvent e) {
+//                        System.exit(0);
+//                    }
+//                });
+//                dialog.setVisible(true);
+//            }
+//        });
+//    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> ComboPerfil;
     private javax.swing.JLabel botonapellido;
     private javax.swing.JButton botoncancelar;
     private javax.swing.JLabel botonclave;
@@ -202,7 +290,6 @@ public class VentanaCrearYModificarUsuario extends javax.swing.JDialog {
     private javax.swing.JLabel claveduplicada;
     private javax.swing.JPasswordField contraseñareptexto;
     private javax.swing.JPasswordField contraseñatexto;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JTextField textoapellido;
     private javax.swing.JTextField textocorreo;
     private javax.swing.JTextField textonombre;

@@ -27,6 +27,7 @@ public class GestorProductos implements IGestorProductos {
 
     //nombre del archivo que guarda los productos
     private String archivoproductos;
+    private static final String REGEX_ARCHIVO_USUARIOS = ",";
 
     // Implementación del patrón Singleton
     private static GestorProductos gestor;
@@ -195,10 +196,10 @@ public class GestorProductos implements IGestorProductos {
             for (int i = 0; i < this.productos.size(); i++) {
                 Producto unProducto = this.productos.get(i);
                 String linea;
-                linea = Integer.toString(unProducto.verCodigo()) + ",";
-                linea += unProducto.verDescripcion() + ",";
-                linea += unProducto.verCategoria() + ",";
-                linea += unProducto.verEstado() + ",";
+                linea = Integer.toString(unProducto.verCodigo()) + REGEX_ARCHIVO_USUARIOS;
+                linea += unProducto.verDescripcion() + REGEX_ARCHIVO_USUARIOS;
+                linea += unProducto.verCategoria() + REGEX_ARCHIVO_USUARIOS;
+                linea += unProducto.verEstado() + REGEX_ARCHIVO_USUARIOS;
                 linea += Float.toString(unProducto.verPrecio());
 
                 bw.write(linea);
@@ -231,7 +232,7 @@ public class GestorProductos implements IGestorProductos {
                 br = new BufferedReader(fr);
                 String linea;
                 while ((linea = br.readLine()) != null) {
-                    String[] vector = linea.split(",");
+                    String[] vector = linea.split(REGEX_ARCHIVO_USUARIOS);
                     int codigo = Integer.parseInt(vector[0]);
                     String descripcion = vector[1];
                     Categoria categoria = Categoria.valueOf(vector[2]);

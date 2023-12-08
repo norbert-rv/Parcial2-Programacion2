@@ -82,8 +82,8 @@ public class ControladorAMUsuario implements IControladorAMUsuario {
             this.ventanaCrearYModUsuario.dispose();
         } else {
             // aquí modifico el usuario utilizando el correo ingresado en el segundo constructor
-            String resultadoOperacion = ((GestorUsuarios) gu).modificarUsuario(correoUsuarioAModificar, apellido, nombre, perfil, new String(clave), new String(claveRepetida));
-
+            String resultadoOperacion = gu.modificarUsuario(correoUsuarioAModificar, apellido, nombre, perfil, new String(clave), new String(claveRepetida));
+            
             if (!resultadoOperacion.equals(VALIDACION_EXITO)) {
                 String mensajeDatosInvalidos = "Los datos no son válidos. Por favor ingrese información válida.";
                 JOptionPane.showMessageDialog(this.ventanaCrearYModUsuario, mensajeDatosInvalidos, "Error", JOptionPane.INFORMATION_MESSAGE);

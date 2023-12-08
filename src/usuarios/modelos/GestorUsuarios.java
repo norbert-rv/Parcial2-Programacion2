@@ -254,6 +254,7 @@ public class GestorUsuarios implements IGestorUsuarios {
         }
     }
     
+    @Override
     public String modificarUsuario(String correoUsuarioAModificar, String apellido, String nombre, Perfil perfil, String clave, String claveRepetida) {
         
         String salida = verificarDatos(correoUsuarioAModificar, apellido, nombre, perfil, clave, claveRepetida);

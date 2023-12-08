@@ -25,6 +25,9 @@ public interface IGestorUsuarios {
     public boolean existeEsteUsuario(Usuario usuario);
 
     public Usuario obtenerUsuario(String correo);
+    
+    // método agregado para Parcial2
+    public String modificarUsuario(String correoUsuarioAModificar, String apellido, String nombre, Perfil perfil, String clave, String claveRepetida);
 
     public static final String EXITO = "Usuario creado/modificado con éxito";
     public static final String ERROR_CORREO = "El correo del usuario es incorrecto";

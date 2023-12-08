@@ -253,4 +253,29 @@ public class GestorUsuarios implements IGestorUsuarios {
             }
         }
     }
+    
+    public String modificarUsuario(String correoUsuarioAModificar, String apellido, String nombre, Perfil perfil, String clave, String claveRepetida) {
+        
+        int indiceUsuarioAModificar = this.usuarios.indexOf(this.obtenerUsuario(correoUsuarioAModificar));
+        
+        switch (perfil) {
+            case CLIENTE:
+                Usuario cliente = new Cliente(correoUsuarioAModificar, clave, apellido, nombre);
+                this.usuarios.set(indiceUsuarioAModificar, cliente);
+                break;
+
+            case EMPLEADO:
+                Usuario empleado = new Empleado(correoUsuarioAModificar, clave, apellido, nombre);
+                this.usuarios.set(indiceUsuarioAModificar, empleado);
+                break;
+
+            // default para case ENCARGADO (sino hay que poner return para el método)
+            default:
+                Usuario encargado = new Encargado(correoUsuarioAModificar, clave, apellido, nombre);
+                this.usuarios.set(indiceUsuarioAModificar, encargado);
+                break;
+        }
+        
+        return EXITO;
+    }
 }

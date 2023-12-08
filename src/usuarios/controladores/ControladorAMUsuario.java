@@ -19,23 +19,37 @@ import usuarios.vistas.VentanaCrearYModificarUsuario;
  * @author tomascabrerabellomo
  */
 public class ControladorAMUsuario implements IControladorAMUsuario{
-    private VentanaCrearYModificarUsuario ventanacrearymodusuario;
+    private VentanaCrearYModificarUsuario ventanaCrearYModUsuario;
+    
+    // constructor para ControladorAMUsuario
+    public ControladorAMUsuario(java.awt.Dialog ventanaPadre) {
+        this.ventanaCrearYModUsuario = new VentanaCrearYModificarUsuario(ventanaPadre, true, this);
+        this.configurarperfil();
+        this.ventanaCrearYModUsuario.setLocationRelativeTo(null);
+        this.ventanaCrearYModUsuario.setTitle(TITULO_NUEVO);
+        this.ventanaCrearYModUsuario.setVisible(true);
+    }
+    
+    private void configurarperfil() {
+        ModeloComboPerfil modelo = new ModeloComboPerfil();
+        this.ventanaCrearYModUsuario.verComboPerfiles().setModel(modelo);
+    }
     
     @Override
     public void btnGuardarClic(ActionEvent evt) {
         
-        String correo = ventanacrearymodusuario.verTextocorreo().getText().trim();
+        String correo = ventanaCrearYModUsuario.verTextocorreo().getText().trim();
 
-        String apellido = ventanacrearymodusuario.verTextoapellido().getText().trim();
+        String apellido = ventanaCrearYModUsuario.verTextoapellido().getText().trim();
 
-        String nombre = ventanacrearymodusuario.verTextonombre().getText().trim();
+        String nombre = ventanaCrearYModUsuario.verTextonombre().getText().trim();
 
-        char[] clave = ventanacrearymodusuario.verContraseñatexto().getPassword();
+        char[] clave = ventanaCrearYModUsuario.verContraseñatexto().getPassword();
 
-        char[] claveRepetida = ventanacrearymodusuario.verContraseñareptexto().getPassword();
+        char[] claveRepetida = ventanaCrearYModUsuario.verContraseñareptexto().getPassword();
         
         //controlar si la siguiente linea es correcta
-        Perfil perfil = ((ModeloComboPerfil) ventanacrearymodusuario.verComboPerfiles().getModel()).obtenerPerfil();
+        Perfil perfil = ((ModeloComboPerfil) ventanaCrearYModUsuario.verComboPerfiles().getModel()).obtenerPerfil();
 
         IGestorUsuarios gu = GestorUsuarios.instanciar();
 
@@ -45,9 +59,9 @@ public class ControladorAMUsuario implements IControladorAMUsuario{
     @Override
     public void btnCancelarClic(ActionEvent evt) {
         
-        int opcionEscogida = JOptionPane.showOptionDialog(this.ventanacrearymodusuario, "¿Desea cancelar la carga de Usuarios? se perderán los cambios no guardados", "Advertencia", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE, null, new Object[]{"Si", "No"}, "Si");
+        int opcionEscogida = JOptionPane.showOptionDialog(this.ventanaCrearYModUsuario, "¿Desea cancelar la carga del usuario? Se perderán los cambios no guardados.", "Advertencia", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE, null, new Object[]{"Si", "No"}, "Si");
         if (opcionEscogida == JOptionPane.YES_OPTION) {
-            this.ventanacrearymodusuario.dispose();
+            this.ventanaCrearYModUsuario.dispose();
         }
     }
 

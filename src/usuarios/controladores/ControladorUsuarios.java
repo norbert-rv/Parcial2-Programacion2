@@ -4,6 +4,7 @@
  */
 package usuarios.controladores;
 
+import interfaces.IControladorAMUsuario;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 import java.awt.event.WindowEvent;
@@ -25,7 +26,10 @@ public class ControladorUsuarios implements IControladorUsuarios{
     
     private ControladorUsuarios(java.awt.Frame ventanaPadre) {
         this.ventanaUsuarios = new VentanaUsuarios(ventanaPadre, true, this);
-        
+        this.ventanaUsuarios.verTablaUsuarios().setModel(new ModeloTabla());
+        this.ventanaUsuarios.setLocationRelativeTo(null);
+        this.ventanaUsuarios.setTitle(TITULO);
+        this.ventanaUsuarios.setVisible(true);
         // prueba
 //        this.ventanaUsuarios.verTablaUsuarios().setModel(new ModeloTabla());
     }
@@ -41,10 +45,12 @@ public class ControladorUsuarios implements IControladorUsuarios{
 
     @Override
     public void btnNuevoClic(ActionEvent evt) {
+        IControladorAMUsuario controlador = new ControladorAMUsuario(this.ventanaUsuarios);
     }
 
     @Override
     public void btnModificarClic(ActionEvent evt) {
+//        IControladorAMUsuario controlador = new ControladorAMUsuario(this.ventanaUsuarios);
     }
 
     @Override

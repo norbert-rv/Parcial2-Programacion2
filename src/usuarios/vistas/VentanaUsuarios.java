@@ -28,10 +28,10 @@ public class VentanaUsuarios extends javax.swing.JDialog {
         super(parent, modal);
         this.controlador = controlador;
         initComponents();
-        this.setLocationRelativeTo(null);
-        this.setTitle(TITULO);
-        this.setVisible(true);
-        this.tablaUsuarios.setModel(new ModeloTabla());
+//        this.setLocationRelativeTo(null);
+//        this.setTitle(TITULO);
+//        this.setVisible(true);
+//        this.tablaUsuarios.setModel(new ModeloTabla());
     }
 
     public JTable verTablaUsuarios() {

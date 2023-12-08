@@ -45,7 +45,7 @@
                   <Component id="textocorreo" alignment="0" max="32767" attributes="0"/>
                   <Component id="textoapellido" alignment="0" max="32767" attributes="0"/>
                   <Component id="textonombre" alignment="0" max="32767" attributes="0"/>
-                  <Component id="ComboPerfil" alignment="0" pref="200" max="32767" attributes="0"/>
+                  <Component id="comboPerfil" alignment="0" pref="200" max="32767" attributes="0"/>
                   <Component id="contraseñatexto" alignment="0" max="32767" attributes="0"/>
                   <Component id="contraseñareptexto" alignment="0" max="32767" attributes="0"/>
               </Group>
@@ -74,7 +74,7 @@
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="perfil" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="ComboPerfil" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="comboPerfil" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -173,7 +173,7 @@
         <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="contrase&#xf1;areptextoKeyTyped"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JComboBox" name="ComboPerfil">
+    <Component class="javax.swing.JComboBox" name="comboPerfil">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="4">

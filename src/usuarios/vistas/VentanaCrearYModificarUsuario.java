@@ -25,20 +25,20 @@ public class VentanaCrearYModificarUsuario extends javax.swing.JDialog {
     /**
      * Creates new form Ventanacrear_modificarusuario
      */
-    public VentanaCrearYModificarUsuario(java.awt.Frame parent, boolean modal, IControladorAMUsuario controlador) {
+    public VentanaCrearYModificarUsuario(java.awt.Dialog parent, boolean modal, IControladorAMUsuario controlador) {
         super(parent, modal);
         this.controlador = controlador;
-        this.configurarperfil();
         initComponents();
+//        this.configurarperfil();
     }
 
-    private void configurarperfil() {
-        ModeloComboPerfil modelo = new ModeloComboPerfil();
-        this.ComboPerfil.setModel(modelo);
-    }
+//    private void configurarperfil() {
+//        ModeloComboPerfil modelo = new ModeloComboPerfil();
+//        this.comboPerfil.setModel(modelo);
+//    }
 
     public JComboBox<String> obtenerComboPerfil() {
-        return ComboPerfil;
+        return comboPerfil;
     }
 
     /**
@@ -63,7 +63,7 @@ public class VentanaCrearYModificarUsuario extends javax.swing.JDialog {
         textonombre = new javax.swing.JTextField();
         contraseñatexto = new javax.swing.JPasswordField();
         contraseñareptexto = new javax.swing.JPasswordField();
-        ComboPerfil = new javax.swing.JComboBox<>();
+        comboPerfil = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -148,7 +148,7 @@ public class VentanaCrearYModificarUsuario extends javax.swing.JDialog {
             }
         });
 
-        ComboPerfil.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        comboPerfil.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -174,7 +174,7 @@ public class VentanaCrearYModificarUsuario extends javax.swing.JDialog {
                     .addComponent(textocorreo)
                     .addComponent(textoapellido)
                     .addComponent(textonombre)
-                    .addComponent(ComboPerfil, 0, 200, Short.MAX_VALUE)
+                    .addComponent(comboPerfil, 0, 200, Short.MAX_VALUE)
                     .addComponent(contraseñatexto)
                     .addComponent(contraseñareptexto))
                 .addContainerGap(62, Short.MAX_VALUE))
@@ -197,7 +197,7 @@ public class VentanaCrearYModificarUsuario extends javax.swing.JDialog {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(perfil)
-                    .addComponent(ComboPerfil, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(comboPerfil, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(clave)
@@ -325,10 +325,10 @@ public class VentanaCrearYModificarUsuario extends javax.swing.JDialog {
         this.botonguardar = botonguardar;
     }
     public JComboBox<String> verComboPerfiles() {
-        return ComboPerfil;
+        return comboPerfil;
     }
     public void asignarComboPerfil(JComboBox<String> ComboPerfil) {
-        this.ComboPerfil = ComboPerfil;
+        this.comboPerfil = ComboPerfil;
     }
     public IControladorAMUsuario verControlador() {
         return controlador;
@@ -428,12 +428,12 @@ public class VentanaCrearYModificarUsuario extends javax.swing.JDialog {
      
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> ComboPerfil;
     private javax.swing.JLabel apellido;
     private javax.swing.JButton botoncancelar;
     private javax.swing.JButton botonguardar;
     private javax.swing.JLabel clave;
     private javax.swing.JLabel claveduplicada;
+    private javax.swing.JComboBox<String> comboPerfil;
     private javax.swing.JPasswordField contraseñareptexto;
     private javax.swing.JPasswordField contraseñatexto;
     private javax.swing.JLabel correo;

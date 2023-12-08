@@ -20,9 +20,24 @@ public class ControladorUsuarios implements IControladorUsuarios{
 
     private VentanaUsuarios ventanaUsuarios;
     
-    public ControladorUsuarios(java.awt.Frame ventanaPadre) {
+    // patrón singleton
+    private static ControladorUsuarios controladorUsuarios;
+    
+    private ControladorUsuarios(java.awt.Frame ventanaPadre) {
         this.ventanaUsuarios = new VentanaUsuarios(ventanaPadre, true, this);
+        
+        // prueba
+//        this.ventanaUsuarios.verTablaUsuarios().setModel(new ModeloTabla());
     }
+    
+    public static ControladorUsuarios instanciar(java.awt.Frame ventanaPadre) {
+        if(controladorUsuarios == null) {
+            controladorUsuarios = new ControladorUsuarios(ventanaPadre);
+        }
+        
+        return controladorUsuarios;
+    }
+    // fin patrón singleton
 
     @Override
     public void btnNuevoClic(ActionEvent evt) {
@@ -39,7 +54,7 @@ public class ControladorUsuarios implements IControladorUsuarios{
     @Override
     public void ventanaObtenerFoco(WindowEvent evt) {
         // si la ventana vuelve a obtener el foco, se actualizan los datos de la tabla
-        this.actualizarDatosTabla();
+//        this.actualizarDatosTabla();
     }
     
     private void actualizarDatosTabla() {

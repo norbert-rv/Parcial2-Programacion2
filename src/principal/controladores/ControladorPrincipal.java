@@ -19,20 +19,32 @@ import usuarios.controladores.ControladorUsuarios;
 public class ControladorPrincipal implements IControladorPrincipal {
 
     private VentanaPrincipal ventanaPrincipal;
-
-    public ControladorPrincipal() {
+    
+    // patrón singleton
+    private static ControladorPrincipal controladorPrincipal;
+    
+    private ControladorPrincipal() {
         this.ventanaPrincipal = new VentanaPrincipal(this);
         ventanaPrincipal.setTitle(TITULO);
         ventanaPrincipal.setVisible(true);
     }
+    
+    public static ControladorPrincipal instanciar() {
+        if(controladorPrincipal == null) {
+            controladorPrincipal = new ControladorPrincipal();
+        }
+        
+        return controladorPrincipal;
+    }
+    // fin del patrón singleton
 
     public static void main(String[] args) {
-        ControladorPrincipal cp = new ControladorPrincipal();
+        ControladorPrincipal cp = ControladorPrincipal.instanciar();
     }
 
     @Override
     public void btnUsuariosClic(ActionEvent evt) {
-        IControladorUsuarios controladorUsuarios = new ControladorUsuarios(this.ventanaPrincipal);
+        IControladorUsuarios controladorUsuarios = ControladorUsuarios.instanciar(ventanaPrincipal);
     }
 
     @Override

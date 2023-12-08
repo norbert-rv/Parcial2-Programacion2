@@ -47,12 +47,22 @@ public class ControladorPrincipal implements IControladorPrincipal {
 
     @Override
     public void btnProductosClic(ActionEvent evt) {
-        // NO IMPLEMENTADO
+        /*
+            Funcionalidad no implementada. Muestro mensaje
+            de diálogo para informar al usuario.
+        */
+        String mensajeFuncionalidadNoDisp = "Esta funcionalidad aún no está disponible.";
+        JOptionPane.showMessageDialog(this.ventanaPrincipal, mensajeFuncionalidadNoDisp, "Advertencia", JOptionPane.INFORMATION_MESSAGE);
     }
 
     @Override
     public void btnPedidosClic(ActionEvent evt) {
-        // NO IMPLEMENTADO
+        /*
+            Funcionalidad no implementada. Muestro mensaje
+            de diálogo para informar al usuario.
+        */
+        String mensajeFuncionalidadNoDisp = "Esta funcionalidad aún no está disponible.";
+        JOptionPane.showMessageDialog(this.ventanaPrincipal, mensajeFuncionalidadNoDisp, "Advertencia", JOptionPane.INFORMATION_MESSAGE);
     }
 
 }

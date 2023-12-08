@@ -18,25 +18,53 @@ public class ModeloTabla extends AbstractTableModel {
     // IMPLEMENTAR
     
     private List<Usuario> usuarios = new ArrayList<>();
+    private List<String> nombresColumnas = new ArrayList<>();
+    
+    public ModeloTabla() {
+        this.nombresColumnas.add("Apellido");
+        this.nombresColumnas.add("Nombre");
+        this.nombresColumnas.add("Perfil");
+        
+        IGestorUsuarios gu = GestorUsuarios.instanciar();
+        
+        this.usuarios = gu.verUsuarios();
+    }
     
     @Override
     public int getRowCount() {
-       return 3;
+       return this.usuarios.size();
     }
     
     @Override
     public int getColumnCount() {
-        return 3;
+        return this.nombresColumnas.size();
     }
     
     @Override
     public Object getValueAt(int fila, int columna) {
-        return null;
+        
+        Usuario usuario = usuarios.get(fila);
+        
+        switch(columna) {
+            case 0: 
+                return usuario.verApellido();
+            case 1: 
+                return usuario.verNombre();
+            case 2: 
+                if(usuario instanceof Cliente)
+                    return Perfil.CLIENTE.toString();
+                else if(usuario instanceof Empleado)
+                    return Perfil.EMPLEADO.toString();
+                else
+                    return Perfil.ENCARGADO.toString();
+        }
+        
+        return "Error";
     }
     
     @Override
     public String getColumnName(int columna) {
-        return null;
+        return this.nombresColumnas.get(columna);
     }
     
     public void actualizarDatosTabla() {

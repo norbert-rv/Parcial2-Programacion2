@@ -66,7 +66,7 @@ public class ControladorUsuarios implements IControladorUsuarios{
     @Override
     public void ventanaObtenerFoco(WindowEvent evt) {
         // si la ventana vuelve a obtener el foco, se actualizan los datos de la tabla
-//        this.actualizarDatosTabla();
+        this.actualizarDatosTabla();
     }
     
     private void actualizarDatosTabla() {

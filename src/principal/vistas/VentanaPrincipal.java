@@ -5,6 +5,7 @@
 package principal.vistas;
 
 import interfaces.IControladorPrincipal;
+import javax.swing.JButton;
 
 /**
  *
@@ -150,6 +151,79 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 //        });
 //    }
 
+    public IControladorPrincipal getControlador() {
+        return controlador;
+    }
+
+    public void setControlador(IControladorPrincipal controlador) {
+        this.controlador = controlador;
+    }
+
+    public JButton getBotonpedidos() {
+        return botonpedidos;
+    }
+
+    public void setBotonpedidos(JButton botonpedidos) {
+        this.botonpedidos = botonpedidos;
+    }
+
+    public JButton getBotonproductos() {
+        return botonproductos;
+    }
+
+    public void setBotonproductos(JButton botonproductos) {
+        this.botonproductos = botonproductos;
+    }
+
+    public JButton getBotonsalir() {
+        return botonsalir;
+    }
+
+    public void setBotonsalir(JButton botonsalir) {
+        this.botonsalir = botonsalir;
+    }
+
+    public JButton getBotonusuarios() {
+        return botonusuarios;
+    }
+
+    /**
+     * @param args the command line arguments
+     */
+//    public static void main(String args[]) {
+//        /* Set the Nimbus look and feel */
+//        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+//        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+//         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
+//         */
+//        try {
+//            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+//                if ("Nimbus".equals(info.getName())) {
+//                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+//                    break;
+//                }
+//            }
+//        } catch (ClassNotFoundException ex) {
+//            java.util.logging.Logger.getLogger(VentanaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (InstantiationException ex) {
+//            java.util.logging.Logger.getLogger(VentanaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (IllegalAccessException ex) {
+//            java.util.logging.Logger.getLogger(VentanaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+//            java.util.logging.Logger.getLogger(VentanaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        }
+//        //</editor-fold>
+//
+//        /* Create and display the form */
+//        java.awt.EventQueue.invokeLater(new Runnable() {
+//            public void run() {
+//                new VentanaPrincipal().setVisible(true);
+//            }
+//        });
+//    }
+    public void setBotonusuarios(JButton botonusuarios) {
+        this.botonusuarios = botonusuarios;
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botonpedidos;
     private javax.swing.JButton botonproductos;

@@ -33,11 +33,11 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="botoncorreo" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="botonapellido" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="botonnombre" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="botonperfil" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="botonclave" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="correo" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="apellido" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="nombre" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="perfil" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="clave" alignment="0" min="-2" max="-2" attributes="0"/>
                   <Component id="claveduplicada" alignment="0" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
@@ -58,27 +58,27 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace pref="19" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="botoncorreo" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="correo" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="textocorreo" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="botonapellido" min="-2" max="-2" attributes="0"/>
+                  <Component id="apellido" min="-2" max="-2" attributes="0"/>
                   <Component id="textoapellido" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="botonnombre" min="-2" max="-2" attributes="0"/>
+                  <Component id="nombre" min="-2" max="-2" attributes="0"/>
                   <Component id="textonombre" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="botonperfil" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="perfil" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="ComboPerfil" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="botonclave" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="clave" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="contraseñatexto" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -97,7 +97,7 @@
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JLabel" name="botoncorreo">
+    <Component class="javax.swing.JLabel" name="correo">
       <Properties>
         <Property name="text" type="java.lang.String" value="Correo:"/>
       </Properties>
@@ -118,22 +118,22 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonguardarActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JLabel" name="botonnombre">
+    <Component class="javax.swing.JLabel" name="nombre">
       <Properties>
         <Property name="text" type="java.lang.String" value="Nombre:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="botonapellido">
+    <Component class="javax.swing.JLabel" name="apellido">
       <Properties>
         <Property name="text" type="java.lang.String" value="Apellido:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="botonperfil">
+    <Component class="javax.swing.JLabel" name="perfil">
       <Properties>
         <Property name="text" type="java.lang.String" value="Perfil:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="botonclave">
+    <Component class="javax.swing.JLabel" name="clave">
       <Properties>
         <Property name="text" type="java.lang.String" value="Clave:"/>
       </Properties>
@@ -151,11 +151,13 @@
     </Component>
     <Component class="javax.swing.JTextField" name="textoapellido">
       <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="textoapellidoActionPerformed"/>
         <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="textoapellidoKeyTyped"/>
       </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="textonombre">
       <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="textonombreActionPerformed"/>
         <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="textonombreKeyTyped"/>
       </Events>
     </Component>

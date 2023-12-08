@@ -5,7 +5,12 @@
 package usuarios.vistas;
 
 import interfaces.IControladorAMUsuario;
+import javax.swing.JButton;
 import javax.swing.JComboBox;
+import javax.swing.JLabel;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
+import usuarios.controladores.ControladorAMUsuario;
 import usuarios.modelos.ModeloComboPerfil;
 
 /**
@@ -45,13 +50,13 @@ public class VentanaCrearYModificarUsuario extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        botoncorreo = new javax.swing.JLabel();
+        correo = new javax.swing.JLabel();
         botoncancelar = new javax.swing.JButton();
         botonguardar = new javax.swing.JButton();
-        botonnombre = new javax.swing.JLabel();
-        botonapellido = new javax.swing.JLabel();
-        botonperfil = new javax.swing.JLabel();
-        botonclave = new javax.swing.JLabel();
+        nombre = new javax.swing.JLabel();
+        apellido = new javax.swing.JLabel();
+        perfil = new javax.swing.JLabel();
+        clave = new javax.swing.JLabel();
         claveduplicada = new javax.swing.JLabel();
         textocorreo = new javax.swing.JTextField();
         textoapellido = new javax.swing.JTextField();
@@ -62,7 +67,7 @@ public class VentanaCrearYModificarUsuario extends javax.swing.JDialog {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        botoncorreo.setText("Correo:");
+        correo.setText("Correo:");
 
         botoncancelar.setText("Cancelar");
         botoncancelar.addActionListener(new java.awt.event.ActionListener() {
@@ -78,13 +83,13 @@ public class VentanaCrearYModificarUsuario extends javax.swing.JDialog {
             }
         });
 
-        botonnombre.setText("Nombre:");
+        nombre.setText("Nombre:");
 
-        botonapellido.setText("Apellido:");
+        apellido.setText("Apellido:");
 
-        botonperfil.setText("Perfil:");
+        perfil.setText("Perfil:");
 
-        botonclave.setText("Clave:");
+        clave.setText("Clave:");
 
         claveduplicada.setText("Repetir clave:");
 
@@ -99,12 +104,22 @@ public class VentanaCrearYModificarUsuario extends javax.swing.JDialog {
             }
         });
 
+        textoapellido.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textoapellidoActionPerformed(evt);
+            }
+        });
         textoapellido.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 textoapellidoKeyTyped(evt);
             }
         });
 
+        textonombre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textonombreActionPerformed(evt);
+            }
+        });
         textonombre.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 textonombreKeyTyped(evt);
@@ -148,11 +163,11 @@ public class VentanaCrearYModificarUsuario extends javax.swing.JDialog {
             .addGroup(layout.createSequentialGroup()
                 .addGap(23, 23, 23)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(botoncorreo)
-                    .addComponent(botonapellido)
-                    .addComponent(botonnombre)
-                    .addComponent(botonperfil)
-                    .addComponent(botonclave)
+                    .addComponent(correo)
+                    .addComponent(apellido)
+                    .addComponent(nombre)
+                    .addComponent(perfil)
+                    .addComponent(clave)
                     .addComponent(claveduplicada))
                 .addGap(45, 45, 45)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -169,23 +184,23 @@ public class VentanaCrearYModificarUsuario extends javax.swing.JDialog {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap(19, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(botoncorreo)
+                    .addComponent(correo)
                     .addComponent(textocorreo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(botonapellido)
+                    .addComponent(apellido)
                     .addComponent(textoapellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(botonnombre)
+                    .addComponent(nombre)
                     .addComponent(textonombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(botonperfil)
+                    .addComponent(perfil)
                     .addComponent(ComboPerfil, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(botonclave)
+                    .addComponent(clave)
                     .addComponent(contraseñatexto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -246,6 +261,14 @@ public class VentanaCrearYModificarUsuario extends javax.swing.JDialog {
         this.controlador.passClaveRepetidaPresionarTecla(evt);
     }//GEN-LAST:event_contraseñareptextoKeyTyped
 
+    private void textoapellidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textoapellidoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textoapellidoActionPerformed
+
+    private void textonombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textonombreActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textonombreActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -288,19 +311,134 @@ public class VentanaCrearYModificarUsuario extends javax.swing.JDialog {
 //            }
 //        });
 //    }
+    
+    public JButton verbotonguardar() {
+        return botonguardar;
+    }
+     public JButton verbotoncancelar() {
+        return botoncancelar;
+    }
+     public void asignarbotonCancelar(JButton botoncancelar) {
+        this.botoncancelar = botoncancelar;
+    }
+     public void asignarbotonguardar(JButton botonguardar) {
+        this.botonguardar = botonguardar;
+    }
+    public JComboBox<String> verComboPerfiles() {
+        return ComboPerfil;
+    }
+    public void asignarComboPerfil(JComboBox<String> ComboPerfil) {
+        this.ComboPerfil = ComboPerfil;
+    }
+    public IControladorAMUsuario getControlador() {
+        return controlador;
+    }
+
+    public void asignarControlador(IControladorAMUsuario controlador) {
+        this.controlador = controlador;
+    }
+
+    public JLabel verApellido() {
+        return apellido;
+    }
+
+    public void asignarApellido(JLabel apellido) {
+        this.apellido = apellido;
+    }
+
+    public JLabel verClave() {
+        return clave;
+    }
+
+    public void asignarClave(JLabel clave) {
+        this.clave = clave;
+    }
+
+    public JLabel verClaveduplicada() {
+        return claveduplicada;
+    }
+
+    public void asignarClaveduplicada(JLabel claveduplicada) {
+        this.claveduplicada = claveduplicada;
+    }
+
+    public JPasswordField verContraseñareptexto() {
+        return contraseñareptexto;
+    }
+
+    public void asignarContraseñareptexto(JPasswordField contraseñareptexto) {
+        this.contraseñareptexto = contraseñareptexto;
+    }
+
+    public JPasswordField verContraseñatexto() {
+        return contraseñatexto;
+    }
+
+    public void asignarContraseñatexto(JPasswordField contraseñatexto) {
+        this.contraseñatexto = contraseñatexto;
+    }
+
+    public JLabel verCorreo() {
+        return correo;
+    }
+
+    public void asignarCorreo(JLabel correo) {
+        this.correo = correo;
+    }
+
+    public JLabel verNombre() {
+        return nombre;
+    }
+
+    public void asignarNombre(JLabel nombre) {
+        this.nombre = nombre;
+    }
+
+    public JLabel verPerfil() {
+        return perfil;
+    }
+
+    public void asignarPerfil(JLabel perfil) {
+        this.perfil = perfil;
+    }
+
+    public JTextField verTextoapellido() {
+        return textoapellido;
+    }
+
+    public void asignarTextoapellido(JTextField textoapellido) {
+        this.textoapellido = textoapellido;
+    }
+
+    public JTextField verTextocorreo() {
+        return textocorreo;
+    }
+
+    public void asignarTextocorreo(JTextField textocorreo) {
+        this.textocorreo = textocorreo;
+    }
+
+    public JTextField verTextonombre() {
+        return textonombre;
+    }
+
+    public void asignarTextonombre(JTextField textonombre) {
+        this.textonombre = textonombre;
+    }
+     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> ComboPerfil;
-    private javax.swing.JLabel botonapellido;
+    private javax.swing.JLabel apellido;
     private javax.swing.JButton botoncancelar;
-    private javax.swing.JLabel botonclave;
-    private javax.swing.JLabel botoncorreo;
     private javax.swing.JButton botonguardar;
-    private javax.swing.JLabel botonnombre;
-    private javax.swing.JLabel botonperfil;
+    private javax.swing.JLabel clave;
     private javax.swing.JLabel claveduplicada;
     private javax.swing.JPasswordField contraseñareptexto;
     private javax.swing.JPasswordField contraseñatexto;
+    private javax.swing.JLabel correo;
+    private javax.swing.JLabel nombre;
+    private javax.swing.JLabel perfil;
     private javax.swing.JTextField textoapellido;
     private javax.swing.JTextField textocorreo;
     private javax.swing.JTextField textonombre;

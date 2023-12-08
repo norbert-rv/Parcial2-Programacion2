@@ -4,6 +4,9 @@
  */
 package usuarios.modelos;
 
+import interfaces.IGestorUsuarios;
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.table.AbstractTableModel;
 
 /**
@@ -13,6 +16,8 @@ import javax.swing.table.AbstractTableModel;
 public class ModeloTabla extends AbstractTableModel {
 
     // IMPLEMENTAR
+    
+    private List<Usuario> usuarios = new ArrayList<>();
     
     @Override
     public int getRowCount() {
@@ -32,6 +37,15 @@ public class ModeloTabla extends AbstractTableModel {
     @Override
     public String getColumnName(int columna) {
         return null;
+    }
+    
+    public void actualizarDatosTabla() {
+        IGestorUsuarios gu = GestorUsuarios.instanciar();
+        
+        this.usuarios = gu.verUsuarios();
+        
+        // método de TableModel para notificar al JTable que debe actualizar los datos
+        this.fireTableDataChanged();
     }
     
     // VER CUALES HAY QUE IMPLEMENTAR

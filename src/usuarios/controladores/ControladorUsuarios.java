@@ -8,6 +8,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 import java.awt.event.WindowEvent;
 import interfaces.IControladorUsuarios;
+import javax.swing.table.AbstractTableModel;
+import usuarios.modelos.ModeloTabla;
 import usuarios.vistas.VentanaUsuarios;
 
 /**
@@ -36,6 +38,13 @@ public class ControladorUsuarios implements IControladorUsuarios{
 
     @Override
     public void ventanaObtenerFoco(WindowEvent evt) {
+        // si la ventana vuelve a obtener el foco, se actualizan los datos de la tabla
+        this.actualizarDatosTabla();
+    }
+    
+    private void actualizarDatosTabla() {
+        AbstractTableModel modeloTablaUsuarios = (AbstractTableModel)this.ventanaUsuarios.obtenerTablaUsuarios().getModel();
+        ((ModeloTabla)modeloTablaUsuarios).actualizarDatosTabla();
     }
 
     @Override
@@ -47,6 +56,10 @@ public class ControladorUsuarios implements IControladorUsuarios{
 
     @Override
     public void txtApellidoPresionarTecla(KeyEvent evt) {
+        char c = evt.getKeyChar();
+        if (c == KeyEvent.VK_ENTER) {
+            this.btnBuscarClic(null);
+        }
     }
 
     @Override

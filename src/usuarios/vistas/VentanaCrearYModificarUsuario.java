@@ -330,7 +330,7 @@ public class VentanaCrearYModificarUsuario extends javax.swing.JDialog {
     public void asignarComboPerfil(JComboBox<String> ComboPerfil) {
         this.ComboPerfil = ComboPerfil;
     }
-    public IControladorAMUsuario getControlador() {
+    public IControladorAMUsuario verControlador() {
         return controlador;
     }
 

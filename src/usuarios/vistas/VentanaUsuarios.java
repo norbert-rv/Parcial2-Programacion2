@@ -34,7 +34,7 @@ public class VentanaUsuarios extends javax.swing.JDialog {
         this.tablaUsuarios.setModel(new ModeloTabla());
     }
 
-    public JTable obtenerTablaUsuarios() {
+    public JTable verTablaUsuarios() {
         return tablaUsuarios;
     }
 
@@ -251,73 +251,77 @@ public class VentanaUsuarios extends javax.swing.JDialog {
 //        });
 //    }
     
-    public IControladorUsuarios getControlador() {
+    public IControladorUsuarios verControlador() {
         return controlador;
     }
 
-    public void setControlador(IControladorUsuarios controlador) {
+    public void asignarControlador(IControladorUsuarios controlador) {
         this.controlador = controlador;
     }
 
-    public JLabel getApellido() {
+    public JLabel verApellido() {
         return apellido;
     }
 
-    public void setApellido(JLabel apellido) {
+    public void asignarApellido(JLabel apellido) {
         this.apellido = apellido;
     }
 
-    public JButton getBotonborrar() {
+    public JButton verBotonborrar() {
         return botonborrar;
     }
 
-    public void setBotonborrar(JButton botonborrar) {
+    public void asignarBotonborrar(JButton botonborrar) {
         this.botonborrar = botonborrar;
     }
 
-    public JButton getBotonbuscar() {
+    public JButton verBotonbuscar() {
         return botonbuscar;
     }
 
-    public void setBotonbuscar(JButton botonbuscar) {
+    public void asignarBotonbuscar(JButton botonbuscar) {
         this.botonbuscar = botonbuscar;
     }
 
-    public JButton getBotonmodificar() {
+    public JButton verBotonmodificar() {
         return botonmodificar;
     }
 
-    public void setBotonmodificar(JButton botonmodificar) {
+    public void asignarBotonmodificar(JButton botonmodificar) {
         this.botonmodificar = botonmodificar;
     }
 
-    public JButton getBotonuevo() {
+    public JButton verBotonuevo() {
         return botonuevo;
     }
 
-    public void setBotonuevo(JButton botonuevo) {
+    public void asignarBotonuevo(JButton botonuevo) {
         this.botonuevo = botonuevo;
     }
 
-    public JButton getBotonvolver() {
+    public JButton verBotonvolver() {
         return botonvolver;
     }
 
-    public void setBotonvolver(JButton botonvolver) {
+    public void asignarBotonvolver(JButton botonvolver) {
         this.botonvolver = botonvolver;
     }
 
-    public JTable getTablaUsuarios() {
-        return tablaUsuarios;
-    }
+//    public JTable verTablaUsuarios() {
+//        return tablaUsuarios;
+//    }
 
-    public void setTablaUsuarios(JTable tablaUsuarios) {
+    public void asignarTablaUsuarios(JTable tablaUsuarios) {
         this.tablaUsuarios = tablaUsuarios;
     }
 
-    public JTextField getTxtApellido() {
+    public JTextField verTxtApellido() {
         return txtApellido;
     }
+    
+    public void asignarTxtApellido(JTextField txtApellido) {
+        this.txtApellido = txtApellido;
+    }   
 
     /**
      * @param args the command line arguments
@@ -361,10 +365,7 @@ public class VentanaUsuarios extends javax.swing.JDialog {
 //            }
 //        });
 //    }
-    public void setTxtApellido(JTextField txtApellido) {
-        this.txtApellido = txtApellido;
-    }    
-    
+     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel apellido;
     private javax.swing.JButton botonborrar;

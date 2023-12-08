@@ -43,7 +43,7 @@ public class ControladorUsuarios implements IControladorUsuarios{
     }
     
     private void actualizarDatosTabla() {
-        AbstractTableModel modeloTablaUsuarios = (AbstractTableModel)this.ventanaUsuarios.obtenerTablaUsuarios().getModel();
+        AbstractTableModel modeloTablaUsuarios = (AbstractTableModel)this.ventanaUsuarios.verTablaUsuarios().getModel();
         ((ModeloTabla)modeloTablaUsuarios).actualizarDatosTabla();
     }
 

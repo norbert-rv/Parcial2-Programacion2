@@ -150,41 +150,46 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 //            }
 //        });
 //    }
-
-    public IControladorPrincipal getControlador() {
+    
+    // ¿van todos estos metodos get/set?¿son necesarios?
+    public IControladorPrincipal verControlador() {
         return controlador;
     }
 
-    public void setControlador(IControladorPrincipal controlador) {
+    public void asignarControlador(IControladorPrincipal controlador) {
         this.controlador = controlador;
     }
 
-    public JButton getBotonpedidos() {
+    public JButton verBotonpedidos() {
         return botonpedidos;
     }
 
-    public void setBotonpedidos(JButton botonpedidos) {
+    public void asignarBotonpedidos(JButton botonpedidos) {
         this.botonpedidos = botonpedidos;
     }
 
-    public JButton getBotonproductos() {
+    public JButton verBotonproductos() {
         return botonproductos;
     }
 
-    public void setBotonproductos(JButton botonproductos) {
+    public void asignarBotonproductos(JButton botonproductos) {
         this.botonproductos = botonproductos;
     }
 
-    public JButton getBotonsalir() {
+    public JButton verBotonsalir() {
         return botonsalir;
     }
 
-    public void setBotonsalir(JButton botonsalir) {
+    public void asignarBotonsalir(JButton botonsalir) {
         this.botonsalir = botonsalir;
     }
 
-    public JButton getBotonusuarios() {
+    public JButton verBotonusuarios() {
         return botonusuarios;
+    }
+    
+    public void asignarBotonusuarios(JButton botonusuarios) {
+        this.botonusuarios = botonusuarios;
     }
 
     /**
@@ -221,9 +226,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 //            }
 //        });
 //    }
-    public void setBotonusuarios(JButton botonusuarios) {
-        this.botonusuarios = botonusuarios;
-    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botonpedidos;
     private javax.swing.JButton botonproductos;

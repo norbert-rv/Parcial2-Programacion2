@@ -6,6 +6,7 @@ package usuarios.controladores;
 
 import interfaces.IControladorAMUsuario;
 import interfaces.IGestorUsuarios;
+import static interfaces.IGestorUsuarios.VALIDACION_EXITO;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 import javax.swing.JOptionPane;
@@ -67,13 +68,13 @@ public class ControladorAMUsuario implements IControladorAMUsuario {
 
         char[] claveRepetida = ventanaCrearYModUsuario.verContraseñareptexto().getPassword();
 
+        //controlar si la siguiente linea es correcta
+        Perfil perfil = ((ModeloComboPerfil) ventanaCrearYModUsuario.verComboPerfiles().getModel()).obtenerPerfil();
+
         IGestorUsuarios gu = GestorUsuarios.instanciar();
-        
+
         if (usuarioNuevo) {
             String correo = ventanaCrearYModUsuario.verTextocorreo().getText().trim();
-
-            //controlar si la siguiente linea es correcta
-            Perfil perfil = ((ModeloComboPerfil) ventanaCrearYModUsuario.verComboPerfiles().getModel()).obtenerPerfil();
 
 //        System.out.println(gu.crearUsuario(correo, apellido, nombre, perfil, new String(clave), new String(claveRepetida)));
             gu.crearUsuario(correo, apellido, nombre, perfil, new String(clave), new String(claveRepetida));
@@ -81,12 +82,14 @@ public class ControladorAMUsuario implements IControladorAMUsuario {
             this.ventanaCrearYModUsuario.dispose();
         } else {
             // aquí modifico el usuario utilizando el correo ingresado en el segundo constructor
-//            gu.obtenerUsuario(correoUsuarioAModificar);
-//            if(gu.obtenerUsuario(correoUsuarioAModificar) != null) {
-//                gu.verUsuarios().indexOf(gu.obtenerUsuario(correoUsuarioAModificar));
-//                gu.verUsuarios().
+            String resultadoOperacion = ((GestorUsuarios) gu).modificarUsuario(correoUsuarioAModificar, apellido, nombre, perfil, new String(clave), new String(claveRepetida));
+
+            if (!resultadoOperacion.equals(VALIDACION_EXITO)) {
+                String mensajeDatosInvalidos = "Los datos no son válidos. Por favor ingrese información válida.";
+                JOptionPane.showMessageDialog(this.ventanaCrearYModUsuario, mensajeDatosInvalidos, "Error", JOptionPane.INFORMATION_MESSAGE);
             }
         }
+    }
 
     @Override
     public void btnCancelarClic(ActionEvent evt) {

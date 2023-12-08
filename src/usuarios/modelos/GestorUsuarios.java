@@ -256,6 +256,12 @@ public class GestorUsuarios implements IGestorUsuarios {
     
     public String modificarUsuario(String correoUsuarioAModificar, String apellido, String nombre, Perfil perfil, String clave, String claveRepetida) {
         
+        String salida = verificarDatos(correoUsuarioAModificar, apellido, nombre, perfil, clave, claveRepetida);
+
+        if (!salida.equals(VALIDACION_EXITO)) {
+            return salida;
+        }
+        
         int indiceUsuarioAModificar = this.usuarios.indexOf(this.obtenerUsuario(correoUsuarioAModificar));
         
         switch (perfil) {
@@ -275,6 +281,8 @@ public class GestorUsuarios implements IGestorUsuarios {
                 this.usuarios.set(indiceUsuarioAModificar, encargado);
                 break;
         }
+        
+        this.escribir();
         
         return EXITO;
     }

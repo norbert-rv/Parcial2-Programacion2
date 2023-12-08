@@ -22,6 +22,10 @@ public class ControladorAMUsuario implements IControladorAMUsuario {
 
     private VentanaCrearYModificarUsuario ventanaCrearYModUsuario;
 
+    // booleano para que el método btnGuardarClic() sepa si debe agregar un usuario nuevo o si debe modificarlo
+    private boolean usuarioNuevo;
+    private String correoUsuarioAModificar;
+
     // constructores sobrecargados para ControladorAMUsuario
     // constructor para NUEVO usuario
     public ControladorAMUsuario(java.awt.Dialog ventanaPadre) {
@@ -29,6 +33,7 @@ public class ControladorAMUsuario implements IControladorAMUsuario {
         this.configurarperfil();
         this.ventanaCrearYModUsuario.setLocationRelativeTo(null);
         this.ventanaCrearYModUsuario.setTitle(TITULO_NUEVO);
+        this.usuarioNuevo = true;
         this.ventanaCrearYModUsuario.setVisible(true);
     }
 
@@ -41,6 +46,8 @@ public class ControladorAMUsuario implements IControladorAMUsuario {
         this.configurarperfil();
         this.ventanaCrearYModUsuario.setLocationRelativeTo(null);
         this.ventanaCrearYModUsuario.setTitle(TITULO_MODIFICAR);
+        this.usuarioNuevo = false;
+        this.correoUsuarioAModificar = correoUsuarioSeleccionado;
         this.ventanaCrearYModUsuario.setVisible(true);
     }
 
@@ -52,8 +59,6 @@ public class ControladorAMUsuario implements IControladorAMUsuario {
     @Override
     public void btnGuardarClic(ActionEvent evt) {
 
-        String correo = ventanaCrearYModUsuario.verTextocorreo().getText().trim();
-
         String apellido = ventanaCrearYModUsuario.verTextoapellido().getText().trim();
 
         String nombre = ventanaCrearYModUsuario.verTextonombre().getText().trim();
@@ -62,13 +67,26 @@ public class ControladorAMUsuario implements IControladorAMUsuario {
 
         char[] claveRepetida = ventanaCrearYModUsuario.verContraseñareptexto().getPassword();
 
-        //controlar si la siguiente linea es correcta
-        Perfil perfil = ((ModeloComboPerfil) ventanaCrearYModUsuario.verComboPerfiles().getModel()).obtenerPerfil();
-
         IGestorUsuarios gu = GestorUsuarios.instanciar();
+        
+        if (usuarioNuevo) {
+            String correo = ventanaCrearYModUsuario.verTextocorreo().getText().trim();
 
-        System.out.println(gu.crearUsuario(correo, apellido, nombre, perfil, new String(clave), new String(claveRepetida)));
-    }
+            //controlar si la siguiente linea es correcta
+            Perfil perfil = ((ModeloComboPerfil) ventanaCrearYModUsuario.verComboPerfiles().getModel()).obtenerPerfil();
+
+//        System.out.println(gu.crearUsuario(correo, apellido, nombre, perfil, new String(clave), new String(claveRepetida)));
+            gu.crearUsuario(correo, apellido, nombre, perfil, new String(clave), new String(claveRepetida));
+
+            this.ventanaCrearYModUsuario.dispose();
+        } else {
+            // aquí modifico el usuario utilizando el correo ingresado en el segundo constructor
+//            gu.obtenerUsuario(correoUsuarioAModificar);
+//            if(gu.obtenerUsuario(correoUsuarioAModificar) != null) {
+//                gu.verUsuarios().indexOf(gu.obtenerUsuario(correoUsuarioAModificar));
+//                gu.verUsuarios().
+            }
+        }
 
     @Override
     public void btnCancelarClic(ActionEvent evt) {

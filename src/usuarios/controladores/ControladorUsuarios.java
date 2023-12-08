@@ -50,7 +50,13 @@ public class ControladorUsuarios implements IControladorUsuarios{
 
     @Override
     public void btnModificarClic(ActionEvent evt) {
-//        IControladorAMUsuario controlador = new ControladorAMUsuario(this.ventanaUsuarios);
+        // por ahora toma si seleccionas la casilla de correo, hay que completar para que sea la fila y tome el correo
+        int filaSeleccionada = this.ventanaUsuarios.verTablaUsuarios().getSelectedRow();
+        int columnaSeleccionada = this.ventanaUsuarios.verTablaUsuarios().getSelectedColumn();
+        
+        String correo = (String)this.ventanaUsuarios.verTablaUsuarios().getValueAt(filaSeleccionada, columnaSeleccionada);
+        
+        IControladorAMUsuario controlador = new ControladorAMUsuario(this.ventanaUsuarios, correo);
     }
 
     @Override

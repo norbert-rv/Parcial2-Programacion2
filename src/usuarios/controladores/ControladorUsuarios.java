@@ -9,7 +9,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 import java.awt.event.WindowEvent;
 import interfaces.IControladorUsuarios;
+import interfaces.IGestorUsuarios;
 import javax.swing.table.AbstractTableModel;
+import usuarios.modelos.GestorUsuarios;
 import usuarios.modelos.ModeloTabla;
 import usuarios.vistas.VentanaUsuarios;
 
@@ -20,6 +22,7 @@ import usuarios.vistas.VentanaUsuarios;
 public class ControladorUsuarios implements IControladorUsuarios{
 
     private VentanaUsuarios ventanaUsuarios;
+    IGestorUsuarios gu = GestorUsuarios.instanciar();
     
     // patrón singleton
     private static ControladorUsuarios controladorUsuarios;
@@ -52,9 +55,8 @@ public class ControladorUsuarios implements IControladorUsuarios{
     public void btnModificarClic(ActionEvent evt) {
         // por ahora toma si seleccionas la casilla de correo, hay que completar para que sea la fila y tome el correo
         int filaSeleccionada = this.ventanaUsuarios.verTablaUsuarios().getSelectedRow();
-        int columnaSeleccionada = this.ventanaUsuarios.verTablaUsuarios().getSelectedColumn();
         
-        String correo = (String)this.ventanaUsuarios.verTablaUsuarios().getValueAt(filaSeleccionada, columnaSeleccionada);
+        String correo = gu.verUsuarios().get(filaSeleccionada ).verCorreo();
         
         IControladorAMUsuario controlador = new ControladorAMUsuario(this.ventanaUsuarios, correo);
     }
@@ -91,6 +93,22 @@ public class ControladorUsuarios implements IControladorUsuarios{
 
     @Override
     public void btnBuscarClic(ActionEvent evt) {
-    }
+       
+//        List<Usuario> coincidenciasapellido = new ArrayList<>();
+//        // Esta verificacion ahorra recorrer el ArrayList productos innecesariamente
+////        if (ventanaUsuarios.verTxtApellido() == null) {
+////            return coincidenciasapellido;
+////        }
+//               GestorUsuarios.verUsuarios() usuarios = new ArrayList();
+//        for (Usuario p : verUsuarios()) {
+//            if (p.verApellido().toLowerCase().contains(ventanaUsuarios.verTxtApellido().toString())) {
+//                coincidenciasapellido.add(p);
+//            }
+//        }
+//
+//        Collections.sort(coincidenciasapellido, new CompUsuarioApYNom());
+//
+//        return coincidenciasapellido;
+//    }
     
-}
+}}

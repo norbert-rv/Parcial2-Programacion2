@@ -6,7 +6,7 @@ package usuarios.controladores;
 
 import interfaces.IControladorAMUsuario;
 import interfaces.IGestorUsuarios;
-import static interfaces.IGestorUsuarios.VALIDACION_EXITO;
+import static interfaces.IGestorUsuarios.EXITO;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 import javax.swing.JOptionPane;
@@ -84,7 +84,7 @@ public class ControladorAMUsuario implements IControladorAMUsuario {
             // aquí modifico el usuario utilizando el correo ingresado en el segundo constructor
             String resultadoOperacion = gu.modificarUsuario(correoUsuarioAModificar, apellido, nombre, perfil, new String(clave), new String(claveRepetida));
             
-            if (!resultadoOperacion.equals(VALIDACION_EXITO)) {
+            if (!resultadoOperacion.equals(EXITO)) {
                 String mensajeDatosInvalidos = "Los datos no son válidos. Por favor ingrese información válida.";
                 JOptionPane.showMessageDialog(this.ventanaCrearYModUsuario, mensajeDatosInvalidos, "Error", JOptionPane.INFORMATION_MESSAGE);
             }

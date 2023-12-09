@@ -18,7 +18,7 @@ public enum Perfil {
 
     @Override
     public String toString() {
-        return "Perfil: " + valor;
+        return valor;
     }
 
 }

@@ -44,6 +44,7 @@ public class ControladorAMUsuario implements IControladorAMUsuario {
         this.ventanaCrearYModUsuario.verTextocorreo().setText(correoUsuarioSeleccionado);
         this.ventanaCrearYModUsuario.verTextocorreo().setEditable(false);
         this.ventanaCrearYModUsuario.verTextocorreo().setOpaque(false);
+        this.ventanaCrearYModUsuario.verTextoapellido().requestFocus();
         this.configurarperfil();
         this.ventanaCrearYModUsuario.setLocationRelativeTo(null);
         this.ventanaCrearYModUsuario.setTitle(TITULO_MODIFICAR);
@@ -82,7 +83,7 @@ public class ControladorAMUsuario implements IControladorAMUsuario {
             String resultadoOperacion = gu.modificarUsuario(correo, apellido, nombre, perfil, new String(clave), new String(claveRepetida));
 
             if (!resultadoOperacion.equals(EXITO)) {
-                String mensajeDatosInvalidos = "Los datos no son válidos. Por favor ingrese información válida.";
+                String mensajeDatosInvalidos = "Los datos no son válidos. Por favor revise los campos.";
                 JOptionPane.showMessageDialog(this.ventanaCrearYModUsuario, mensajeDatosInvalidos, "Error", JOptionPane.INFORMATION_MESSAGE);
             }
         }

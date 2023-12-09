@@ -29,7 +29,6 @@ public class ControladorUsuarios implements IControladorUsuarios {
 
     // patrón singleton
 //    private static ControladorUsuarios controladorUsuarios;
-
     public ControladorUsuarios(java.awt.Frame ventanaPadre) {
         this.ventanaUsuarios = new VentanaUsuarios(ventanaPadre, true, this);
         this.ventanaUsuarios.verTablaUsuarios().setModel(new ModeloTabla());
@@ -46,7 +45,6 @@ public class ControladorUsuarios implements IControladorUsuarios {
 //        return controladorUsuarios;
 //    }
     // fin patrón singleton
-
     @Override
     public void btnNuevoClic(ActionEvent evt) {
         IControladorAMUsuario controlador = new ControladorAMUsuario(this.ventanaUsuarios);
@@ -56,9 +54,13 @@ public class ControladorUsuarios implements IControladorUsuarios {
     public void btnModificarClic(ActionEvent evt) {
         int filaSeleccionada = this.ventanaUsuarios.verTablaUsuarios().getSelectedRow();
 
-        String correoFilaSeleccionada = gu.verUsuarios().get(filaSeleccionada).verCorreo();
-
-        IControladorAMUsuario controlador = new ControladorAMUsuario(this.ventanaUsuarios, correoFilaSeleccionada);
+        try {
+            String correoFilaSeleccionada = gu.verUsuarios().get(filaSeleccionada).verCorreo();
+            IControladorAMUsuario controlador = new ControladorAMUsuario(this.ventanaUsuarios, correoFilaSeleccionada);
+        } catch (IndexOutOfBoundsException iob) {
+            String mensaje = "Debe seleccionar un usuario de la tabla.";
+            JOptionPane.showMessageDialog(this.ventanaUsuarios, mensaje, "Error", JOptionPane.INFORMATION_MESSAGE);
+        }
     }
 
     @Override
@@ -92,22 +94,20 @@ public class ControladorUsuarios implements IControladorUsuarios {
 
     @Override
     public void txtApellidoPresionarTecla(KeyEvent evt) {
-        
+
         /*
         Funcionalidad para que al estar la casilla de texto vacia en la casilla de apellido
         se vuelvan a mostrar todos los usuarios en la tabla.
-        */
-        
+         */
 //        String apellidoNulo = this.ventanaUsuarios.verTxtApellido().getText();
 //        
 //        if(apellidoNulo == null) {
 //            AbstractTableModel modeloTablaUsuarios = (AbstractTableModel) this.ventanaUsuarios.verTablaUsuarios().getModel();
 //            ((ModeloTabla) modeloTablaUsuarios).actualizarDatosTabla();
 //        }
-        
         /*
         Funcionalidad para que al presionar Enter se ejecute la funcionalidad Buscar.
-        */
+         */
         char c = evt.getKeyChar();
         if (c == KeyEvent.VK_ENTER) {
             this.btnBuscarClic(null);
@@ -118,14 +118,14 @@ public class ControladorUsuarios implements IControladorUsuarios {
     public void btnBuscarClic(ActionEvent evt) {
 
         String apellidoBuscar = this.ventanaUsuarios.verTxtApellido().getText().trim();
-        
+
         /*
         De esta forma, cuando vuelvo a borrar el cuadro de búsqueda y aprieto Borrar,
         se muestran todos los usuarios nuevamente.
-        */
+         */
         if (apellidoBuscar != null) {
             IGestorUsuarios gu = GestorUsuarios.instanciar();
-            
+
             List<Usuario> coincidenciasApellido = gu.buscarUsuarios(apellidoBuscar);
 
             AbstractTableModel modeloTablaUsuarios = (AbstractTableModel) this.ventanaUsuarios.verTablaUsuarios().getModel();

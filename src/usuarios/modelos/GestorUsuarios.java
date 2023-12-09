@@ -119,7 +119,7 @@ public class GestorUsuarios implements IGestorUsuarios {
         }
 
         for (Usuario p : usuarios) {
-            if (p.toString().toLowerCase().contains(apellido.toLowerCase())) {
+            if (p.verApellido().toLowerCase().contains(apellido.toLowerCase())) {
                 coincidenciasapellido.add(p);
             }
         }
@@ -151,40 +151,47 @@ public class GestorUsuarios implements IGestorUsuarios {
             return USUARIO_INEXISTENTE;
         }
 
-        if (!gp.hayPedidosConEsteCliente((Cliente) usuario)) {
+        // añado un control sobre si el usuario es un Cliente
+        if (usuario instanceof Cliente) {
+            if (!gp.hayPedidosConEsteCliente((Cliente) usuario)) {
+                usuarios.remove(usuario);
+                this.escribir();
+                return EXITO;
+            } else {
+                // será que tengo que mostrar este mensaje aquí???
+                return ERROR_PERMISOS;
+            }
+        } else {
             usuarios.remove(usuario);
             this.escribir();
             return EXITO;
-        } else {
-            // será que tengo que mostrar este mensaje aquí???
-            return ERROR_PERMISOS;
         }
+
     }
 
     private void escribir() {
         BufferedWriter bw = null;
-        
+
         File f = new File(archivoUsuarios);
-        
+
         try {
             FileWriter fw = new FileWriter(f);
             bw = new BufferedWriter(fw);
-            
+
             // recorro el ArrayList para escribir los usuarios en el archivo de texto
-            for(int i = 0; i < usuarios.size(); i++) {
+            for (int i = 0; i < usuarios.size(); i++) {
                 Usuario u = usuarios.get(i);
                 String linea;
-                
+
                 // comienzo el archivo con el perfil de cada usuario...
-                               
                 linea = u.toString() + REGEX_ARCHIVO_USUARIOS;
                 linea += u.verCorreo() + REGEX_ARCHIVO_USUARIOS;
                 linea += u.verContrasenia() + REGEX_ARCHIVO_USUARIOS;
                 linea += u.verApellido() + REGEX_ARCHIVO_USUARIOS;
                 linea += u.verNombre();
-                
+
                 bw.write(linea);
-                
+
                 if (i < this.usuarios.size() - 1) {
                     bw.newLine();
                 }
@@ -253,18 +260,18 @@ public class GestorUsuarios implements IGestorUsuarios {
             }
         }
     }
-    
+
     @Override
     public String modificarUsuario(String correoUsuarioAModificar, String apellido, String nombre, Perfil perfil, String clave, String claveRepetida) {
-        
+
         String salida = verificarDatos(correoUsuarioAModificar, apellido, nombre, perfil, clave, claveRepetida);
 
         if (!salida.equals(VALIDACION_EXITO)) {
             return salida;
         }
-        
+
         int indiceUsuarioAModificar = this.usuarios.indexOf(this.obtenerUsuario(correoUsuarioAModificar));
-        
+
         switch (perfil) {
             case CLIENTE:
                 Usuario cliente = new Cliente(correoUsuarioAModificar, clave, apellido, nombre);
@@ -282,9 +289,9 @@ public class GestorUsuarios implements IGestorUsuarios {
                 this.usuarios.set(indiceUsuarioAModificar, encargado);
                 break;
         }
-        
+
         this.escribir();
-        
+
         return EXITO;
     }
 }

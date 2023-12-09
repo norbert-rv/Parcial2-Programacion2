@@ -60,6 +60,8 @@ public class ControladorAMUsuario implements IControladorAMUsuario {
     @Override
     public void btnGuardarClic(ActionEvent evt) {
 
+        String correo = ventanaCrearYModUsuario.verTextocorreo().getText().trim();
+
         String apellido = ventanaCrearYModUsuario.verTextoapellido().getText().trim();
 
         String nombre = ventanaCrearYModUsuario.verTextonombre().getText().trim();
@@ -74,21 +76,18 @@ public class ControladorAMUsuario implements IControladorAMUsuario {
         IGestorUsuarios gu = GestorUsuarios.instanciar();
 
         if (usuarioNuevo) {
-            String correo = ventanaCrearYModUsuario.verTextocorreo().getText().trim();
-
-//        System.out.println(gu.crearUsuario(correo, apellido, nombre, perfil, new String(clave), new String(claveRepetida)));
             gu.crearUsuario(correo, apellido, nombre, perfil, new String(clave), new String(claveRepetida));
-
-            this.ventanaCrearYModUsuario.dispose();
         } else {
-            // aquí modifico el usuario utilizando el correo ingresado en el segundo constructor
-            String resultadoOperacion = gu.modificarUsuario(correoUsuarioAModificar, apellido, nombre, perfil, new String(clave), new String(claveRepetida));
-            
+            // ¿Debería desahabilitar para seleccionar Perfil?
+            String resultadoOperacion = gu.modificarUsuario(correo, apellido, nombre, perfil, new String(clave), new String(claveRepetida));
+
             if (!resultadoOperacion.equals(EXITO)) {
                 String mensajeDatosInvalidos = "Los datos no son válidos. Por favor ingrese información válida.";
                 JOptionPane.showMessageDialog(this.ventanaCrearYModUsuario, mensajeDatosInvalidos, "Error", JOptionPane.INFORMATION_MESSAGE);
             }
         }
+        
+        this.ventanaCrearYModUsuario.dispose();
     }
 
     @Override

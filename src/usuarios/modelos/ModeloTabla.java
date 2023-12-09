@@ -76,6 +76,12 @@ public class ModeloTabla extends AbstractTableModel {
         this.fireTableDataChanged();
     }
     
+    // sobrecarga del método actualizarDatosTabla()
+    public void actualizarDatosTabla(List<Usuario> usuarios) {
+        this.usuarios = usuarios;
+        this.fireTableDataChanged();
+    }
+    
     // VER CUALES HAY QUE IMPLEMENTAR
     
 //    @Override

@@ -99,24 +99,49 @@ public class ControladorAMUsuario implements IControladorAMUsuario {
         }
     }
 
+    /*
+        La funcionalidad que espero obtener de estos métodos
+        es que al presionar Enter el foco pase al siguiente
+        campo de texto para escribir.
+    */
+    
+    @Override
+    public void txtCorreoPresionarTecla(KeyEvent evt) {
+        if (KeyEvent.VK_ENTER == evt.getKeyChar()) {
+            this.ventanaCrearYModUsuario.verTextoapellido().requestFocus();
+        }
+    }
+    
     @Override
     public void txtApellidoPresionarTecla(KeyEvent evt) {
+//        char c = evt.getKeyChar();
+        
+        if (KeyEvent.VK_ENTER == evt.getKeyChar()) {
+            this.ventanaCrearYModUsuario.verTextonombre().requestFocus();
+        }
     }
 
     @Override
     public void txtNombrePresionarTecla(KeyEvent evt) {
+        if (KeyEvent.VK_ENTER == evt.getKeyChar()) {
+            this.ventanaCrearYModUsuario.verContraseñatexto().requestFocus();
+        }
     }
 
-    @Override
-    public void txtCorreoPresionarTecla(KeyEvent evt) {
-    }
 
     @Override
     public void passClavePresionarTecla(KeyEvent evt) {
+        if (KeyEvent.VK_ENTER == evt.getKeyChar()) {
+            this.ventanaCrearYModUsuario.verContraseñareptexto().requestFocus();
+        }
     }
-
+    
+    // para el caso del último campo, se ejecuta btnGuardarClic(). 
     @Override
     public void passClaveRepetidaPresionarTecla(KeyEvent evt) {
+        if (KeyEvent.VK_ENTER == evt.getKeyChar()) {
+            this.btnGuardarClic(null);
+        }
     }
 
 }

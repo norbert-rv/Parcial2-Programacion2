@@ -44,7 +44,7 @@ public class ControladorPrincipal implements IControladorPrincipal {
 
     @Override
     public void btnUsuariosClic(ActionEvent evt) {
-        IControladorUsuarios controladorUsuarios = ControladorUsuarios.instanciar(ventanaPrincipal);
+        IControladorUsuarios controladorUsuarios = new ControladorUsuarios(ventanaPrincipal);
     }
 
     @Override

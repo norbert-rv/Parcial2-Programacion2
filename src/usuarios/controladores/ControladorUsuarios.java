@@ -28,9 +28,9 @@ public class ControladorUsuarios implements IControladorUsuarios {
     IGestorUsuarios gu = GestorUsuarios.instanciar();
 
     // patrón singleton
-    private static ControladorUsuarios controladorUsuarios;
+//    private static ControladorUsuarios controladorUsuarios;
 
-    private ControladorUsuarios(java.awt.Frame ventanaPadre) {
+    public ControladorUsuarios(java.awt.Frame ventanaPadre) {
         this.ventanaUsuarios = new VentanaUsuarios(ventanaPadre, true, this);
         this.ventanaUsuarios.verTablaUsuarios().setModel(new ModeloTabla());
         this.ventanaUsuarios.setLocationRelativeTo(null);
@@ -38,13 +38,13 @@ public class ControladorUsuarios implements IControladorUsuarios {
         this.ventanaUsuarios.setVisible(true);
     }
 
-    public static ControladorUsuarios instanciar(java.awt.Frame ventanaPadre) {
-        if (controladorUsuarios == null) {
-            controladorUsuarios = new ControladorUsuarios(ventanaPadre);
-        }
-
-        return controladorUsuarios;
-    }
+//    public static ControladorUsuarios instanciar(java.awt.Frame ventanaPadre) {
+//        if (controladorUsuarios == null) {
+//            controladorUsuarios = new ControladorUsuarios(ventanaPadre);
+//        }
+//
+//        return controladorUsuarios;
+//    }
     // fin patrón singleton
 
     @Override

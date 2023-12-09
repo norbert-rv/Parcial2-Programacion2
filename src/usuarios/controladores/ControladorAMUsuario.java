@@ -6,7 +6,9 @@ package usuarios.controladores;
 
 import interfaces.IControladorAMUsuario;
 import interfaces.IGestorUsuarios;
+import static interfaces.IGestorUsuarios.ERROR_CLAVES;
 import static interfaces.IGestorUsuarios.EXITO;
+import static interfaces.IGestorUsuarios.VALIDACION_EXITO;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 import javax.swing.JOptionPane;
@@ -76,15 +78,30 @@ public class ControladorAMUsuario implements IControladorAMUsuario {
 
         IGestorUsuarios gu = GestorUsuarios.instanciar();
 
-        if (usuarioNuevo) {
-            gu.crearUsuario(correo, apellido, nombre, perfil, new String(clave), new String(claveRepetida));
-        } else {
+        if (usuarioNuevo){
+            if(gu.verificarDatos( correo,apellido,nombre,perfil,new String(clave), new String(claveRepetida)).equals(VALIDACION_EXITO)){
+                gu.crearUsuario(correo, apellido, nombre, perfil, new String(clave), new String(claveRepetida));}
+            else{
+                if(gu.verificarDatos( correo,apellido,nombre,perfil,new String(clave), new String(claveRepetida)).equals(ERROR_CLAVES)){
+                    String mensajecontraseñanocoinciden = "Las contraseñas no coinciden, por favor controlar.";
+                    JOptionPane.showMessageDialog(this.ventanaCrearYModUsuario, mensajecontraseñanocoinciden, "Error", JOptionPane.INFORMATION_MESSAGE);}
+                else{
+                    String mensajeDatosInvalidos = "Los datos no son válidos. Por favor revise los campos.";
+                JOptionPane.showMessageDialog(this.ventanaCrearYModUsuario, mensajeDatosInvalidos, "Error", JOptionPane.INFORMATION_MESSAGE);}}}
+        
+    else {
             // ¿Debería desahabilitar para seleccionar Perfil?
+            if(gu.verificarDatos( correo,apellido,nombre,perfil,new String(clave), new String(claveRepetida)).equals(VALIDACION_EXITO)){
             String resultadoOperacion = gu.modificarUsuario(correo, apellido, nombre, perfil, new String(clave), new String(claveRepetida));
-
+           
             if (!resultadoOperacion.equals(EXITO)) {
                 String mensajeDatosInvalidos = "Los datos no son válidos. Por favor revise los campos.";
-                JOptionPane.showMessageDialog(this.ventanaCrearYModUsuario, mensajeDatosInvalidos, "Error", JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(this.ventanaCrearYModUsuario, mensajeDatosInvalidos, "Error", JOptionPane.INFORMATION_MESSAGE);}
+            }
+            else{ 
+                 if(gu.verificarDatos( correo,apellido,nombre,perfil,new String(clave), new String(claveRepetida)).equals(ERROR_CLAVES)){
+                    String mensajecontraseñanocoinciden = "Las contraseñas no coinciden, por favor controlar.";
+                    JOptionPane.showMessageDialog(this.ventanaCrearYModUsuario, mensajecontraseñanocoinciden, "Error", JOptionPane.INFORMATION_MESSAGE);}
             }
         }
         

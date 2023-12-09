@@ -10,9 +10,12 @@ import java.awt.event.KeyEvent;
 import java.awt.event.WindowEvent;
 import interfaces.IControladorUsuarios;
 import interfaces.IGestorUsuarios;
+import static interfaces.IGestorUsuarios.USUARIO_INEXISTENTE;
+import javax.swing.JOptionPane;
 import javax.swing.table.AbstractTableModel;
 import usuarios.modelos.GestorUsuarios;
 import usuarios.modelos.ModeloTabla;
+import usuarios.modelos.Usuario;
 import usuarios.vistas.VentanaUsuarios;
 
 /**
@@ -63,7 +66,13 @@ public class ControladorUsuarios implements IControladorUsuarios{
 
     @Override
     public void btnBorrarClic(ActionEvent evt) {
-    }
+        int filaSeleccionada = this.ventanaUsuarios.verTablaUsuarios().getSelectedRow();
+        Usuario u1 = gu.verUsuarios().get(filaSeleccionada);
+        
+        int opcionEscogida = JOptionPane.showOptionDialog(this.ventanaUsuarios, "¿Desea borrar la persona seleccionada? Se perderán todos sus datos", "Advertencia", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE, null, new Object[]{"Si", "No"}, "Si");
+        if (opcionEscogida == JOptionPane.YES_OPTION) {
+            gu.verUsuarios().remove(u1);      
+        }}
 
     @Override
     public void ventanaObtenerFoco(WindowEvent evt) {

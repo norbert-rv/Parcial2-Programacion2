@@ -35,7 +35,7 @@ public class ControladorAMUsuario implements IControladorAMUsuario {
     // constructor para NUEVO usuario
     public ControladorAMUsuario(java.awt.Dialog ventanaPadre) {
         this.ventanaCrearYModUsuario = new VentanaCrearYModificarUsuario(ventanaPadre, true, this);
-        this.configurarperfil();
+        this.configurarPerfil();
         this.ventanaCrearYModUsuario.setLocationRelativeTo(null);
         this.ventanaCrearYModUsuario.setTitle(TITULO_NUEVO);
         this.usuarioNuevo = true;
@@ -45,11 +45,11 @@ public class ControladorAMUsuario implements IControladorAMUsuario {
     // constructor para MODIFICAR usuario
     public ControladorAMUsuario(java.awt.Dialog ventanaPadre, String correoUsuarioSeleccionado) {
         this.ventanaCrearYModUsuario = new VentanaCrearYModificarUsuario(ventanaPadre, true, this);
-        this.ventanaCrearYModUsuario.verTextocorreo().setText(correoUsuarioSeleccionado);
-        this.ventanaCrearYModUsuario.verTextocorreo().setEditable(false);
-        this.ventanaCrearYModUsuario.verTextocorreo().setOpaque(false);
-        this.ventanaCrearYModUsuario.verTextoapellido().requestFocus();
-        this.configurarperfil();
+        this.ventanaCrearYModUsuario.verTextoCorreo().setText(correoUsuarioSeleccionado);
+        this.ventanaCrearYModUsuario.verTextoCorreo().setEditable(false);
+        this.ventanaCrearYModUsuario.verTextoCorreo().setOpaque(false);
+        this.ventanaCrearYModUsuario.verTextoApellido().requestFocus();
+        this.configurarPerfil();
         this.ventanaCrearYModUsuario.setLocationRelativeTo(null);
         this.ventanaCrearYModUsuario.setTitle(TITULO_MODIFICAR);
         this.usuarioNuevo = false;
@@ -57,7 +57,7 @@ public class ControladorAMUsuario implements IControladorAMUsuario {
         this.ventanaCrearYModUsuario.setVisible(true);
     }
 
-    private void configurarperfil() {
+    private void configurarPerfil() {
         ModeloComboPerfil modelo = new ModeloComboPerfil();
         this.ventanaCrearYModUsuario.verComboPerfiles().setModel(modelo);
     }
@@ -65,15 +65,15 @@ public class ControladorAMUsuario implements IControladorAMUsuario {
     @Override
     public void btnGuardarClic(ActionEvent evt) {
 
-        String correo = ventanaCrearYModUsuario.verTextocorreo().getText().trim();
+        String correo = ventanaCrearYModUsuario.verTextoCorreo().getText().trim();
 
-        String apellido = ventanaCrearYModUsuario.verTextoapellido().getText().trim();
+        String apellido = ventanaCrearYModUsuario.verTextoApellido().getText().trim();
 
-        String nombre = ventanaCrearYModUsuario.verTextonombre().getText().trim();
+        String nombre = ventanaCrearYModUsuario.verTextoNombre().getText().trim();
 
-        char[] clave = ventanaCrearYModUsuario.verContraseñatexto().getPassword();
+        char[] clave = ventanaCrearYModUsuario.verTextoContrasenia().getPassword();
 
-        char[] claveRepetida = ventanaCrearYModUsuario.verContraseñareptexto().getPassword();
+        char[] claveRepetida = ventanaCrearYModUsuario.verTextoContraseniaRep().getPassword();
 
         //controlar si la siguiente linea es correcta
         Perfil perfil = ((ModeloComboPerfil) ventanaCrearYModUsuario.verComboPerfiles().getModel()).obtenerPerfil();
@@ -130,7 +130,7 @@ public class ControladorAMUsuario implements IControladorAMUsuario {
     @Override
     public void txtCorreoPresionarTecla(KeyEvent evt) {
         if (KeyEvent.VK_ENTER == evt.getKeyChar()) {
-            this.ventanaCrearYModUsuario.verTextoapellido().requestFocus();
+            this.ventanaCrearYModUsuario.verTextoApellido().requestFocus();
         }
     }
 
@@ -139,21 +139,21 @@ public class ControladorAMUsuario implements IControladorAMUsuario {
 //        char c = evt.getKeyChar();
 
         if (KeyEvent.VK_ENTER == evt.getKeyChar()) {
-            this.ventanaCrearYModUsuario.verTextonombre().requestFocus();
+            this.ventanaCrearYModUsuario.verTextoNombre().requestFocus();
         }
     }
 
     @Override
     public void txtNombrePresionarTecla(KeyEvent evt) {
         if (KeyEvent.VK_ENTER == evt.getKeyChar()) {
-            this.ventanaCrearYModUsuario.verContraseñatexto().requestFocus();
+            this.ventanaCrearYModUsuario.verTextoContrasenia().requestFocus();
         }
     }
 
     @Override
     public void passClavePresionarTecla(KeyEvent evt) {
         if (KeyEvent.VK_ENTER == evt.getKeyChar()) {
-            this.ventanaCrearYModUsuario.verContraseñareptexto().requestFocus();
+            this.ventanaCrearYModUsuario.verTextoContraseniaRep().requestFocus();
         }
     }
 

@@ -43,35 +43,35 @@ public class VentanaCrearYModificarUsuario extends javax.swing.JDialog {
     private void initComponents() {
 
         correo = new javax.swing.JLabel();
-        botoncancelar = new javax.swing.JButton();
-        botonguardar = new javax.swing.JButton();
+        botonCancelar = new javax.swing.JButton();
+        botonGuardar = new javax.swing.JButton();
         nombre = new javax.swing.JLabel();
         apellido = new javax.swing.JLabel();
         perfil = new javax.swing.JLabel();
         clave = new javax.swing.JLabel();
-        claveduplicada = new javax.swing.JLabel();
-        textocorreo = new javax.swing.JTextField();
-        textoapellido = new javax.swing.JTextField();
-        textonombre = new javax.swing.JTextField();
-        contraseñatexto = new javax.swing.JPasswordField();
-        contraseñareptexto = new javax.swing.JPasswordField();
+        claveDuplicada = new javax.swing.JLabel();
+        textoCorreo = new javax.swing.JTextField();
+        textoApellido = new javax.swing.JTextField();
+        textoNombre = new javax.swing.JTextField();
+        textoContrasenia = new javax.swing.JPasswordField();
+        textoContraseniaRep = new javax.swing.JPasswordField();
         comboPerfil = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         correo.setText("Correo:");
 
-        botoncancelar.setText("Cancelar");
-        botoncancelar.addActionListener(new java.awt.event.ActionListener() {
+        botonCancelar.setText("Cancelar");
+        botonCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botoncancelarActionPerformed(evt);
+                botonCancelarActionPerformed(evt);
             }
         });
 
-        botonguardar.setText("Guardar");
-        botonguardar.addActionListener(new java.awt.event.ActionListener() {
+        botonGuardar.setText("Guardar");
+        botonGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botonguardarActionPerformed(evt);
+                botonGuardarActionPerformed(evt);
             }
         });
 
@@ -83,60 +83,60 @@ public class VentanaCrearYModificarUsuario extends javax.swing.JDialog {
 
         clave.setText("Clave:");
 
-        claveduplicada.setText("Repetir clave:");
+        claveDuplicada.setText("Repetir clave:");
 
-        textocorreo.addActionListener(new java.awt.event.ActionListener() {
+        textoCorreo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                textocorreoActionPerformed(evt);
+                textoCorreoActionPerformed(evt);
             }
         });
-        textocorreo.addKeyListener(new java.awt.event.KeyAdapter() {
+        textoCorreo.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                textocorreoKeyTyped(evt);
-            }
-        });
-
-        textoapellido.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                textoapellidoActionPerformed(evt);
-            }
-        });
-        textoapellido.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                textoapellidoKeyTyped(evt);
+                textoCorreoKeyTyped(evt);
             }
         });
 
-        textonombre.addActionListener(new java.awt.event.ActionListener() {
+        textoApellido.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                textonombreActionPerformed(evt);
+                textoApellidoActionPerformed(evt);
             }
         });
-        textonombre.addKeyListener(new java.awt.event.KeyAdapter() {
+        textoApellido.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                textonombreKeyTyped(evt);
+                textoApellidoKeyTyped(evt);
             }
         });
 
-        contraseñatexto.addActionListener(new java.awt.event.ActionListener() {
+        textoNombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                contraseñatextoActionPerformed(evt);
+                textoNombreActionPerformed(evt);
             }
         });
-        contraseñatexto.addKeyListener(new java.awt.event.KeyAdapter() {
+        textoNombre.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                contraseñatextoKeyTyped(evt);
+                textoNombreKeyTyped(evt);
             }
         });
 
-        contraseñareptexto.addActionListener(new java.awt.event.ActionListener() {
+        textoContrasenia.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                contraseñareptextoActionPerformed(evt);
+                textoContraseniaActionPerformed(evt);
             }
         });
-        contraseñareptexto.addKeyListener(new java.awt.event.KeyAdapter() {
+        textoContrasenia.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                contraseñareptextoKeyTyped(evt);
+                textoContraseniaKeyTyped(evt);
+            }
+        });
+
+        textoContraseniaRep.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textoContraseniaRepActionPerformed(evt);
+            }
+        });
+        textoContraseniaRep.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                textoContraseniaRepKeyTyped(evt);
             }
         });
 
@@ -148,9 +148,9 @@ public class VentanaCrearYModificarUsuario extends javax.swing.JDialog {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(botonguardar)
+                .addComponent(botonGuardar)
                 .addGap(18, 18, 18)
-                .addComponent(botoncancelar)
+                .addComponent(botonCancelar)
                 .addGap(22, 22, 22))
             .addGroup(layout.createSequentialGroup()
                 .addGap(23, 23, 23)
@@ -160,15 +160,15 @@ public class VentanaCrearYModificarUsuario extends javax.swing.JDialog {
                     .addComponent(nombre)
                     .addComponent(perfil)
                     .addComponent(clave)
-                    .addComponent(claveduplicada))
+                    .addComponent(claveDuplicada))
                 .addGap(45, 45, 45)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(textocorreo)
-                    .addComponent(textoapellido)
-                    .addComponent(textonombre)
+                    .addComponent(textoCorreo)
+                    .addComponent(textoApellido)
+                    .addComponent(textoNombre)
                     .addComponent(comboPerfil, 0, 200, Short.MAX_VALUE)
-                    .addComponent(contraseñatexto)
-                    .addComponent(contraseñareptexto))
+                    .addComponent(textoContrasenia)
+                    .addComponent(textoContraseniaRep))
                 .addContainerGap(62, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -177,15 +177,15 @@ public class VentanaCrearYModificarUsuario extends javax.swing.JDialog {
                 .addContainerGap(19, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(correo)
-                    .addComponent(textocorreo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(textoCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(apellido)
-                    .addComponent(textoapellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(textoApellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(nombre)
-                    .addComponent(textonombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(textoNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(perfil)
@@ -193,81 +193,81 @@ public class VentanaCrearYModificarUsuario extends javax.swing.JDialog {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(clave)
-                    .addComponent(contraseñatexto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(textoContrasenia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(claveduplicada)
-                    .addComponent(contraseñareptexto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(claveDuplicada)
+                    .addComponent(textoContraseniaRep, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(30, 30, 30)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(botoncancelar)
-                    .addComponent(botonguardar))
+                    .addComponent(botonCancelar)
+                    .addComponent(botonGuardar))
                 .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void contraseñatextoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_contraseñatextoActionPerformed
+    private void textoContraseniaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textoContraseniaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_contraseñatextoActionPerformed
+    }//GEN-LAST:event_textoContraseniaActionPerformed
 
-    private void contraseñareptextoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_contraseñareptextoActionPerformed
+    private void textoContraseniaRepActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textoContraseniaRepActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_contraseñareptextoActionPerformed
+    }//GEN-LAST:event_textoContraseniaRepActionPerformed
 
-    private void textocorreoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textocorreoActionPerformed
+    private void textoCorreoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textoCorreoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_textocorreoActionPerformed
+    }//GEN-LAST:event_textoCorreoActionPerformed
 
-    private void botonguardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonguardarActionPerformed
+    private void botonGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonGuardarActionPerformed
         this.controlador.btnGuardarClic(evt);
-    }//GEN-LAST:event_botonguardarActionPerformed
+    }//GEN-LAST:event_botonGuardarActionPerformed
 
-    private void botoncancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botoncancelarActionPerformed
+    private void botonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCancelarActionPerformed
         this.controlador.btnCancelarClic(evt);
-    }//GEN-LAST:event_botoncancelarActionPerformed
+    }//GEN-LAST:event_botonCancelarActionPerformed
 
-    private void textocorreoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textocorreoKeyTyped
+    private void textoCorreoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textoCorreoKeyTyped
         this.controlador.txtCorreoPresionarTecla(evt);
-    }//GEN-LAST:event_textocorreoKeyTyped
+    }//GEN-LAST:event_textoCorreoKeyTyped
 
-    private void textoapellidoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textoapellidoKeyTyped
+    private void textoApellidoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textoApellidoKeyTyped
         this.controlador.txtApellidoPresionarTecla(evt);
-    }//GEN-LAST:event_textoapellidoKeyTyped
+    }//GEN-LAST:event_textoApellidoKeyTyped
 
-    private void textonombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textonombreKeyTyped
+    private void textoNombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textoNombreKeyTyped
         this.controlador.txtNombrePresionarTecla(evt);
-    }//GEN-LAST:event_textonombreKeyTyped
+    }//GEN-LAST:event_textoNombreKeyTyped
 
-    private void contraseñatextoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_contraseñatextoKeyTyped
+    private void textoContraseniaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textoContraseniaKeyTyped
         this.controlador.passClavePresionarTecla(evt);
-    }//GEN-LAST:event_contraseñatextoKeyTyped
+    }//GEN-LAST:event_textoContraseniaKeyTyped
 
-    private void contraseñareptextoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_contraseñareptextoKeyTyped
+    private void textoContraseniaRepKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textoContraseniaRepKeyTyped
         this.controlador.passClaveRepetidaPresionarTecla(evt);
-    }//GEN-LAST:event_contraseñareptextoKeyTyped
+    }//GEN-LAST:event_textoContraseniaRepKeyTyped
 
-    private void textoapellidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textoapellidoActionPerformed
+    private void textoApellidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textoApellidoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_textoapellidoActionPerformed
+    }//GEN-LAST:event_textoApellidoActionPerformed
 
-    private void textonombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textonombreActionPerformed
+    private void textoNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textoNombreActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_textonombreActionPerformed
+    }//GEN-LAST:event_textoNombreActionPerformed
 
     // getters y setters
-    public JButton verbotonguardar() {
-        return botonguardar;
+    public JButton verBotonGuardar() {
+        return botonGuardar;
     }
-     public JButton verbotoncancelar() {
-        return botoncancelar;
+     public JButton verBotonCancelar() {
+        return botonCancelar;
     }
-     public void asignarbotonCancelar(JButton botoncancelar) {
-        this.botoncancelar = botoncancelar;
+     public void asignarBotonCancelar(JButton botoncancelar) {
+        this.botonCancelar = botoncancelar;
     }
-     public void asignarbotonguardar(JButton botonguardar) {
-        this.botonguardar = botonguardar;
+     public void asignarBotonGuardar(JButton botonguardar) {
+        this.botonGuardar = botonguardar;
     }
     public JComboBox<String> verComboPerfiles() {
         return comboPerfil;
@@ -299,28 +299,28 @@ public class VentanaCrearYModificarUsuario extends javax.swing.JDialog {
         this.clave = clave;
     }
 
-    public JLabel verClaveduplicada() {
-        return claveduplicada;
+    public JLabel verClaveDuplicada() {
+        return claveDuplicada;
     }
 
-    public void asignarClaveduplicada(JLabel claveduplicada) {
-        this.claveduplicada = claveduplicada;
+    public void asignarClaveDuplicada(JLabel claveduplicada) {
+        this.claveDuplicada = claveduplicada;
     }
 
-    public JPasswordField verContraseñareptexto() {
-        return contraseñareptexto;
+    public JPasswordField verTextoContraseniaRep() {
+        return textoContraseniaRep;
     }
 
-    public void asignarContraseñareptexto(JPasswordField contraseñareptexto) {
-        this.contraseñareptexto = contraseñareptexto;
+    public void asignarTextoContraseniaRep(JPasswordField contraseñareptexto) {
+        this.textoContraseniaRep = contraseñareptexto;
     }
 
-    public JPasswordField verContraseñatexto() {
-        return contraseñatexto;
+    public JPasswordField verTextoContrasenia() {
+        return textoContrasenia;
     }
 
-    public void asignarContraseñatexto(JPasswordField contraseñatexto) {
-        this.contraseñatexto = contraseñatexto;
+    public void asignarTextoContrasenia(JPasswordField contraseñatexto) {
+        this.textoContrasenia = contraseñatexto;
     }
 
     public JLabel verCorreo() {
@@ -347,45 +347,45 @@ public class VentanaCrearYModificarUsuario extends javax.swing.JDialog {
         this.perfil = perfil;
     }
 
-    public JTextField verTextoapellido() {
-        return textoapellido;
+    public JTextField verTextoApellido() {
+        return textoApellido;
     }
 
-    public void asignarTextoapellido(JTextField textoapellido) {
-        this.textoapellido = textoapellido;
+    public void asignarTextoApellido(JTextField textoapellido) {
+        this.textoApellido = textoapellido;
     }
 
-    public JTextField verTextocorreo() {
-        return textocorreo;
+    public JTextField verTextoCorreo() {
+        return textoCorreo;
     }
 
-    public void asignarTextocorreo(JTextField textocorreo) {
-        this.textocorreo = textocorreo;
+    public void asignarTextoCorreo(JTextField textocorreo) {
+        this.textoCorreo = textocorreo;
     }
 
-    public JTextField verTextonombre() {
-        return textonombre;
+    public JTextField verTextoNombre() {
+        return textoNombre;
     }
 
-    public void asignarTextonombre(JTextField textonombre) {
-        this.textonombre = textonombre;
+    public void asignarTextoNombre(JTextField textonombre) {
+        this.textoNombre = textonombre;
     }
      
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel apellido;
-    private javax.swing.JButton botoncancelar;
-    private javax.swing.JButton botonguardar;
+    private javax.swing.JButton botonCancelar;
+    private javax.swing.JButton botonGuardar;
     private javax.swing.JLabel clave;
-    private javax.swing.JLabel claveduplicada;
+    private javax.swing.JLabel claveDuplicada;
     private javax.swing.JComboBox<String> comboPerfil;
-    private javax.swing.JPasswordField contraseñareptexto;
-    private javax.swing.JPasswordField contraseñatexto;
     private javax.swing.JLabel correo;
     private javax.swing.JLabel nombre;
     private javax.swing.JLabel perfil;
-    private javax.swing.JTextField textoapellido;
-    private javax.swing.JTextField textocorreo;
-    private javax.swing.JTextField textonombre;
+    private javax.swing.JTextField textoApellido;
+    private javax.swing.JPasswordField textoContrasenia;
+    private javax.swing.JPasswordField textoContraseniaRep;
+    private javax.swing.JTextField textoCorreo;
+    private javax.swing.JTextField textoNombre;
     // End of variables declaration//GEN-END:variables
 }

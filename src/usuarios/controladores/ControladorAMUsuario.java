@@ -7,7 +7,6 @@ package usuarios.controladores;
 import interfaces.IControladorAMUsuario;
 import interfaces.IGestorUsuarios;
 import static interfaces.IGestorUsuarios.ERROR_CLAVES;
-import static interfaces.IGestorUsuarios.EXITO;
 import static interfaces.IGestorUsuarios.VALIDACION_EXITO;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
@@ -27,7 +26,6 @@ public class ControladorAMUsuario implements IControladorAMUsuario {
 
     // cadenas constantes para los cuadros de mensaje
     private static final String DATOS_INVALIDOS = "Los datos no son válidos. Por favor revise los campos.";
-//    private static final String CONTRASENIAS_NO_COINCIDEN 
 
     // booleano para que el método btnGuardarClic() sepa si debe agregar un usuario nuevo o si debe modificarlo
     private boolean usuarioNuevo;

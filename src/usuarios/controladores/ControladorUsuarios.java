@@ -25,10 +25,8 @@ import usuarios.vistas.VentanaUsuarios;
 public class ControladorUsuarios implements IControladorUsuarios {
 
     private VentanaUsuarios ventanaUsuarios;
-    IGestorUsuarios gu = GestorUsuarios.instanciar();
+    private static final String USUARIO_NO_SELECCIONADO = "Debe seleccionar un usuario de la tabla.";
 
-    // patrón singleton
-//    private static ControladorUsuarios controladorUsuarios;
     public ControladorUsuarios(java.awt.Frame ventanaPadre) {
         this.ventanaUsuarios = new VentanaUsuarios(ventanaPadre, true, this);
         this.ventanaUsuarios.verTablaUsuarios().setModel(new ModeloTabla());
@@ -37,14 +35,6 @@ public class ControladorUsuarios implements IControladorUsuarios {
         this.ventanaUsuarios.setVisible(true);
     }
 
-//    public static ControladorUsuarios instanciar(java.awt.Frame ventanaPadre) {
-//        if (controladorUsuarios == null) {
-//            controladorUsuarios = new ControladorUsuarios(ventanaPadre);
-//        }
-//
-//        return controladorUsuarios;
-//    }
-    // fin patrón singleton
     @Override
     public void btnNuevoClic(ActionEvent evt) {
         IControladorAMUsuario controlador = new ControladorAMUsuario(this.ventanaUsuarios);
@@ -53,26 +43,34 @@ public class ControladorUsuarios implements IControladorUsuarios {
     @Override
     public void btnModificarClic(ActionEvent evt) {
         int filaSeleccionada = this.ventanaUsuarios.verTablaUsuarios().getSelectedRow();
-
+        
+        IGestorUsuarios gu = GestorUsuarios.instanciar();
+        
         try {
             String correoFilaSeleccionada = gu.verUsuarios().get(filaSeleccionada).verCorreo();
             IControladorAMUsuario controlador = new ControladorAMUsuario(this.ventanaUsuarios, correoFilaSeleccionada);
         } catch (IndexOutOfBoundsException iob) {
-            String mensaje = "Debe seleccionar un usuario de la tabla.";
-            JOptionPane.showMessageDialog(this.ventanaUsuarios, mensaje, "Error", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(this.ventanaUsuarios, USUARIO_NO_SELECCIONADO, "Error", JOptionPane.INFORMATION_MESSAGE);
         }
     }
 
     @Override
     public void btnBorrarClic(ActionEvent evt) {
         int filaSeleccionada = this.ventanaUsuarios.verTablaUsuarios().getSelectedRow();
-        Usuario usuarioBorrar = gu.verUsuarios().get(filaSeleccionada);
+        
+        IGestorUsuarios gu = GestorUsuarios.instanciar();
+        
+        try {
+            Usuario usuarioABorrar = gu.verUsuarios().get(filaSeleccionada);
+            int opcionEscogida = JOptionPane.showOptionDialog(this.ventanaUsuarios, CONFIRMACION, "Advertencia", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE, null, new Object[]{"Si", "No"}, "Si");
 
-        int opcionEscogida = JOptionPane.showOptionDialog(this.ventanaUsuarios, "¿Desea borrar el usuario seleccionado? Se perderán todos sus datos.", "Advertencia", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE, null, new Object[]{"Si", "No"}, "Si");
-
-        if (opcionEscogida == JOptionPane.YES_OPTION) {
-            gu.borrarUsuario(usuarioBorrar);
+            if (opcionEscogida == JOptionPane.YES_OPTION) {
+                gu.borrarUsuario(usuarioABorrar);
+            }
+        } catch (IndexOutOfBoundsException iob) {
+            JOptionPane.showMessageDialog(this.ventanaUsuarios, USUARIO_NO_SELECCIONADO, "Error", JOptionPane.INFORMATION_MESSAGE);
         }
+
     }
 
     @Override
@@ -96,16 +94,6 @@ public class ControladorUsuarios implements IControladorUsuarios {
     public void txtApellidoPresionarTecla(KeyEvent evt) {
 
         /*
-        Funcionalidad para que al estar la casilla de texto vacia en la casilla de apellido
-        se vuelvan a mostrar todos los usuarios en la tabla.
-         */
-//        String apellidoNulo = this.ventanaUsuarios.verTxtApellido().getText();
-//        
-//        if(apellidoNulo == null) {
-//            AbstractTableModel modeloTablaUsuarios = (AbstractTableModel) this.ventanaUsuarios.verTablaUsuarios().getModel();
-//            ((ModeloTabla) modeloTablaUsuarios).actualizarDatosTabla();
-//        }
-        /*
         Funcionalidad para que al presionar Enter se ejecute la funcionalidad Buscar.
          */
         char c = evt.getKeyChar();
@@ -120,7 +108,7 @@ public class ControladorUsuarios implements IControladorUsuarios {
         String apellidoBuscar = this.ventanaUsuarios.verTxtApellido().getText().trim();
 
         /*
-        De esta forma, cuando vuelvo a borrar el cuadro de búsqueda y aprieto Borrar,
+        De esta forma, cuando vuelvo a borrar el cuadro de búsqueda y aprieto Buscar,
         se muestran todos los usuarios nuevamente.
          */
         if (apellidoBuscar != null) {

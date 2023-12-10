@@ -5,12 +5,10 @@
 package usuarios.vistas;
 
 import interfaces.IControladorUsuarios;
-import static interfaces.IControladorUsuarios.TITULO;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JTable;
 import javax.swing.JTextField;
-import usuarios.modelos.ModeloTabla;
 
 /**
  *
@@ -20,7 +18,7 @@ public class VentanaUsuarios extends javax.swing.JDialog {
 
     // ControladorUsuarios...
     private IControladorUsuarios controlador;
-    
+
     /**
      * Creates new form ventanausuarios
      */
@@ -28,14 +26,6 @@ public class VentanaUsuarios extends javax.swing.JDialog {
         super(parent, modal);
         this.controlador = controlador;
         initComponents();
-//        this.setLocationRelativeTo(null);
-//        this.setTitle(TITULO);
-//        this.setVisible(true);
-//        this.tablaUsuarios.setModel(new ModeloTabla());
-    }
-
-    public JTable verTablaUsuarios() {
-        return tablaUsuarios;
     }
 
     /**
@@ -48,11 +38,11 @@ public class VentanaUsuarios extends javax.swing.JDialog {
     private void initComponents() {
 
         jButton1 = new javax.swing.JButton();
-        botonbuscar = new javax.swing.JButton();
-        botonuevo = new javax.swing.JButton();
-        botonmodificar = new javax.swing.JButton();
-        botonborrar = new javax.swing.JButton();
-        botonvolver = new javax.swing.JButton();
+        botonBuscar = new javax.swing.JButton();
+        botonNuevo = new javax.swing.JButton();
+        botonModificar = new javax.swing.JButton();
+        botonBorrar = new javax.swing.JButton();
+        botonVolver = new javax.swing.JButton();
         txtApellido = new javax.swing.JTextField();
         apellido = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -74,38 +64,38 @@ public class VentanaUsuarios extends javax.swing.JDialog {
             }
         });
 
-        botonbuscar.setText("Buscar");
-        botonbuscar.addActionListener(new java.awt.event.ActionListener() {
+        botonBuscar.setText("Buscar");
+        botonBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botonbuscarActionPerformed(evt);
+                botonBuscarActionPerformed(evt);
             }
         });
 
-        botonuevo.setText("Nuevo");
-        botonuevo.addActionListener(new java.awt.event.ActionListener() {
+        botonNuevo.setText("Nuevo");
+        botonNuevo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botonuevoActionPerformed(evt);
+                botonNuevoActionPerformed(evt);
             }
         });
 
-        botonmodificar.setText("Modificar");
-        botonmodificar.addActionListener(new java.awt.event.ActionListener() {
+        botonModificar.setText("Modificar");
+        botonModificar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botonmodificarActionPerformed(evt);
+                botonModificarActionPerformed(evt);
             }
         });
 
-        botonborrar.setText("Borrar");
-        botonborrar.addActionListener(new java.awt.event.ActionListener() {
+        botonBorrar.setText("Borrar");
+        botonBorrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botonborrarActionPerformed(evt);
+                botonBorrarActionPerformed(evt);
             }
         });
 
-        botonvolver.setText("Volver");
-        botonvolver.addActionListener(new java.awt.event.ActionListener() {
+        botonVolver.setText("Volver");
+        botonVolver.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botonvolverActionPerformed(evt);
+                botonVolverActionPerformed(evt);
             }
         });
 
@@ -141,12 +131,12 @@ public class VentanaUsuarios extends javax.swing.JDialog {
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 342, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(botonbuscar, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(botonBuscar, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(botonvolver)
-                        .addComponent(botonborrar))
-                    .addComponent(botonuevo, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(botonmodificar, javax.swing.GroupLayout.Alignment.TRAILING))
+                        .addComponent(botonVolver)
+                        .addComponent(botonBorrar))
+                    .addComponent(botonNuevo, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(botonModificar, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -154,7 +144,7 @@ public class VentanaUsuarios extends javax.swing.JDialog {
             .addGroup(layout.createSequentialGroup()
                 .addGap(16, 16, 16)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(botonbuscar)
+                    .addComponent(botonBuscar)
                     .addComponent(txtApellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(apellido))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -163,38 +153,38 @@ public class VentanaUsuarios extends javax.swing.JDialog {
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(47, 47, 47)
-                        .addComponent(botonuevo)
+                        .addComponent(botonNuevo)
                         .addGap(37, 37, 37)
-                        .addComponent(botonmodificar)
+                        .addComponent(botonModificar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(botonborrar)))
+                        .addComponent(botonBorrar)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 115, Short.MAX_VALUE)
-                .addComponent(botonvolver)
+                .addComponent(botonVolver)
                 .addGap(19, 19, 19))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void botonvolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonvolverActionPerformed
+    private void botonVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonVolverActionPerformed
         this.controlador.btnVolverClic(evt);
-    }//GEN-LAST:event_botonvolverActionPerformed
+    }//GEN-LAST:event_botonVolverActionPerformed
 
-    private void botonborrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonborrarActionPerformed
+    private void botonBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonBorrarActionPerformed
         this.controlador.btnBorrarClic(evt);
-    }//GEN-LAST:event_botonborrarActionPerformed
+    }//GEN-LAST:event_botonBorrarActionPerformed
 
-    private void botonmodificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonmodificarActionPerformed
+    private void botonModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonModificarActionPerformed
         this.controlador.btnModificarClic(evt);
-    }//GEN-LAST:event_botonmodificarActionPerformed
+    }//GEN-LAST:event_botonModificarActionPerformed
 
-    private void botonuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonuevoActionPerformed
+    private void botonNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonNuevoActionPerformed
         this.controlador.btnNuevoClic(evt);
-    }//GEN-LAST:event_botonuevoActionPerformed
+    }//GEN-LAST:event_botonNuevoActionPerformed
 
-    private void botonbuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonbuscarActionPerformed
+    private void botonBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonBuscarActionPerformed
         this.controlador.btnBuscarClic(evt);
-    }//GEN-LAST:event_botonbuscarActionPerformed
+    }//GEN-LAST:event_botonBuscarActionPerformed
 
     private void txtApellidoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtApellidoKeyTyped
         this.controlador.txtApellidoPresionarTecla(evt);
@@ -208,49 +198,7 @@ public class VentanaUsuarios extends javax.swing.JDialog {
         this.controlador.ventanaObtenerFoco(evt);
     }//GEN-LAST:event_formWindowGainedFocus
 
-    /**
-     * @param args the command line arguments
-     */
-//    public static void main(String args[]) {
-//        /* Set the Nimbus look and feel */
-//        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-//        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-//         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-//         */
-//        try {
-//            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-//                if ("Nimbus".equals(info.getName())) {
-//                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-//                    break;
-//                }
-//            }
-//        } catch (ClassNotFoundException ex) {
-//            java.util.logging.Logger.getLogger(VentanaUsuarios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        } catch (InstantiationException ex) {
-//            java.util.logging.Logger.getLogger(VentanaUsuarios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        } catch (IllegalAccessException ex) {
-//            java.util.logging.Logger.getLogger(VentanaUsuarios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-//            java.util.logging.Logger.getLogger(VentanaUsuarios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        }
-//        //</editor-fold>
-//        //</editor-fold>
-//
-//        /* Create and display the dialog */
-//        java.awt.EventQueue.invokeLater(new Runnable() {
-//            public void run() {
-//                VentanaUsuarios dialog = new VentanaUsuarios(new javax.swing.JFrame(), true);
-//                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
-//                    @Override
-//                    public void windowClosing(java.awt.event.WindowEvent e) {
-//                        System.exit(0);
-//                    }
-//                });
-//                dialog.setVisible(true);
-//            }
-//        });
-//    }
-    
+    // getters y setters
     public IControladorUsuarios verControlador() {
         return controlador;
     }
@@ -267,49 +215,49 @@ public class VentanaUsuarios extends javax.swing.JDialog {
         this.apellido = apellido;
     }
 
-    public JButton verBotonborrar() {
-        return botonborrar;
+    public JButton verBotonBorrar() {
+        return botonBorrar;
     }
 
-    public void asignarBotonborrar(JButton botonborrar) {
-        this.botonborrar = botonborrar;
+    public void asignarBotonBorrar(JButton botonborrar) {
+        this.botonBorrar = botonborrar;
     }
 
-    public JButton verBotonbuscar() {
-        return botonbuscar;
+    public JButton verBotonBuscar() {
+        return botonBuscar;
     }
 
-    public void asignarBotonbuscar(JButton botonbuscar) {
-        this.botonbuscar = botonbuscar;
+    public void asignarBotonBuscar(JButton botonbuscar) {
+        this.botonBuscar = botonbuscar;
     }
 
-    public JButton verBotonmodificar() {
-        return botonmodificar;
+    public JButton verBotonModificar() {
+        return botonModificar;
     }
 
-    public void asignarBotonmodificar(JButton botonmodificar) {
-        this.botonmodificar = botonmodificar;
+    public void asignarBotonModificar(JButton botonmodificar) {
+        this.botonModificar = botonmodificar;
     }
 
-    public JButton verBotonuevo() {
-        return botonuevo;
+    public JButton verBotonNuevo() {
+        return botonNuevo;
     }
 
-    public void asignarBotonuevo(JButton botonuevo) {
-        this.botonuevo = botonuevo;
+    public void asignarBotonNuevo(JButton botonuevo) {
+        this.botonNuevo = botonuevo;
     }
 
-    public JButton verBotonvolver() {
-        return botonvolver;
+    public JButton verBotonVolver() {
+        return botonVolver;
     }
 
-    public void asignarBotonvolver(JButton botonvolver) {
-        this.botonvolver = botonvolver;
+    public void asignarBotonVolver(JButton botonvolver) {
+        this.botonVolver = botonvolver;
     }
 
-//    public JTable verTablaUsuarios() {
-//        return tablaUsuarios;
-//    }
+    public JTable verTablaUsuarios() {
+        return tablaUsuarios;
+    }
 
     public void asignarTablaUsuarios(JTable tablaUsuarios) {
         this.tablaUsuarios = tablaUsuarios;
@@ -318,61 +266,18 @@ public class VentanaUsuarios extends javax.swing.JDialog {
     public JTextField verTxtApellido() {
         return txtApellido;
     }
-    
+
     public void asignarTxtApellido(JTextField txtApellido) {
         this.txtApellido = txtApellido;
-    }   
+    }
 
-    /**
-     * @param args the command line arguments
-     */
-//    public static void main(String args[]) {
-//        /* Set the Nimbus look and feel */
-//        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-//        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-//         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
-//         */
-//        try {
-//            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-//                if ("Nimbus".equals(info.getName())) {
-//                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-//                    break;
-//                }
-//            }
-//        } catch (ClassNotFoundException ex) {
-//            java.util.logging.Logger.getLogger(VentanaUsuarios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        } catch (InstantiationException ex) {
-//            java.util.logging.Logger.getLogger(VentanaUsuarios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        } catch (IllegalAccessException ex) {
-//            java.util.logging.Logger.getLogger(VentanaUsuarios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-//            java.util.logging.Logger.getLogger(VentanaUsuarios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        }
-//        //</editor-fold>
-//        //</editor-fold>
-//
-//        /* Create and display the dialog */
-//        java.awt.EventQueue.invokeLater(new Runnable() {
-//            public void run() {
-//                VentanaUsuarios dialog = new VentanaUsuarios(new javax.swing.JFrame(), true);
-//                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
-//                    @Override
-//                    public void windowClosing(java.awt.event.WindowEvent e) {
-//                        System.exit(0);
-//                    }
-//                });
-//                dialog.setVisible(true);
-//            }
-//        });
-//    }
-     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel apellido;
-    private javax.swing.JButton botonborrar;
-    private javax.swing.JButton botonbuscar;
-    private javax.swing.JButton botonmodificar;
-    private javax.swing.JButton botonuevo;
-    private javax.swing.JButton botonvolver;
+    private javax.swing.JButton botonBorrar;
+    private javax.swing.JButton botonBuscar;
+    private javax.swing.JButton botonModificar;
+    private javax.swing.JButton botonNuevo;
+    private javax.swing.JButton botonVolver;
     private javax.swing.JButton jButton1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tablaUsuarios;

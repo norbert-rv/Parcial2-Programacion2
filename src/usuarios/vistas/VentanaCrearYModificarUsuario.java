@@ -10,8 +10,6 @@ import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
-import usuarios.controladores.ControladorAMUsuario;
-import usuarios.modelos.ModeloComboPerfil;
 
 /**
  *
@@ -29,13 +27,7 @@ public class VentanaCrearYModificarUsuario extends javax.swing.JDialog {
         super(parent, modal);
         this.controlador = controlador;
         initComponents();
-//        this.configurarperfil();
     }
-
-//    private void configurarperfil() {
-//        ModeloComboPerfil modelo = new ModeloComboPerfil();
-//        this.comboPerfil.setModel(modelo);
-//    }
 
     public JComboBox<String> obtenerComboPerfil() {
         return comboPerfil;
@@ -216,11 +208,6 @@ public class VentanaCrearYModificarUsuario extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    // getter para el comboPerfil
-//    public JComboBox verCategoria() {
-//        return this.comboCategoria;
-//    }
-
     private void contraseñatextoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_contraseñatextoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_contraseñatextoActionPerformed
@@ -269,49 +256,7 @@ public class VentanaCrearYModificarUsuario extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_textonombreActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-//    public static void main(String args[]) {
-//        /* Set the Nimbus look and feel */
-//        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-//        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-//         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-//         */
-//        try {
-//            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-//                if ("Nimbus".equals(info.getName())) {
-//                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-//                    break;
-//                }
-//            }
-//        } catch (ClassNotFoundException ex) {
-//            java.util.logging.Logger.getLogger(VentanaCrearYModificarUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        } catch (InstantiationException ex) {
-//            java.util.logging.Logger.getLogger(VentanaCrearYModificarUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        } catch (IllegalAccessException ex) {
-//            java.util.logging.Logger.getLogger(VentanaCrearYModificarUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-//            java.util.logging.Logger.getLogger(VentanaCrearYModificarUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        }
-//        //</editor-fold>
-//        //</editor-fold>
-//
-//        /* Create and display the dialog */
-//        java.awt.EventQueue.invokeLater(new Runnable() {
-//            public void run() {
-//                VentanaCrearYModificarUsuario dialog = new VentanaCrearYModificarUsuario(new javax.swing.JFrame(), true);
-//                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
-//                    @Override
-//                    public void windowClosing(java.awt.event.WindowEvent e) {
-//                        System.exit(0);
-//                    }
-//                });
-//                dialog.setVisible(true);
-//            }
-//        });
-//    }
-    
+    // getters y setters
     public JButton verbotonguardar() {
         return botonguardar;
     }

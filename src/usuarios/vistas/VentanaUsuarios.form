@@ -46,13 +46,13 @@
               </Group>
               <EmptySpace pref="28" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="botonbuscar" alignment="1" min="-2" max="-2" attributes="0"/>
+                  <Component id="botonBuscar" alignment="1" min="-2" max="-2" attributes="0"/>
                   <Group type="103" alignment="1" groupAlignment="0" attributes="0">
-                      <Component id="botonvolver" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="botonborrar" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="botonVolver" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="botonBorrar" alignment="0" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <Component id="botonuevo" alignment="1" min="-2" max="-2" attributes="0"/>
-                  <Component id="botonmodificar" alignment="1" min="-2" max="-2" attributes="0"/>
+                  <Component id="botonNuevo" alignment="1" min="-2" max="-2" attributes="0"/>
+                  <Component id="botonModificar" alignment="1" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
@@ -63,7 +63,7 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="botonbuscar" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="botonBuscar" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="txtApellido" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="apellido" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
@@ -74,59 +74,59 @@
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
-                      <Component id="botonuevo" min="-2" max="-2" attributes="0"/>
+                      <Component id="botonNuevo" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
-                      <Component id="botonmodificar" min="-2" max="-2" attributes="0"/>
+                      <Component id="botonModificar" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
-                      <Component id="botonborrar" min="-2" max="-2" attributes="0"/>
+                      <Component id="botonBorrar" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace pref="115" max="32767" attributes="0"/>
-              <Component id="botonvolver" min="-2" max="-2" attributes="0"/>
+              <Component id="botonVolver" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JButton" name="botonbuscar">
+    <Component class="javax.swing.JButton" name="botonBuscar">
       <Properties>
         <Property name="text" type="java.lang.String" value="Buscar"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonbuscarActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonBuscarActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="botonuevo">
+    <Component class="javax.swing.JButton" name="botonNuevo">
       <Properties>
         <Property name="text" type="java.lang.String" value="Nuevo"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonuevoActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonNuevoActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="botonmodificar">
+    <Component class="javax.swing.JButton" name="botonModificar">
       <Properties>
         <Property name="text" type="java.lang.String" value="Modificar"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonmodificarActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonModificarActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="botonborrar">
+    <Component class="javax.swing.JButton" name="botonBorrar">
       <Properties>
         <Property name="text" type="java.lang.String" value="Borrar"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonborrarActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonBorrarActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="botonvolver">
+    <Component class="javax.swing.JButton" name="botonVolver">
       <Properties>
         <Property name="text" type="java.lang.String" value="Volver"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonvolverActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonVolverActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="txtApellido">

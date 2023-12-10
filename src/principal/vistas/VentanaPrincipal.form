@@ -26,13 +26,13 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="botonpedidos" max="32767" attributes="0"/>
-                  <Component id="botonusuarios" pref="153" max="32767" attributes="0"/>
+                  <Component id="botonPedidos" max="32767" attributes="0"/>
+                  <Component id="botonUsuarios" pref="153" max="32767" attributes="0"/>
               </Group>
               <EmptySpace pref="39" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="botonsalir" max="32767" attributes="0"/>
-                  <Component id="botonproductos" pref="152" max="32767" attributes="0"/>
+                  <Component id="botonSalir" max="32767" attributes="0"/>
+                  <Component id="botonProductos" pref="152" max="32767" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
           </Group>
@@ -43,13 +43,13 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="botonusuarios" max="32767" attributes="0"/>
-                  <Component id="botonproductos" pref="125" max="32767" attributes="0"/>
+                  <Component id="botonUsuarios" max="32767" attributes="0"/>
+                  <Component id="botonProductos" pref="125" max="32767" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="botonpedidos" pref="124" max="32767" attributes="0"/>
-                  <Component id="botonsalir" max="32767" attributes="0"/>
+                  <Component id="botonPedidos" pref="124" max="32767" attributes="0"/>
+                  <Component id="botonSalir" max="32767" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
           </Group>
@@ -57,36 +57,36 @@
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JButton" name="botonusuarios">
+    <Component class="javax.swing.JButton" name="botonUsuarios">
       <Properties>
         <Property name="text" type="java.lang.String" value="Usuarios"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonusuariosActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonUsuariosActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="botonproductos">
+    <Component class="javax.swing.JButton" name="botonProductos">
       <Properties>
         <Property name="text" type="java.lang.String" value="Productos"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonproductosActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonProductosActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="botonpedidos">
+    <Component class="javax.swing.JButton" name="botonPedidos">
       <Properties>
         <Property name="text" type="java.lang.String" value="Pedidos"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonpedidosActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonPedidosActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="botonsalir">
+    <Component class="javax.swing.JButton" name="botonSalir">
       <Properties>
         <Property name="text" type="java.lang.String" value="Salir"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonsalirActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonSalirActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

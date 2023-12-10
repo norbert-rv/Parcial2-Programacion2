@@ -29,10 +29,6 @@ public class VentanaCrearYModificarUsuario extends javax.swing.JDialog {
         initComponents();
     }
 
-    public JComboBox<String> obtenerComboPerfil() {
-        return comboPerfil;
-    }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -85,55 +81,30 @@ public class VentanaCrearYModificarUsuario extends javax.swing.JDialog {
 
         claveDuplicada.setText("Repetir clave:");
 
-        textoCorreo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                textoCorreoActionPerformed(evt);
-            }
-        });
         textoCorreo.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 textoCorreoKeyTyped(evt);
             }
         });
 
-        textoApellido.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                textoApellidoActionPerformed(evt);
-            }
-        });
         textoApellido.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 textoApellidoKeyTyped(evt);
             }
         });
 
-        textoNombre.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                textoNombreActionPerformed(evt);
-            }
-        });
         textoNombre.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 textoNombreKeyTyped(evt);
             }
         });
 
-        textoContrasenia.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                textoContraseniaActionPerformed(evt);
-            }
-        });
         textoContrasenia.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 textoContraseniaKeyTyped(evt);
             }
         });
 
-        textoContraseniaRep.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                textoContraseniaRepActionPerformed(evt);
-            }
-        });
         textoContraseniaRep.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 textoContraseniaRepKeyTyped(evt);
@@ -208,18 +179,6 @@ public class VentanaCrearYModificarUsuario extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void textoContraseniaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textoContraseniaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_textoContraseniaActionPerformed
-
-    private void textoContraseniaRepActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textoContraseniaRepActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_textoContraseniaRepActionPerformed
-
-    private void textoCorreoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textoCorreoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_textoCorreoActionPerformed
-
     private void botonGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonGuardarActionPerformed
         this.controlador.btnGuardarClic(evt);
     }//GEN-LAST:event_botonGuardarActionPerformed
@@ -248,33 +207,35 @@ public class VentanaCrearYModificarUsuario extends javax.swing.JDialog {
         this.controlador.passClaveRepetidaPresionarTecla(evt);
     }//GEN-LAST:event_textoContraseniaRepKeyTyped
 
-    private void textoApellidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textoApellidoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_textoApellidoActionPerformed
-
-    private void textoNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textoNombreActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_textoNombreActionPerformed
-
     // getters y setters
+    public JComboBox<String> obtenerComboPerfil() {
+        return comboPerfil;
+    }
+
     public JButton verBotonGuardar() {
         return botonGuardar;
     }
-     public JButton verBotonCancelar() {
+
+    public JButton verBotonCancelar() {
         return botonCancelar;
     }
-     public void asignarBotonCancelar(JButton botoncancelar) {
-        this.botonCancelar = botoncancelar;
+
+    public void asignarBotonCancelar(JButton botonCancelar) {
+        this.botonCancelar = botonCancelar;
     }
-     public void asignarBotonGuardar(JButton botonguardar) {
-        this.botonGuardar = botonguardar;
+
+    public void asignarBotonGuardar(JButton botonGuardar) {
+        this.botonGuardar = botonGuardar;
     }
+
     public JComboBox<String> verComboPerfiles() {
         return comboPerfil;
     }
+
     public void asignarComboPerfil(JComboBox<String> ComboPerfil) {
         this.comboPerfil = ComboPerfil;
     }
+
     public IControladorAMUsuario verControlador() {
         return controlador;
     }
@@ -303,24 +264,24 @@ public class VentanaCrearYModificarUsuario extends javax.swing.JDialog {
         return claveDuplicada;
     }
 
-    public void asignarClaveDuplicada(JLabel claveduplicada) {
-        this.claveDuplicada = claveduplicada;
+    public void asignarClaveDuplicada(JLabel claveDuplicada) {
+        this.claveDuplicada = claveDuplicada;
     }
 
     public JPasswordField verTextoContraseniaRep() {
         return textoContraseniaRep;
     }
 
-    public void asignarTextoContraseniaRep(JPasswordField contraseñareptexto) {
-        this.textoContraseniaRep = contraseñareptexto;
+    public void asignarTextoContraseniaRep(JPasswordField textoContraseniaRep) {
+        this.textoContraseniaRep = textoContraseniaRep;
     }
 
     public JPasswordField verTextoContrasenia() {
         return textoContrasenia;
     }
 
-    public void asignarTextoContrasenia(JPasswordField contraseñatexto) {
-        this.textoContrasenia = contraseñatexto;
+    public void asignarTextoContrasenia(JPasswordField textoContrasenia) {
+        this.textoContrasenia = textoContrasenia;
     }
 
     public JLabel verCorreo() {
@@ -351,26 +312,26 @@ public class VentanaCrearYModificarUsuario extends javax.swing.JDialog {
         return textoApellido;
     }
 
-    public void asignarTextoApellido(JTextField textoapellido) {
-        this.textoApellido = textoapellido;
+    public void asignarTextoApellido(JTextField textoApellido) {
+        this.textoApellido = textoApellido;
     }
 
     public JTextField verTextoCorreo() {
         return textoCorreo;
     }
 
-    public void asignarTextoCorreo(JTextField textocorreo) {
-        this.textoCorreo = textocorreo;
+    public void asignarTextoCorreo(JTextField textoCorreo) {
+        this.textoCorreo = textoCorreo;
     }
 
     public JTextField verTextoNombre() {
         return textoNombre;
     }
 
-    public void asignarTextoNombre(JTextField textonombre) {
-        this.textoNombre = textonombre;
+    public void asignarTextoNombre(JTextField textoNombre) {
+        this.textoNombre = textoNombre;
     }
-     
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel apellido;

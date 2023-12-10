@@ -145,31 +145,26 @@
     </Component>
     <Component class="javax.swing.JTextField" name="textoCorreo">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="textoCorreoActionPerformed"/>
         <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="textoCorreoKeyTyped"/>
       </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="textoApellido">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="textoApellidoActionPerformed"/>
         <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="textoApellidoKeyTyped"/>
       </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="textoNombre">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="textoNombreActionPerformed"/>
         <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="textoNombreKeyTyped"/>
       </Events>
     </Component>
     <Component class="javax.swing.JPasswordField" name="textoContrasenia">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="textoContraseniaActionPerformed"/>
         <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="textoContraseniaKeyTyped"/>
       </Events>
     </Component>
     <Component class="javax.swing.JPasswordField" name="textoContraseniaRep">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="textoContraseniaRepActionPerformed"/>
         <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="textoContraseniaRepKeyTyped"/>
       </Events>
     </Component>

@@ -27,7 +27,7 @@ public class GestorUsuarios implements IGestorUsuarios {
 
     // nombre del archivo que guarda los usuarios
     // POR EL MOMENTO VAMOS A DEFINIR EL NOMBRE AQUI PORQUE ES PREFERIBLE A HACERLO EN VentanaAMUsuario, debería entrar como parámetro ahí desde el main...
-    private String archivoUsuarios = "archivo_usuarios.txt";
+    private String archivoUsuarios = "archivoUsuarios.txt";
     // constante para el separador de valores
     private static final String REGEX_ARCHIVO_USUARIOS = ",";
 

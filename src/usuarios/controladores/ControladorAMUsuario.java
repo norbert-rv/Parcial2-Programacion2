@@ -136,8 +136,6 @@ public class ControladorAMUsuario implements IControladorAMUsuario {
 
     @Override
     public void txtApellidoPresionarTecla(KeyEvent evt) {
-//        char c = evt.getKeyChar();
-
         if (KeyEvent.VK_ENTER == evt.getKeyChar()) {
             this.ventanaCrearYModUsuario.verTextoNombre().requestFocus();
         }

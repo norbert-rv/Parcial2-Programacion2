@@ -25,6 +25,10 @@ public class ControladorAMUsuario implements IControladorAMUsuario {
 
     private VentanaCrearYModificarUsuario ventanaCrearYModUsuario;
 
+    // cadenas constantes para los cuadros de mensaje
+    private static final String DATOS_INVALIDOS = "Los datos no son válidos. Por favor revise los campos.";
+//    private static final String CONTRASENIAS_NO_COINCIDEN 
+
     // booleano para que el método btnGuardarClic() sepa si debe agregar un usuario nuevo o si debe modificarlo
     private boolean usuarioNuevo;
     private String correoUsuarioAModificar;
@@ -78,34 +82,37 @@ public class ControladorAMUsuario implements IControladorAMUsuario {
 
         IGestorUsuarios gu = GestorUsuarios.instanciar();
 
-        if (usuarioNuevo){
-            if(gu.verificarDatos( correo,apellido,nombre,perfil,new String(clave), new String(claveRepetida)).equals(VALIDACION_EXITO)){
-                gu.crearUsuario(correo, apellido, nombre, perfil, new String(clave), new String(claveRepetida));}
-            else{
-                if(gu.verificarDatos( correo,apellido,nombre,perfil,new String(clave), new String(claveRepetida)).equals(ERROR_CLAVES)){
-                    String mensajecontraseñanocoinciden = "Las contraseñas no coinciden, por favor controlar.";
-                    JOptionPane.showMessageDialog(this.ventanaCrearYModUsuario, mensajecontraseñanocoinciden, "Error", JOptionPane.INFORMATION_MESSAGE);}
-                else{
-                    String mensajeDatosInvalidos = "Los datos no son válidos. Por favor revise los campos.";
-                JOptionPane.showMessageDialog(this.ventanaCrearYModUsuario, mensajeDatosInvalidos, "Error", JOptionPane.INFORMATION_MESSAGE);}}}
-        
-    else {
-            // ¿Debería desahabilitar para seleccionar Perfil?
-            if(gu.verificarDatos( correo,apellido,nombre,perfil,new String(clave), new String(claveRepetida)).equals(VALIDACION_EXITO)){
-            String resultadoOperacion = gu.modificarUsuario(correo, apellido, nombre, perfil, new String(clave), new String(claveRepetida));
-           
-            if (!resultadoOperacion.equals(EXITO)) {
-                String mensajeDatosInvalidos = "Los datos no son válidos. Por favor revise los campos.";
-                JOptionPane.showMessageDialog(this.ventanaCrearYModUsuario, mensajeDatosInvalidos, "Error", JOptionPane.INFORMATION_MESSAGE);}
+        if (usuarioNuevo) {
+            if (gu.verificarDatos(correo, apellido, nombre, perfil, new String(clave), new String(claveRepetida)).equals(VALIDACION_EXITO)) {
+                gu.crearUsuario(correo, apellido, nombre, perfil, new String(clave), new String(claveRepetida));
+                this.ventanaCrearYModUsuario.dispose();
+            } else {
+                if (gu.verificarDatos(correo, apellido, nombre, perfil, new String(clave), new String(claveRepetida)).equals(ERROR_CLAVES)) {
+                    this.mensajeInformacion(ERROR_CLAVES, "Error");
+                } else {
+                    this.mensajeInformacion(DATOS_INVALIDOS, "Error");
+                }
             }
-            else{ 
-                 if(gu.verificarDatos( correo,apellido,nombre,perfil,new String(clave), new String(claveRepetida)).equals(ERROR_CLAVES)){
-                    String mensajecontraseñanocoinciden = "Las contraseñas no coinciden, por favor controlar.";
-                    JOptionPane.showMessageDialog(this.ventanaCrearYModUsuario, mensajecontraseñanocoinciden, "Error", JOptionPane.INFORMATION_MESSAGE);}
+        } else {
+            // ¿Debería desahabilitar para seleccionar Perfil?
+            // Llamo una sola vez a verificarDatos() para ahorrar tiempo
+            String resultadoVerificacion = gu.verificarDatos(correo, apellido, nombre, perfil, new String(clave), new String(claveRepetida));
+
+            if (resultadoVerificacion.equals(VALIDACION_EXITO)) {
+                gu.modificarUsuario(correo, apellido, nombre, perfil, new String(clave), new String(claveRepetida));
+                this.ventanaCrearYModUsuario.dispose();
+            } else {
+                if (resultadoVerificacion.equals(ERROR_CLAVES)) {
+                    this.mensajeInformacion(ERROR_CLAVES, "Error");
+                } else {
+                    this.mensajeInformacion(DATOS_INVALIDOS, "Error");
+                }
             }
         }
-        
-        this.ventanaCrearYModUsuario.dispose();
+    }
+
+    public void mensajeInformacion(String mensaje, String titulo) {
+        JOptionPane.showMessageDialog(this.ventanaCrearYModUsuario, mensaje, titulo, JOptionPane.INFORMATION_MESSAGE);
     }
 
     @Override
@@ -121,19 +128,18 @@ public class ControladorAMUsuario implements IControladorAMUsuario {
         La funcionalidad que espero obtener de estos métodos
         es que al presionar Enter el foco pase al siguiente
         campo de texto para escribir.
-    */
-    
+     */
     @Override
     public void txtCorreoPresionarTecla(KeyEvent evt) {
         if (KeyEvent.VK_ENTER == evt.getKeyChar()) {
             this.ventanaCrearYModUsuario.verTextoapellido().requestFocus();
         }
     }
-    
+
     @Override
     public void txtApellidoPresionarTecla(KeyEvent evt) {
 //        char c = evt.getKeyChar();
-        
+
         if (KeyEvent.VK_ENTER == evt.getKeyChar()) {
             this.ventanaCrearYModUsuario.verTextonombre().requestFocus();
         }
@@ -146,14 +152,13 @@ public class ControladorAMUsuario implements IControladorAMUsuario {
         }
     }
 
-
     @Override
     public void passClavePresionarTecla(KeyEvent evt) {
         if (KeyEvent.VK_ENTER == evt.getKeyChar()) {
             this.ventanaCrearYModUsuario.verContraseñareptexto().requestFocus();
         }
     }
-    
+
     // para el caso del último campo, se ejecuta btnGuardarClic(). 
     @Override
     public void passClaveRepetidaPresionarTecla(KeyEvent evt) {

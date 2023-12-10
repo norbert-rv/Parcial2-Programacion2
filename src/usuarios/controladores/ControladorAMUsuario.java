@@ -29,7 +29,6 @@ public class ControladorAMUsuario implements IControladorAMUsuario {
 
     // booleano para que el método btnGuardarClic() sepa si debe agregar un usuario nuevo o si debe modificarlo
     private boolean usuarioNuevo;
-    private String correoUsuarioAModificar;
 
     // constructores sobrecargados para ControladorAMUsuario
     // constructor para NUEVO usuario
@@ -38,7 +37,7 @@ public class ControladorAMUsuario implements IControladorAMUsuario {
         this.configurarPerfil();
         this.ventanaCrearYModUsuario.setLocationRelativeTo(null);
         this.ventanaCrearYModUsuario.setTitle(TITULO_NUEVO);
-        this.usuarioNuevo = true;
+        this.usuarioNuevo = true; // nuevo usuario
         this.ventanaCrearYModUsuario.setVisible(true);
     }
 
@@ -52,8 +51,7 @@ public class ControladorAMUsuario implements IControladorAMUsuario {
         this.configurarPerfil();
         this.ventanaCrearYModUsuario.setLocationRelativeTo(null);
         this.ventanaCrearYModUsuario.setTitle(TITULO_MODIFICAR);
-        this.usuarioNuevo = false;
-        this.correoUsuarioAModificar = correoUsuarioSeleccionado;
+        this.usuarioNuevo = false; // se modifica
         this.ventanaCrearYModUsuario.setVisible(true);
     }
 

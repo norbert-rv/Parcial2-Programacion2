@@ -25,9 +25,7 @@ public interface IGestorUsuarios {
     public boolean existeEsteUsuario(Usuario usuario);
 
     public Usuario obtenerUsuario(String correo);
-    // metodo agregado para verificacion en el parcial
-    public String verificarDatos(String correo, String apellido, String nombre, Perfil perfil, String clave, String claveRepetida);
-    
+   
     // método agregado para Parcial2
     public String modificarUsuario(String correoUsuarioAModificar, String apellido, String nombre, Perfil perfil, String clave, String claveRepetida);
 

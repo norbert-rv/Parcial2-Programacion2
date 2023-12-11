@@ -79,11 +79,11 @@ public class ControladorAMUsuario implements IControladorAMUsuario {
         IGestorUsuarios gu = GestorUsuarios.instanciar();
 
         if (usuarioNuevo) {
-            if (gu.verificarDatos(correo, apellido, nombre, perfil, new String(clave), new String(claveRepetida)).equals(VALIDACION_EXITO)) {
+            if (((GestorUsuarios)gu).verificarDatos(correo, apellido, nombre, perfil, new String(clave), new String(claveRepetida)).equals(VALIDACION_EXITO)) {
                 gu.crearUsuario(correo, apellido, nombre, perfil, new String(clave), new String(claveRepetida));
                 this.ventanaCrearYModUsuario.dispose();
             } else {
-                if (gu.verificarDatos(correo, apellido, nombre, perfil, new String(clave), new String(claveRepetida)).equals(ERROR_CLAVES)) {
+                if (((GestorUsuarios)gu).verificarDatos(correo, apellido, nombre, perfil, new String(clave), new String(claveRepetida)).equals(ERROR_CLAVES)) {
                     this.mensajeInformacion(ERROR_CLAVES, "Error");
                 } else {
                     this.mensajeInformacion(DATOS_INVALIDOS, "Error");
@@ -92,7 +92,7 @@ public class ControladorAMUsuario implements IControladorAMUsuario {
         } else {
             // ¿Debería desahabilitar para seleccionar Perfil?
             // Llamo una sola vez a verificarDatos() para ahorrar tiempo
-            String resultadoVerificacion = gu.verificarDatos(correo, apellido, nombre, perfil, new String(clave), new String(claveRepetida));
+            String resultadoVerificacion = ((GestorUsuarios)gu).verificarDatos(correo, apellido, nombre, perfil, new String(clave), new String(claveRepetida));
 
             if (resultadoVerificacion.equals(VALIDACION_EXITO)) {
                 gu.modificarUsuario(correo, apellido, nombre, perfil, new String(clave), new String(claveRepetida));

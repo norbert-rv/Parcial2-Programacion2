@@ -13,8 +13,11 @@ import interfaces.IGestorUsuarios;
 import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.AbstractTableModel;
+import usuarios.modelos.Cliente;
+import usuarios.modelos.Empleado;
 import usuarios.modelos.GestorUsuarios;
 import usuarios.modelos.ModeloTabla;
+import usuarios.modelos.Perfil;
 import usuarios.modelos.Usuario;
 import usuarios.vistas.VentanaUsuarios;
 
@@ -43,12 +46,24 @@ public class ControladorUsuarios implements IControladorUsuarios {
     @Override
     public void btnModificarClic(ActionEvent evt) {
         int filaSeleccionada = this.ventanaUsuarios.verTablaUsuarios().getSelectedRow();
-        
+
         IGestorUsuarios gu = GestorUsuarios.instanciar();
-        
+
         try {
             String correoFilaSeleccionada = gu.verUsuarios().get(filaSeleccionada).verCorreo();
-            IControladorAMUsuario controlador = new ControladorAMUsuario(this.ventanaUsuarios, correoFilaSeleccionada);
+
+            Usuario usuario = gu.verUsuarios().get(filaSeleccionada);
+            Perfil perfilUsuarioSeleccionado;
+
+            if (usuario.getClass().getSimpleName().equalsIgnoreCase(Perfil.CLIENTE.toString())) {
+                perfilUsuarioSeleccionado = Perfil.CLIENTE;
+            } else if (usuario.getClass().getSimpleName().equalsIgnoreCase(Perfil.EMPLEADO.toString())) {
+                perfilUsuarioSeleccionado = Perfil.EMPLEADO;
+            } else {
+                perfilUsuarioSeleccionado = Perfil.ENCARGADO;
+            }
+
+            IControladorAMUsuario controlador = new ControladorAMUsuario(this.ventanaUsuarios, correoFilaSeleccionada, perfilUsuarioSeleccionado);
         } catch (IndexOutOfBoundsException iob) {
             JOptionPane.showMessageDialog(this.ventanaUsuarios, USUARIO_NO_SELECCIONADO, "Error", JOptionPane.INFORMATION_MESSAGE);
         }
@@ -57,9 +72,9 @@ public class ControladorUsuarios implements IControladorUsuarios {
     @Override
     public void btnBorrarClic(ActionEvent evt) {
         int filaSeleccionada = this.ventanaUsuarios.verTablaUsuarios().getSelectedRow();
-        
+
         IGestorUsuarios gu = GestorUsuarios.instanciar();
-        
+
         try {
             Usuario usuarioABorrar = gu.verUsuarios().get(filaSeleccionada);
             int opcionEscogida = JOptionPane.showOptionDialog(this.ventanaUsuarios, CONFIRMACION, "Advertencia", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE, null, new Object[]{"Si", "No"}, "Si");

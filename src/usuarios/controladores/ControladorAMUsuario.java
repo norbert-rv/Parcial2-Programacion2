@@ -43,14 +43,17 @@ public class ControladorAMUsuario implements IControladorAMUsuario {
     }
 
     // constructor para MODIFICAR usuario
-    public ControladorAMUsuario(java.awt.Dialog ventanaPadre, String correoUsuarioSeleccionado) {
+    public ControladorAMUsuario(java.awt.Dialog ventanaPadre, String correoUsuarioSeleccionado, Perfil perfilUsuarioAModificar) {
         this.ventanaCrearYModUsuario = new VentanaCrearYModificarUsuario(ventanaPadre, true, this);
+        this.ventanaCrearYModUsuario.setLocationRelativeTo(null);
+        this.configurarPerfil();
         this.ventanaCrearYModUsuario.verTextoCorreo().setText(correoUsuarioSeleccionado);
         this.ventanaCrearYModUsuario.verTextoCorreo().setEditable(false);
         this.ventanaCrearYModUsuario.verTextoCorreo().setOpaque(false);
+        ((ModeloComboPerfil) this.ventanaCrearYModUsuario.verComboPerfiles().getModel()).seleccionarPerfil(perfilUsuarioAModificar);
+        this.ventanaCrearYModUsuario.verComboPerfiles().setEnabled(false);
+        this.ventanaCrearYModUsuario.verComboPerfiles().setOpaque(false);
         this.ventanaCrearYModUsuario.verTextoApellido().requestFocus();
-        this.configurarPerfil();
-        this.ventanaCrearYModUsuario.setLocationRelativeTo(null);
         this.ventanaCrearYModUsuario.setTitle(TITULO_MODIFICAR);
         this.usuarioNuevo = false; // se modifica
         this.ventanaCrearYModUsuario.setVisible(true);

@@ -39,6 +39,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         botonSalir = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         botonUsuarios.setText("Usuarios");
         botonUsuarios.addActionListener(new java.awt.event.ActionListener() {

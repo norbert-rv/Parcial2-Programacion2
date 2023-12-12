@@ -54,6 +54,7 @@ public class VentanaAMUsuario extends javax.swing.JDialog {
         comboPerfil = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setResizable(false);
 
         correo.setText("Correo:");
 

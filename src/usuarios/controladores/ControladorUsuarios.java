@@ -13,8 +13,6 @@ import interfaces.IGestorUsuarios;
 import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.AbstractTableModel;
-import usuarios.modelos.Cliente;
-import usuarios.modelos.Empleado;
 import usuarios.modelos.GestorUsuarios;
 import usuarios.modelos.ModeloTabla;
 import usuarios.modelos.Perfil;

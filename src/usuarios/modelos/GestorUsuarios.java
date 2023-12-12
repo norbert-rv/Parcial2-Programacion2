@@ -27,7 +27,7 @@ public class GestorUsuarios implements IGestorUsuarios {
 
     // nombre del archivo que guarda los usuarios
     // POR EL MOMENTO VAMOS A DEFINIR EL NOMBRE AQUI PORQUE ES PREFERIBLE A HACERLO EN VentanaAMUsuario, debería entrar como parámetro ahí desde el main...
-    private String archivoUsuarios = "archivoUsuarios.txt";
+    private static final String ARCHIVO_USUARIOS = "archivoUsuarios.txt";
     // constante para el separador de valores
     private static final String REGEX_ARCHIVO_USUARIOS = ",";
 
@@ -35,7 +35,7 @@ public class GestorUsuarios implements IGestorUsuarios {
     private static GestorUsuarios gestor;
 
     private GestorUsuarios() {
-        this.leer(this.archivoUsuarios);
+        this.leer(this.ARCHIVO_USUARIOS);
     }
 
     public static GestorUsuarios instanciar() {
@@ -172,7 +172,7 @@ public class GestorUsuarios implements IGestorUsuarios {
     private void escribir() {
         BufferedWriter bw = null;
 
-        File f = new File(archivoUsuarios);
+        File f = new File(ARCHIVO_USUARIOS);
 
         try {
             FileWriter fw = new FileWriter(f);

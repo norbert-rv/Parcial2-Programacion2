@@ -15,7 +15,7 @@ import javax.swing.JOptionPane;
 import usuarios.modelos.GestorUsuarios;
 import usuarios.modelos.ModeloComboPerfil;
 import usuarios.modelos.Perfil;
-import usuarios.vistas.VentanaCrearYModificarUsuario;
+import usuarios.vistas.VentanaAMUsuario;
 
 /**
  *
@@ -23,7 +23,7 @@ import usuarios.vistas.VentanaCrearYModificarUsuario;
  */
 public class ControladorAMUsuario implements IControladorAMUsuario {
 
-    private VentanaCrearYModificarUsuario ventanaCrearYModUsuario;
+    private VentanaAMUsuario ventanaCrearYModUsuario;
 
     // cadenas constantes para los cuadros de mensaje
     private static final String DATOS_INVALIDOS = "Los datos no son válidos. Por favor revise los campos.";
@@ -34,7 +34,7 @@ public class ControladorAMUsuario implements IControladorAMUsuario {
     // constructores sobrecargados para ControladorAMUsuario
     // constructor para NUEVO usuario
     public ControladorAMUsuario(java.awt.Dialog ventanaPadre) {
-        this.ventanaCrearYModUsuario = new VentanaCrearYModificarUsuario(ventanaPadre, true, this);
+        this.ventanaCrearYModUsuario = new VentanaAMUsuario(ventanaPadre, true, this);
         this.configurarPerfil();
         this.ventanaCrearYModUsuario.setLocationRelativeTo(null);
         this.ventanaCrearYModUsuario.setTitle(TITULO_NUEVO);
@@ -44,7 +44,7 @@ public class ControladorAMUsuario implements IControladorAMUsuario {
 
     // constructor para MODIFICAR usuario
     public ControladorAMUsuario(java.awt.Dialog ventanaPadre, String correoUsuarioSeleccionado, Perfil perfilUsuarioAModificar) {
-        this.ventanaCrearYModUsuario = new VentanaCrearYModificarUsuario(ventanaPadre, true, this);
+        this.ventanaCrearYModUsuario = new VentanaAMUsuario(ventanaPadre, true, this);
         this.ventanaCrearYModUsuario.setLocationRelativeTo(null);
         this.configurarPerfil();
         this.ventanaCrearYModUsuario.verTextoCorreo().setText(correoUsuarioSeleccionado);

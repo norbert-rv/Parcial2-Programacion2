@@ -15,7 +15,7 @@ import javax.swing.JTextField;
  *
  * @author tomascabrerabellomo
  */
-public class VentanaCrearYModificarUsuario extends javax.swing.JDialog {
+public class VentanaAMUsuario extends javax.swing.JDialog {
 
     // controlador
     private IControladorAMUsuario controlador;
@@ -23,7 +23,7 @@ public class VentanaCrearYModificarUsuario extends javax.swing.JDialog {
     /**
      * Creates new form Ventanacrear_modificarusuario
      */
-    public VentanaCrearYModificarUsuario(java.awt.Dialog parent, boolean modal, IControladorAMUsuario controlador) {
+    public VentanaAMUsuario(java.awt.Dialog parent, boolean modal, IControladorAMUsuario controlador) {
         super(parent, modal);
         this.controlador = controlador;
         initComponents();

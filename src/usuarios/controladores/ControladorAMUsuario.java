@@ -15,6 +15,7 @@ import javax.swing.JOptionPane;
 import usuarios.modelos.GestorUsuarios;
 import usuarios.modelos.ModeloComboPerfil;
 import usuarios.modelos.Perfil;
+import usuarios.modelos.Usuario;
 import usuarios.vistas.VentanaAMUsuario;
 
 /**
@@ -23,7 +24,7 @@ import usuarios.vistas.VentanaAMUsuario;
  */
 public class ControladorAMUsuario implements IControladorAMUsuario {
 
-    private VentanaAMUsuario ventanaCrearYModUsuario;
+    private VentanaAMUsuario ventanaAMUsuario;
 
     // cadenas constantes para los cuadros de mensaje
     private static final String DATOS_INVALIDOS = "Los datos no son válidos. Por favor revise los campos.";
@@ -34,51 +35,73 @@ public class ControladorAMUsuario implements IControladorAMUsuario {
     // constructores sobrecargados para ControladorAMUsuario
     // constructor para NUEVO usuario
     public ControladorAMUsuario(java.awt.Dialog ventanaPadre) {
-        this.ventanaCrearYModUsuario = new VentanaAMUsuario(ventanaPadre, true, this);
+        this.ventanaAMUsuario = new VentanaAMUsuario(ventanaPadre, true, this);
         this.configurarPerfil();
-        this.ventanaCrearYModUsuario.setLocationRelativeTo(null);
-        this.ventanaCrearYModUsuario.setTitle(TITULO_NUEVO);
+        this.ventanaAMUsuario.setLocationRelativeTo(null);
+        this.ventanaAMUsuario.setTitle(TITULO_NUEVO);
         this.usuarioNuevo = true; // nuevo usuario
-        this.ventanaCrearYModUsuario.setVisible(true);
+        this.ventanaAMUsuario.setVisible(true);
     }
 
     // constructor para MODIFICAR usuario
-    public ControladorAMUsuario(java.awt.Dialog ventanaPadre, String correoUsuarioSeleccionado, Perfil perfilUsuarioAModificar) {
-        this.ventanaCrearYModUsuario = new VentanaAMUsuario(ventanaPadre, true, this);
-        this.ventanaCrearYModUsuario.setLocationRelativeTo(null);
+    public ControladorAMUsuario(java.awt.Dialog ventanaPadre, Usuario usuarioAModificar) {
+        this.ventanaAMUsuario = new VentanaAMUsuario(ventanaPadre, true, this);
+        this.ventanaAMUsuario.setLocationRelativeTo(null);
         this.configurarPerfil();
-        this.ventanaCrearYModUsuario.verTextoCorreo().setText(correoUsuarioSeleccionado);
-        this.ventanaCrearYModUsuario.verTextoCorreo().setEditable(false);
-        this.ventanaCrearYModUsuario.verTextoCorreo().setOpaque(false);
-        ((ModeloComboPerfil) this.ventanaCrearYModUsuario.verComboPerfiles().getModel()).seleccionarPerfil(perfilUsuarioAModificar);
-        this.ventanaCrearYModUsuario.verComboPerfiles().setEnabled(false);
-        this.ventanaCrearYModUsuario.verComboPerfiles().setOpaque(false);
-        this.ventanaCrearYModUsuario.verTextoApellido().requestFocus();
-        this.ventanaCrearYModUsuario.setTitle(TITULO_MODIFICAR);
+        // configuracion de campos al modificar un usuario...
+        this.ventanaAMUsuario.verTextoCorreo().setText(usuarioAModificar.verCorreo());
+        this.ventanaAMUsuario.verTextoCorreo().setEditable(false);
+        this.ventanaAMUsuario.verTextoCorreo().setOpaque(false);
+
+        this.ventanaAMUsuario.verTextoApellido().setText(usuarioAModificar.verApellido());
+        this.ventanaAMUsuario.verTextoNombre().setText(usuarioAModificar.verNombre());
+        ((ModeloComboPerfil) this.ventanaAMUsuario.verComboPerfiles().getModel()).seleccionarPerfil(perfilDeUsuario(usuarioAModificar));
+        this.ventanaAMUsuario.verComboPerfiles().setEnabled(false);
+        this.ventanaAMUsuario.verComboPerfiles().setOpaque(false);
+        this.ventanaAMUsuario.verTextoContrasenia().setText(usuarioAModificar.verContrasenia());
+        this.ventanaAMUsuario.verTextoContraseniaRep().setText(usuarioAModificar.verContrasenia()); // si el usuario existe las contraseñas deben coincidir...
+        this.ventanaAMUsuario.verTextoApellido().requestFocus();
+        // fin modificaciones de campos
+        this.ventanaAMUsuario.setTitle(TITULO_MODIFICAR);
         this.usuarioNuevo = false; // se modifica
-        this.ventanaCrearYModUsuario.setVisible(true);
+        this.ventanaAMUsuario.setVisible(true);
     }
 
     private void configurarPerfil() {
         ModeloComboPerfil modelo = new ModeloComboPerfil();
-        this.ventanaCrearYModUsuario.verComboPerfiles().setModel(modelo);
+        this.ventanaAMUsuario.verComboPerfiles().setModel(modelo);
+    }
+
+    // método auxiliar para determinar el perfil de un determinado usuario
+    private Perfil perfilDeUsuario(Usuario usuario) {
+        Perfil perfil;
+
+        if (usuario.getClass().getSimpleName().equalsIgnoreCase(Perfil.CLIENTE.toString())) {
+            perfil = Perfil.CLIENTE;
+        } else if (usuario.getClass().getSimpleName().equalsIgnoreCase(Perfil.EMPLEADO.toString())) {
+            perfil = Perfil.EMPLEADO;
+        } else {
+            perfil = Perfil.ENCARGADO;
+        }
+
+        return perfil;
     }
 
     @Override
     public void btnGuardarClic(ActionEvent evt) {
 
-        String correo = ventanaCrearYModUsuario.verTextoCorreo().getText().trim();
+        String correo = ventanaAMUsuario.verTextoCorreo().getText().trim();
 
-        String apellido = ventanaCrearYModUsuario.verTextoApellido().getText().trim();
+        String apellido = ventanaAMUsuario.verTextoApellido().getText().trim();
 
-        String nombre = ventanaCrearYModUsuario.verTextoNombre().getText().trim();
+        String nombre = ventanaAMUsuario.verTextoNombre().getText().trim();
 
-        char[] clave = ventanaCrearYModUsuario.verTextoContrasenia().getPassword();
+        char[] clave = ventanaAMUsuario.verTextoContrasenia().getPassword();
 
-        char[] claveRepetida = ventanaCrearYModUsuario.verTextoContraseniaRep().getPassword();
+        char[] claveRepetida = ventanaAMUsuario.verTextoContraseniaRep().getPassword();
 
         //controlar si la siguiente linea es correcta
-        Perfil perfil = ((ModeloComboPerfil) ventanaCrearYModUsuario.verComboPerfiles().getModel()).obtenerPerfil();
+        Perfil perfil = ((ModeloComboPerfil) ventanaAMUsuario.verComboPerfiles().getModel()).obtenerPerfil();
 
         IGestorUsuarios gu = GestorUsuarios.instanciar();
 
@@ -88,7 +111,7 @@ public class ControladorAMUsuario implements IControladorAMUsuario {
                 if (resultadoOperacion.equals(USUARIOS_DUPLICADOS)) {
                     this.mensajeInformacion(USUARIOS_DUPLICADOS, "Error");
                 } else {
-                    this.ventanaCrearYModUsuario.dispose(); // significa que la operacion fue exitosa y se cierra. Sino se sigue editando
+                    this.ventanaAMUsuario.dispose(); // significa que la operacion fue exitosa y se cierra. Sino se sigue editando
                 }
             } else {
                 if (((GestorUsuarios) gu).verificarDatos(correo, apellido, nombre, perfil, new String(clave), new String(claveRepetida)).equals(ERROR_CLAVES)) {
@@ -104,7 +127,7 @@ public class ControladorAMUsuario implements IControladorAMUsuario {
 
             if (resultadoVerificacion.equals(VALIDACION_EXITO)) {
                 gu.modificarUsuario(correo, apellido, nombre, perfil, new String(clave), new String(claveRepetida));
-                this.ventanaCrearYModUsuario.dispose();
+                this.ventanaAMUsuario.dispose();
             } else {
                 if (resultadoVerificacion.equals(ERROR_CLAVES)) {
                     this.mensajeInformacion(ERROR_CLAVES, "Error");
@@ -116,15 +139,15 @@ public class ControladorAMUsuario implements IControladorAMUsuario {
     }
 
     public void mensajeInformacion(String mensaje, String titulo) {
-        JOptionPane.showMessageDialog(this.ventanaCrearYModUsuario, mensaje, titulo, JOptionPane.INFORMATION_MESSAGE);
+        JOptionPane.showMessageDialog(this.ventanaAMUsuario, mensaje, titulo, JOptionPane.INFORMATION_MESSAGE);
     }
 
     @Override
     public void btnCancelarClic(ActionEvent evt) {
 
-        int opcionEscogida = JOptionPane.showOptionDialog(this.ventanaCrearYModUsuario, "¿Desea cancelar la carga del usuario? Se perderán los cambios no guardados.", "Advertencia", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE, null, new Object[]{"Si", "No"}, "Si");
+        int opcionEscogida = JOptionPane.showOptionDialog(this.ventanaAMUsuario, "¿Desea cancelar la carga del usuario? Se perderán los cambios no guardados.", "Advertencia", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE, null, new Object[]{"Si", "No"}, "Si");
         if (opcionEscogida == JOptionPane.YES_OPTION) {
-            this.ventanaCrearYModUsuario.dispose();
+            this.ventanaAMUsuario.dispose();
         }
     }
 
@@ -136,28 +159,28 @@ public class ControladorAMUsuario implements IControladorAMUsuario {
     @Override
     public void txtCorreoPresionarTecla(KeyEvent evt) {
         if (KeyEvent.VK_ENTER == evt.getKeyChar()) {
-            this.ventanaCrearYModUsuario.verTextoApellido().requestFocus();
+            this.ventanaAMUsuario.verTextoApellido().requestFocus();
         }
     }
 
     @Override
     public void txtApellidoPresionarTecla(KeyEvent evt) {
         if (KeyEvent.VK_ENTER == evt.getKeyChar()) {
-            this.ventanaCrearYModUsuario.verTextoNombre().requestFocus();
+            this.ventanaAMUsuario.verTextoNombre().requestFocus();
         }
     }
 
     @Override
     public void txtNombrePresionarTecla(KeyEvent evt) {
         if (KeyEvent.VK_ENTER == evt.getKeyChar()) {
-            this.ventanaCrearYModUsuario.verTextoContrasenia().requestFocus();
+            this.ventanaAMUsuario.verTextoContrasenia().requestFocus();
         }
     }
 
     @Override
     public void passClavePresionarTecla(KeyEvent evt) {
         if (KeyEvent.VK_ENTER == evt.getKeyChar()) {
-            this.ventanaCrearYModUsuario.verTextoContraseniaRep().requestFocus();
+            this.ventanaAMUsuario.verTextoContraseniaRep().requestFocus();
         }
     }
 

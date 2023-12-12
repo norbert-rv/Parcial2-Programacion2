@@ -47,18 +47,7 @@ public class ControladorUsuarios implements IControladorUsuarios {
 
         try {
             Usuario usuario = ((ModeloTabla) this.ventanaUsuarios.verTablaUsuarios().getModel()).obtenerUsuarios().get(filaSeleccionada);
-            String correoFilaSeleccionada = usuario.verCorreo();
-            Perfil perfilUsuarioSeleccionado;
-
-            if (usuario.getClass().getSimpleName().equalsIgnoreCase(Perfil.CLIENTE.toString())) {
-                perfilUsuarioSeleccionado = Perfil.CLIENTE;
-            } else if (usuario.getClass().getSimpleName().equalsIgnoreCase(Perfil.EMPLEADO.toString())) {
-                perfilUsuarioSeleccionado = Perfil.EMPLEADO;
-            } else {
-                perfilUsuarioSeleccionado = Perfil.ENCARGADO;
-            }
-
-            IControladorAMUsuario controlador = new ControladorAMUsuario(this.ventanaUsuarios, correoFilaSeleccionada, perfilUsuarioSeleccionado);
+            IControladorAMUsuario controlador = new ControladorAMUsuario(this.ventanaUsuarios, usuario);
         } catch (IndexOutOfBoundsException iob) {
             JOptionPane.showMessageDialog(this.ventanaUsuarios, USUARIO_NO_SELECCIONADO, "Error", JOptionPane.INFORMATION_MESSAGE);
         }
@@ -71,7 +60,7 @@ public class ControladorUsuarios implements IControladorUsuarios {
         IGestorUsuarios gu = GestorUsuarios.instanciar();
 
         try {
-            Usuario usuarioABorrar = ((ModeloTabla)this.ventanaUsuarios.verTablaUsuarios().getModel()).obtenerUsuarios().get(filaSeleccionada);
+            Usuario usuarioABorrar = ((ModeloTabla) this.ventanaUsuarios.verTablaUsuarios().getModel()).obtenerUsuarios().get(filaSeleccionada);
             int opcionEscogida = JOptionPane.showOptionDialog(this.ventanaUsuarios, CONFIRMACION, "Advertencia", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE, null, new Object[]{"Si", "No"}, "Si");
 
             if (opcionEscogida == JOptionPane.YES_OPTION) {
@@ -97,13 +86,12 @@ public class ControladorUsuarios implements IControladorUsuarios {
 
     @Override
     public void btnVolverClic(ActionEvent evt) {
-        // por ahora solo cerrar la ventana. ¿Hay que hacer algo más?
+        // por ahora solo cerrar la ventana
         this.ventanaUsuarios.dispose();
     }
 
     @Override
     public void txtApellidoPresionarTecla(KeyEvent evt) {
-
         /*
         Funcionalidad para que al presionar Enter se ejecute la funcionalidad Buscar.
          */
@@ -111,6 +99,10 @@ public class ControladorUsuarios implements IControladorUsuarios {
         if (c == KeyEvent.VK_ENTER) {
             this.btnBuscarClic(null);
         }
+        /*
+        No añadimos la funcionalidad para que busque a medida que se escribe
+        porque perdería sentido el boton de Buscar...
+         */
     }
 
     @Override

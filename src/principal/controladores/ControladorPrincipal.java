@@ -20,28 +20,17 @@ public class ControladorPrincipal implements IControladorPrincipal {
 
     private VentanaPrincipal ventanaPrincipal;
     
-    // patrón singleton
-    private static ControladorPrincipal controladorPrincipal;
     
-    private ControladorPrincipal() {
+    public ControladorPrincipal() {
         this.ventanaPrincipal = new VentanaPrincipal(this);
         this.ventanaPrincipal.setLocationRelativeTo(null);
         ventanaPrincipal.setTitle(TITULO);
         ventanaPrincipal.setVisible(true);
     }
     
-    public static ControladorPrincipal instanciar() {
-        if(controladorPrincipal == null) {
-            controladorPrincipal = new ControladorPrincipal();
-        }
-        
-        return controladorPrincipal;
-    }
-    // fin del patrón singleton
-
     // método main... aquí vamos probando el programa con la interfaz gráfica
     public static void main(String[] args) {
-        ControladorPrincipal cp = ControladorPrincipal.instanciar();
+        ControladorPrincipal cp =  new ControladorPrincipal();
     }
 
     @Override

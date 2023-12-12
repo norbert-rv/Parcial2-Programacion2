@@ -45,12 +45,9 @@ public class ControladorUsuarios implements IControladorUsuarios {
     public void btnModificarClic(ActionEvent evt) {
         int filaSeleccionada = this.ventanaUsuarios.verTablaUsuarios().getSelectedRow();
 
-        IGestorUsuarios gu = GestorUsuarios.instanciar();
-
         try {
-            String correoFilaSeleccionada = gu.verUsuarios().get(filaSeleccionada).verCorreo();
-
-            Usuario usuario = gu.verUsuarios().get(filaSeleccionada);
+            Usuario usuario = ((ModeloTabla) this.ventanaUsuarios.verTablaUsuarios().getModel()).obtenerUsuarios().get(filaSeleccionada);
+            String correoFilaSeleccionada = usuario.verCorreo();
             Perfil perfilUsuarioSeleccionado;
 
             if (usuario.getClass().getSimpleName().equalsIgnoreCase(Perfil.CLIENTE.toString())) {
@@ -74,7 +71,7 @@ public class ControladorUsuarios implements IControladorUsuarios {
         IGestorUsuarios gu = GestorUsuarios.instanciar();
 
         try {
-            Usuario usuarioABorrar = gu.verUsuarios().get(filaSeleccionada);
+            Usuario usuarioABorrar = ((ModeloTabla)this.ventanaUsuarios.verTablaUsuarios().getModel()).obtenerUsuarios().get(filaSeleccionada);
             int opcionEscogida = JOptionPane.showOptionDialog(this.ventanaUsuarios, CONFIRMACION, "Advertencia", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE, null, new Object[]{"Si", "No"}, "Si");
 
             if (opcionEscogida == JOptionPane.YES_OPTION) {
@@ -88,8 +85,9 @@ public class ControladorUsuarios implements IControladorUsuarios {
 
     @Override
     public void ventanaObtenerFoco(WindowEvent evt) {
-        // si la ventana vuelve a obtener el foco, se actualizan los datos de la tabla
+        // si la ventana vuelve a obtener el foco, se actualizan los datos de la tabla y el buscador se vaciará
         this.actualizarDatosTabla();
+        this.ventanaUsuarios.verTxtApellido().setText(null);
     }
 
     private void actualizarDatosTabla() {

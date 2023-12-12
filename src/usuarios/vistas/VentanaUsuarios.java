@@ -154,11 +154,11 @@ public class VentanaUsuarios extends javax.swing.JDialog {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(47, 47, 47)
                         .addComponent(botonNuevo)
-                        .addGap(37, 37, 37)
+                        .addGap(39, 39, 39)
                         .addComponent(botonModificar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(botonBorrar)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 115, Short.MAX_VALUE)
+                .addGap(18, 40, Short.MAX_VALUE)
                 .addComponent(botonVolver)
                 .addGap(19, 19, 19))
         );

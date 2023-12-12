@@ -49,10 +49,10 @@ public class GestorUsuarios implements IGestorUsuarios {
         if (correo == null || !correo.contains("@")) {
             return ERROR_CORREO;
         }
-        if (apellido == null || apellido.isEmpty() || !apellido.matches("[a-z A-Z]+")) {
+        if (apellido == null || apellido.isEmpty() || !apellido.matches("[\\p{L}' ]+")) {
             return ERROR_APELLIDO;
         }
-        if (nombre == null || nombre.isEmpty() || !nombre.matches("[a-z A-Z]+")) {
+        if (nombre == null || nombre.isEmpty() || !nombre.matches("[\\p{L}' ]+")) {
             return ERROR_NOMBRE;
         }
         if (clave == null || clave.isEmpty()) {
